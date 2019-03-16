@@ -25,7 +25,9 @@ SECRET_KEY = '(%5xa1z-!s*gngf*#6gge$)$t5qf&1m4ibi62lvqq^%yc$nrlo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'test-logisticbot.herokuapp.com',
+]
 
 
 # Application definition
