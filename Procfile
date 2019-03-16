@@ -1,1 +1,1 @@
-web: python logistic_bot.wsgi
+web: gunicorn logistic_bot.wsgi
