@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+# from django.http import HttpResponse
+import telebot
+from . import config
+
+bot = telebot.TeleBot(config.token)
 
 
 def index(request):
-    return HttpResponse('This is my page')
+    bot.process_new_updates(request)
