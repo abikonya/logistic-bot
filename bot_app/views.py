@@ -17,6 +17,7 @@ def index(request):
             bot.process_new_messages([update.message])
         if update.inline_query:
             bot.process_new_inline_query([update.inline_query])
+        print(request)
         return ''
     else:
         raise HttpResponseServerError
