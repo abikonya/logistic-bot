@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(%5xa1z-!s*gngf*#6gge$)$t5qf&1m4ibi62lvqq^%yc$nrlo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'test-logisticbot.herokuapp.com',
