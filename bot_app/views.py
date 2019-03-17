@@ -1,6 +1,5 @@
 from django.http import HttpResponse, HttpResponseServerError
 import telebot
-from telebot import types
 from . import config
 
 bot = telebot.TeleBot(config.token)
@@ -17,20 +16,12 @@ def index(request):
             bot.process_new_messages([update.message])
         if update.inline_query:
             bot.process_new_inline_query([update.inline_query])
-        print(request)
+        print(request.headers)
         return ''
     else:
         raise HttpResponseServerError
 
 
-@bot.message_handler(commands=['start'])
-def send_welcome(message):
-    global position
-    position = 'send_welcome'
-    keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-    button_phone = types.KeyboardButton(text="Отправить номер телефона", request_contact=True)
-    keyboard.add(button_phone)
-    bot.send_message(message.chat.id,
-                     'Добро пожаловать в BotsApp 😊 \n'
-                     'Для авторизации нажмите кнопку «Отправить мой номер».',
-                     reply_markup=keyboard)
+@bot.message_handler(commands=["start"])
+def command_start(message):
+    bot.send_message(message.chat.id, "Bots webhook is working")
