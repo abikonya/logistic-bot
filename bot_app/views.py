@@ -5,6 +5,10 @@ from . import config
 bot = telebot.TeleBot(config.token)
 
 
+@bot.message_handler(commands=["start"])
+def command_start(message):
+    bot.send_message(message.chat.id, "Bots webhook is working")
+
 def index(request):
     if 'content-length' in request.headers and 'content-type' in request.headers \
             and request.headers['content-type'] == 'application/json':
@@ -20,8 +24,3 @@ def index(request):
         return ''
     else:
         raise HttpResponseServerError
-
-
-@bot.message_handler(commands=["start"])
-def command_start(message):
-    bot.send_message(message.chat.id, "Bots webhook is working")
