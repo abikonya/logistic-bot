@@ -17,6 +17,6 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^827637721:AAHZAkFOMR3bSdLWhMvRktHvzR738zj2qdM/', include('bot_app.urls')),
+    url(r'^827637721:AAHZAkFOMR3bSdLWhMvRktHvzR738zj2qdM/', include('bot_app.urls'), name='index'),
     url(r'^admin/', admin.site.urls),
 ]
