@@ -32,7 +32,7 @@ def lang_select(call):
     global language
     if call.data == 'ru':
         language = 'ru'
-        bot.send_message(localization.rules[language], call.message.chat_id)
+        bot.send_message(text=localization.rules[language], chat_id=call.message.chat.id)
     else:
         language = 'en'
-        bot.send_message(localization.rules[language], call.message.chat_id)
+        bot.send_message(text=localization.rules[language], chat_id=call.message.chat.id)
