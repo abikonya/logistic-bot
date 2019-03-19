@@ -30,9 +30,14 @@ def start(message):
 @bot.callback_query_handler(func=lambda call: call.data in ['ru', 'en'])
 def lang_select(call):
     global language
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     if call.data == 'ru':
         language = 'ru'
-        bot.send_message(text=localization.rules[language], chat_id=call.message.chat.id)
+        button = types.KeyboardButton(text=localization.rules_button[language])
+        keyboard.add(button)
+        bot.send_message(text=localization.rules[language], chat_id=call.message.chat.id, reply_markup=keyboard)
     else:
         language = 'en'
-        bot.send_message(text=localization.rules[language], chat_id=call.message.chat.id)
+        button = types.KeyboardButton(text=localization.rules_button[language])
+        keyboard.add(button)
+        bot.send_message(text=localization.rules[language], chat_id=call.message.chat.id, reply_markup=keyboard)
