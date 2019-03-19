@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
-
 bot = telebot.TeleBot(config.token)
 
 
@@ -18,9 +17,9 @@ class UpdateBot(APIView):
         return Response({'code': 200})
 
 
-@bot.message_handler(func=lambda message: True, content_types=['text'])
-def echo_message(message):
-    bot.reply_to(message, 'Bot is working')
+# @bot.message_handler(func=lambda message: True, content_types=['text'])
+# def echo_message(message):
+#     bot.reply_to(message, 'Bot is working')
 
 
 @bot.message_handler(commands=['start'])
