@@ -30,7 +30,7 @@ def start(message):
 @bot.callback_query_handler(func=lambda call: call.data in ['ru', 'en'])
 def lang_select(call):
     global language
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     if call.data == 'ru':
         language = 'ru'
         button = types.KeyboardButton(text=localization.rules_button[language])
