@@ -27,7 +27,7 @@ def start(message):
     bot.send_message(message.chat.id, 'Choose your language:\n\n Выберите Ваш язык:', reply_markup=keyboard)
 
 
-@bot.callback_query_handler(func=lambda call: call.data == 'ru')
+@bot.callback_query_handler(func=lambda call: call.data in ['ru', 'en'])
 def lang_select(call):
     global language
     if call.data == 'ru':
