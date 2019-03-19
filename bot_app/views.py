@@ -1,11 +1,12 @@
 import telebot
 from telebot import types
-from . import config, api_functions
+from . import config, api_functions, localization
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
 bot = telebot.TeleBot(config.token)
+language = str()
 
 
 class UpdateBot(APIView):
@@ -17,15 +18,21 @@ class UpdateBot(APIView):
         return Response({'code': 200})
 
 
-# @bot.message_handler(func=lambda message: True, content_types=['text'])
-# def echo_message(message):
-#     bot.reply_to(message, 'Bot is working')
-
-
 @bot.message_handler(commands=['start'])
 def start(message):
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     button_en = types.InlineKeyboardButton(text='English', callback_data='en')
     button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
     keyboard.add(button_en, button_ru)
-    bot.send_message(message.chat.id, 'Choose your language\n Выберите Ваш язык:', reply_markup=keyboard)
+    bot.send_message(message.chat.id, 'Choose your language:\n\n Выберите Ваш язык:', reply_markup=keyboard)
+
+
+@bot.callback_query_handler(func=lambda call: call.data == 'ru')
+def lang_select(call):
+    global language
+    if call.data == 'ru':
+        language = 'ru'
+        bot.send_message(localization.rules[language], call.message.chat.id)
+    else:
+        language = 'en'
+        bot.send_message(localization.rules[language], call.message.chat.id)
