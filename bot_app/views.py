@@ -1,6 +1,7 @@
 import telebot
 from telebot import types
 import re
+import requests
 from . import config, api_functions, localization
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -66,5 +67,5 @@ def main(message):
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
 def zip_list(message):
     api_functions.attrib['zipcode'] = message.text
-    print(api_functions.get_distance)
+    print(requests.get(api_functions.get_distance))
     bot.send_message(message.chat.id, 'Ok')
