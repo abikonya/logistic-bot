@@ -35,7 +35,7 @@ def enter_zip(message):
 
 @bot.message_handler(commands=['status'])
 def status_check(message):
-    bot.send_message(message.chat.id, localization.status_check[language])
+    bot.send_message(message.chat.id, localization.enter_id[language])
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ['ru', 'en'])
@@ -61,3 +61,6 @@ def main(message):
                      reply_markup=types.ReplyKeyboardRemove())
 
 
+@bot.message_handler(func=lambda message: re.search(r'[0-9]{5}', message.text))
+def zip_list(message):
+    bot.send_message(message.chat.id, 'Ok')
