@@ -21,6 +21,7 @@ class UpdateBot(APIView):
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    api_functions.attrib['user_id'] = message.chat.id
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     button_en = types.InlineKeyboardButton(text='English', callback_data='en')
     button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
@@ -62,6 +63,8 @@ def main(message):
                      reply_markup=types.ReplyKeyboardRemove())
 
 
-@bot.message_handler(func=lambda message: re.search(r'[0-9]{5}', message.text))
+@bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
 def zip_list(message):
+    api_functions.attrib['zipcode'] = message.text
+    print(api_functions.get_distance)
     bot.send_message(message.chat.id, 'Ok')
