@@ -1,5 +1,6 @@
 import telebot
 from telebot import types
+import re
 from . import config, api_functions, localization
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -41,3 +42,10 @@ def lang_select(call):
         button = types.KeyboardButton(text=localization.rules_button[language])
         keyboard.add(button)
         bot.send_message(text=localization.rules[language], chat_id=call.message.chat.id, reply_markup=keyboard)
+
+
+@bot.message_handler(func=lambda message: message.text == localization.rules_button[language])
+def main(message):
+    bot.send_message(message.chat.id, localization.zip_searching + localization.status_check, reply_markup=types.ReplyKeyboardRemove)
+
+
