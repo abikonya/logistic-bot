@@ -48,6 +48,6 @@ def lang_select(call):
 def main(message):
     global language
     bot.send_message(message.chat.id, localization.zip_searching[language] + localization.status_check[language],
-                     reply_markup=types.ReplyKeyboardRemove)
+                     reply_markup=types.ReplyKeyboardRemove())
 
 
