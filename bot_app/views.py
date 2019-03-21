@@ -28,6 +28,16 @@ def start(message):
     bot.send_message(message.chat.id, 'Choose your language:\n\n Выберите Ваш язык:', reply_markup=keyboard)
 
 
+@bot.message_handler(commands=['zip'])
+def enter_zip(message):
+    bot.send_message(message.chat.id, localization.enter_zip[language])
+
+
+@bot.message_handler(commands=['status'])
+def status_check(message):
+    bot.send_message(message.chat.id, localization.status_check[language])
+
+
 @bot.callback_query_handler(func=lambda call: call.data in ['ru', 'en'])
 def lang_select(call):
     global language
