@@ -20,6 +20,9 @@ class UpdateBot(APIView):
         return Response({'code': 200})
 
 
+# Обработчики команд. Command's handlers
+
+
 @bot.message_handler(commands=['start'])
 def start(message):
     api_functions.attrib['user_id'] = message.chat.id
@@ -67,5 +70,5 @@ def main(message):
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
 def zip_list(message):
     api_functions.attrib['zipcode'] = message.text
-    print(requests.get(api_functions.get_distance))
+    print(requests.get(api_functions.get_distance).text)
     bot.send_message(message.chat.id, 'Ok')
