@@ -12,7 +12,7 @@ rules_button = {'en': 'ok', 'ru': 'С правилами ознакомлен'}
 
 zip_searching = {'en': 'Enter command /zip to search Zip-code', 'ru': 'Введите команду /zip для поиска необходимого Zip-кода'}
 
-enter_zip = {'en': '', 'ru': 'Введите цифровой номер (Zip-код)'}
+enter_zip = {'en': 'Ok', 'ru': 'Введите цифровой номер (Zip-код)'}
 
 zip_list_choose = {'en': '', 'ru': 'Выберите один из Zip-ов'}
 zip_list = {'en': '', 'ru': 'Вы выбрали - {Zip-код}'}
