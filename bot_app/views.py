@@ -30,6 +30,7 @@ def start(message):
 
 @bot.message_handler(commands=['zip'])
 def enter_zip(message):
+    global language
     bot.send_message(message.chat.id, localization.enter_zip[language])
 
 
