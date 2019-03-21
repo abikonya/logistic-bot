@@ -47,7 +47,7 @@ def lang_select(call):
 @bot.message_handler(func=lambda message: message.text == localization.rules_button[language])
 def main(message):
     global language
-    bot.send_message(message.chat.id, localization.zip_searching[language] + localization.status_check[language],
+    bot.send_message(message.chat.id, localization.zip_searching[language] + '\n\n' + localization.status_check[language],
                      reply_markup=types.ReplyKeyboardRemove())
 
 
