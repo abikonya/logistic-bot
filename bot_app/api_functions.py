@@ -16,6 +16,11 @@ attrib = {'user_id': '',
 
 get_distance = 'https://strongbox.cc/?a=fnc.api.zip.getdistance&zip={zipcode}&tuser={user_id}'.format(**attrib)
 
+
+def sort_by_dist(response):
+    return response['distance'].replace("'", '')
+
+
 get_all = 'https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}'.format(**attrib)
 
 add_data = 'https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}' \

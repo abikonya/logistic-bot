@@ -2,7 +2,9 @@ import telebot
 from telebot import types
 import re
 import requests
-from . import config, api_functions, localization, examples_req
+import json
+from . import config, api_functions, localization
+from . import examples_req # не забыть удалить
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -71,11 +73,12 @@ def main(message):
 def zip_list(message):
     global language
     api_functions.attrib['zipcode'] = message.text
-    list_of_courier = examples_req.get_distance
+    get_distance = examples_req.get_distance
+    couriers_list = sorted(get_distance['address'], key=api_functions.sort_by_dist)
     print(api_functions.get_distance)
         # requests.get(api_functions.get_distance).text
     keyboard = types.InlineKeyboardMarkup()
-    for each in list_of_courier['address']:
+    for each in couriers_list:
         button = types.InlineKeyboardButton(text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),
                                             callback_data=each['zip'])
         keyboard.add(button)

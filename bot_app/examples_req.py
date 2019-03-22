@@ -6,18 +6,28 @@ get_distance = {"address": [{"zip": "65721", "distance": "'238'", "name": "AMBER
                             {"zip": "45678", "distance": "'245'", "name": "AMBER GREENSLATE", "id": "5085"},
                             {"zip": "23567", "distance": "'234'", "name": "AMBER GREENSLATE", "id": "5085"}]}
 
-a = json.dumps(get_distance)
-
-b = json.loads(a)
-
-# for each in b['address']:
-#     print(int(each['distance'].replace("'", '')))
+spisok = json.dumps(get_distance)
+spisok_dict = json.loads(spisok)
+spisok_list = spisok_dict['address']
 
 
-def sorting(some_json):
-    list_for_sort = json.loads(some_json)['address']
-    for each in list_for_sort:
-        dist_to_num = each['distance'].replace("'", '')
-        print(each)
+# class ZipList:
+#     def __init__(self, addresses):
+#         self.zip = each['zip']
+#         self.distance = int(each['distance'].replace("'", ''))
+#         self.name = each['name']
+#
+#     def __repr__(self):
+#         result = dict()
+#         result['zip'] = self.zip
+#         result['distance'] = self.distance
+#         result['name'] = self.name
+#         return result
 
-sorting(a)
+
+def sort_by_dist(spisok_list):
+    return spisok_list['distance'].replace("'", '')
+
+
+a = sorted(spisok_list, key=sort_by_dist)
+print(a)
