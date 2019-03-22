@@ -39,8 +39,8 @@ product_name = {'en': 'Product name', 'ru': ''}
 
 price = {'en': 'Price', 'ru': 'Цена'}
 
-succes = {'en': '', 'ru': 'Заказ успешно создан! Ваш ID-заказа:'}
-succes_button = {'en': 'Main menu', 'ru': 'Главное меню'}
+success = {'en': '', 'ru': 'Заказ успешно создан! Ваш ID-заказа:'}
+success_button = {'en': 'Main menu', 'ru': 'Главное меню'}
 
 
 # Правая ветка. Right branch
