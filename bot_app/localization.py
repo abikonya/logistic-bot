@@ -14,11 +14,11 @@ zip_searching = {'en': 'Enter command /zip to search Zip-code', 'ru': 'Введ�
 
 enter_zip = {'en': 'Ok', 'ru': 'Введите цифровой номер (Zip-код)'}
 
-zip_list_choose = {'en': '', 'ru': 'Выберите один из Zip-ов'}
+zip_list_choose = {'en': 'Make your choice please:', 'ru': 'Выберите один из Zip-ов'}
 zip_list = {'en': '', 'ru': 'Вы выбрали - {Zip-код}'}
 zip_list_button = {'en': '', 'ru': 'Посмотреть список товаров'}
 
-choosen_zip_approve = {'en': 'Approve', 'ru': 'Принять'}
+choosen_zip_approve = {'en': 'Confirm', 'ru': 'Принять'}
 choosen_zip_reset = {'en': 'Reset', 'ru': 'Сбросить'}
 
 about_cargo = {'en': '', 'ru': 'Введите информацию о товаре'}

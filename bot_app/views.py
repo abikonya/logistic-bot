@@ -69,12 +69,14 @@ def main(message):
 
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
 def zip_list(message):
+    global language
     api_functions.attrib['zipcode'] = message.text
     list_of_courier = examples_req.get_distance
+    print(api_functions.get_distance)
         # requests.get(api_functions.get_distance).text
     keyboard = types.InlineKeyboardMarkup()
     for each in list_of_courier['address']:
         button = types.InlineKeyboardButton(text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),
                                             callback_data=each['zip'])
         keyboard.add(button)
-    bot.send_message(message.chat.id, 'Пожалуйста выберите:', reply_markup=keyboard)
+    bot.send_message(message.chat.id, localization.zip_list_choose[language], reply_markup=keyboard)
