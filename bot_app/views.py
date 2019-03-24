@@ -77,9 +77,9 @@ def main(message):
 def zip_list(message):
     global language, api_connect
     api_connect = Api(zipcode=message.text)
+    print(api_connect)
     get_distance = api_connect.get_distance()
     couriers_list = sorted(get_distance['address'], key=sort_by_dist)
-    print(api_connect)
     keyboard = types.InlineKeyboardMarkup()
     for each in couriers_list:
         button = types.InlineKeyboardButton(text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),
