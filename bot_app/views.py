@@ -77,7 +77,7 @@ def main(message):
 def zip_list(message):
     global language, api_connect
     api_connect = Api(zipcode=message.text)
-    get_distance = api_connect.get_distance()
+    get_distance = json.loads(api_connect.get_distance())
     couriers_list = sorted(get_distance['address'], key=sort_by_dist)
     print(api_connect)
     keyboard = types.InlineKeyboardMarkup()
