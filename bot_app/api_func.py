@@ -1,5 +1,5 @@
 import requests
-
+import json
 
 class Api:
     def __init__(self, user_id=None, zipcode=None, store_name=None, store_phone=None, order_number=None, pickup_person=None,
@@ -32,7 +32,7 @@ class Api:
         request = requests.get('https://strongbox.cc/?a=fnc.api.zip.getdistance&zip={zipcode}&tuser={user_id}'.format(
             zipcode=self.zipcode,
             user_id=self.user_id))
-        return request
+        return json.loads(request)
 
     def get_all(self):
         request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}'.format(
