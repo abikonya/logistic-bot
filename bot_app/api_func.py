@@ -29,10 +29,13 @@ class Api:
                                      'payout =', self.payout, 'list_id =', self.list_id)
 
     def get_distance(self):
-        request = requests.get('https://strongbox.cc/?a=fnc.api.zip.getdistance&zip={zipcode}&tuser={user_id}'.format(
-            zipcode=self.zipcode,
-            user_id=self.user_id))
-        return json.loads(request)
+        try:
+            request = requests.get('https://strongbox.cc/?a=fnc.api.zip.getdistance&zip={zipcode}&tuser={user_id}'.format(
+                zipcode=self.zipcode,
+                user_id=self.user_id))
+            return json.loads(request.text)
+        except Exception as err:
+            print(err)
 
     def get_all(self):
         request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}'.format(
