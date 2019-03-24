@@ -1,15 +1,16 @@
 import telebot
 from telebot import types
 import re
-import requests
 import json
-from . import config, api_functions, localization
-from . import examples_req # не забыть удалить
+from bot_app import config, localization
+from bot_app import examples_req # не забыть удалить
+from bot_app.api_func import Api, sort_by_dist
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
 bot = telebot.TeleBot(config.token)
+api_connect = Api()
 language = str()
 
 
@@ -27,7 +28,8 @@ class UpdateBot(APIView):
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    api_functions.attrib['user_id'] = message.chat.id
+    global api_connect
+    api_connect = Api(user_id=message.chat.id)
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     button_en = types.InlineKeyboardButton(text='English', callback_data='en')
     button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
@@ -69,14 +71,15 @@ def main(message):
                      reply_markup=types.ReplyKeyboardRemove())
 
 
+# Левая ветка. Left branch
+
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
 def zip_list(message):
-    global language
-    api_functions.attrib['zipcode'] = message.text
-    get_distance = examples_req.get_distance
-    couriers_list = sorted(get_distance['address'], key=api_functions.sort_by_dist)
-    print(api_functions.get_distance)
-        # requests.get(api_functions.get_distance).text
+    global language, api_connect
+    api_connect = Api(zipcode=message.text)
+    get_distance = api_connect.get_distance()
+    couriers_list = sorted(get_distance['address'], key=sort_by_dist)
+    print(get_distance)
     keyboard = types.InlineKeyboardMarkup()
     for each in couriers_list:
         button = types.InlineKeyboardButton(text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),
