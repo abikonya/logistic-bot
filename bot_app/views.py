@@ -10,7 +10,7 @@ from rest_framework.views import APIView
 
 
 bot = telebot.TeleBot(config.token)
-api_connect = Api()
+api_instance = Api()
 language = str()
 
 
@@ -28,8 +28,8 @@ class UpdateBot(APIView):
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    global api_connect
-    api_connect = Api(user_id=message.chat.id)
+    global api_instance
+    api_instance.set_user_id(message.chat.id)
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     button_en = types.InlineKeyboardButton(text='English', callback_data='en')
     button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
@@ -75,11 +75,12 @@ def main(message):
 
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
 def zip_list(message):
-    global language, api_connect
-    api_connect = Api(zipcode=message.text)
-    print(api_connect)
-    get_distance = api_connect.get_distance()
+    global language, api_instance
+    api_instance.set_zipcode(message.text)
+    get_distance = api_instance.get_distance()
+    print('Get distance --------------------------------- :\n', get_distance)
     couriers_list = sorted(get_distance['address'], key=sort_by_dist)
+    print('Couriers list --------------------------------- :\n', couriers_list)
     keyboard = types.InlineKeyboardMarkup()
     for each in couriers_list:
         button = types.InlineKeyboardButton(text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),

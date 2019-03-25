@@ -1,10 +1,11 @@
 import requests
 import json
 
+
 class Api:
-    def __init__(self, user_id=None, zipcode=None, store_name=None, store_phone=None, order_number=None, pickup_person=None,
-                 pickup_location=None, more_info=None, product_category=None, product_item=None, price=None, pack_id=None,
-                 payout=None, list_id=None):
+    def __init__(self, user_id='', zipcode='', store_name='', store_phone='', order_number='', pickup_person='',
+                 pickup_location='', more_info='', product_category='', product_item='', price='', pack_id='',
+                 payout='', list_id=''):
         self.user_id = user_id
         self.zipcode = zipcode
         self.store_name = store_name
@@ -18,6 +19,48 @@ class Api:
         self.price = price
         self.pack_id = pack_id
         self.payout = payout
+        self.list_id = list_id
+
+    def set_user_id(self, users_id):
+        self.user_id = users_id
+
+    def set_zipcode(self, zipcode):
+        self.zipcode = zipcode
+
+    def set_store_name(self, store_name):
+        self.store_name = store_name
+
+    def set_store_phone(self, store_phone):
+        self.store_phone = store_phone
+
+    def set_order_number(self, order_number):
+        self.order_number = order_number
+
+    def set_pickup_person(self, pickup_person):
+        self.pickup_person = pickup_person
+
+    def set_pickup_location(self, pickup_location):
+        self.pickup_location = pickup_location
+
+    def set_more_info(self, more_info):
+        self.more_info = more_info
+
+    def set_product_category(self, product_category):
+        self.product_category = product_category
+
+    def set_product_item(self, product_item):
+        self.product_item = product_item
+
+    def set_price(self, price):
+        self.price = price
+
+    def set_pack_id(self, pack_id):
+        self.pack_id = pack_id
+
+    def set_payout(self, payout):
+        self.payout = payout
+
+    def set_list_id(self, list_id):
         self.list_id = list_id
 
     def __repr__(self):
@@ -39,52 +82,70 @@ class Api:
             print(err)
 
     def get_all(self):
-        request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}'.format(
-            user_id=self.user_id,
-            zipcode=self.zipcode))
-        return request
+        try:
+            request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}'.format(
+                user_id=self.user_id,
+                zipcode=self.zipcode))
+            return json.loads(request.text)
+        except Exception as err:
+            print(err)
 
     def add_data(self):
-        request = requests.get('https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}'
-                               '&store_phone={store_phone}&order_number={order_number}&pickup_person={pickup_person}'
-                               '&pickup_location={pickup_location}&more_information={more_info}&product_category={product_category}'
-                               '&product_item={product_item}&product_price={price}'.format(user_id=self.user_id,
-                                                                                           zipcode=self.zipcode,
-                                                                                           store_name=self.store_name,
-                                                                                           store_phone=self.store_phone,
-                                                                                           order_number=self.order_number,
-                                                                                           pickup_person=self.pickup_person,
-                                                                                           pickup_location=self.pickup_location,
-                                                                                           more_info=self.more_info,
-                                                                                           product_category=self.product_category,
-                                                                                           product_item=self.product_item,
-                                                                                           price=self.price))
-        return request
+        try:
+            request = requests.get('https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}'
+                                   '&store_phone={store_phone}&order_number={order_number}&pickup_person={pickup_person}'
+                                   '&pickup_location={pickup_location}&more_information={more_info}&product_category={product_category}'
+                                   '&product_item={product_item}&product_price={price}'.format(user_id=self.user_id,
+                                                                                               zipcode=self.zipcode,
+                                                                                               store_name=self.store_name,
+                                                                                               store_phone=self.store_phone,
+                                                                                               order_number=self.order_number,
+                                                                                               pickup_person=self.pickup_person,
+                                                                                               pickup_location=self.pickup_location,
+                                                                                               more_info=self.more_info,
+                                                                                               product_category=self.product_category,
+                                                                                               product_item=self.product_item,
+                                                                                               price=self.price))
+            return json.loads(request.text)
+        except Exception as err:
+            print(err)
 
     def get_category(self):
-        request = requests.get('https://strongbox.cc/?a=fnc.api.list.getcategory&tuser={user_id}&zip={zipcode}'.format(
-            user_id=self.user_id,
-            zipcode=self.zipcode))
-        return request
+        try:
+            request = requests.get('https://strongbox.cc/?a=fnc.api.list.getcategory&tuser={user_id}&zip={zipcode}'.format(
+                user_id=self.user_id,
+                zipcode=self.zipcode))
+            return json.loads(request.text)
+        except Exception as err:
+            print(err)
 
     def get_items(self):
-        request = requests.get('https://strongbox.cc/?a=fnc.api.list.getitems&tuser={user_id}&zip={zipcode}&list_id={list_id}'.format(
-            user_id=self.user_id,
-            zipcode=self.zipcode,
-            list_id=self.list_id))
-        return request
+        try:
+            request = requests.get('https://strongbox.cc/?a=fnc.api.list.getitems&tuser={user_id}&zip={zipcode}&list_id={list_id}'.format(
+                user_id=self.user_id,
+                zipcode=self.zipcode,
+                list_id=self.list_id))
+            return json.loads(request.text)
+        except Exception as err:
+            print(err)
 
     def get_status(self):
-        request = requests.get('https://strongbox.cc/?a=fnc.api.package.getstatus&tuser={user_id}'.format(
-            user_id=self.user_id))
-        return request
+        try:
+            request = requests.get('https://strongbox.cc/?a=fnc.api.package.getstatus&tuser={user_id}'.format(
+                user_id=self.user_id))
+            return json.loads(request.text)
+        except Exception as err:
+            print(err)
 
     def payment(self):
-        request = requests.get('https://strongbox.cc/?a=fnc.api.package.payment&tuser={user_id}&pack_id={pack_id}&payout={payout}'.format(
-            user_id=self.user_id,
-            pack_id=self.pack_id,
-            payout=self.payout))
-        return request
+        try:
+            request = requests.get('https://strongbox.cc/?a=fnc.api.package.payment&tuser={user_id}&pack_id={pack_id}&payout={payout}'.format(
+                user_id=self.user_id,
+                pack_id=self.pack_id,
+                payout=self.payout))
+            return json.loads(request.text)
+        except Exception as err:
+            print(err)
 
 
 def sort_by_dist(response):
