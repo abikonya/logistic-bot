@@ -21,8 +21,8 @@ class Api:
         self.payout = payout
         self.list_id = list_id
 
-    def set_user_id(self, users_id):
-        self.user_id = users_id
+    def set_user_id(self, user_id):
+        self.user_id = user_id
 
     def set_zipcode(self, zipcode):
         self.zipcode = zipcode
