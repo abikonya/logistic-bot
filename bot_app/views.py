@@ -77,13 +77,11 @@ def main(message):
 def zip_list(message):
     global language, api_instance
     api_instance.set_zipcode(message.text)
-    print(api_instance)
     get_distance = api_instance.get_distance()
-    print(get_distance)
-#    couriers_list = sorted(get_distance['address'], key=sort_by_dist)
+    couriers_list = sorted(get_distance['address'], key=sort_by_dist)
     keyboard = types.InlineKeyboardMarkup()
-    # for each in couriers_list:
-    #     button = types.InlineKeyboardButton(text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),
-    #                                         callback_data=each['zip'])
-    #     keyboard.add(button)
+    for each in couriers_list:
+        button = types.InlineKeyboardButton(text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),
+                                            callback_data=each['zip'])
+        keyboard.add(button)
     bot.send_message(message.chat.id, localization.zip_list_choose[language], reply_markup=keyboard)
