@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/localization.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/localization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="-1007">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -47,15 +46,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bot_app/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/examples_req.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
@@ -63,20 +53,6 @@
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bot_app/models.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="45" column="14" selection-start-line="45" selection-end-line="45" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -93,6 +69,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>print</find>
+      <find>lo</find>
+      <find>localization</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -292,21 +270,7 @@
       <workItem from="1553349756787" duration="655000" />
       <workItem from="1553355090928" duration="583000" />
       <workItem from="1553413298989" duration="5155000" />
-      <workItem from="1553432757363" duration="19808000" />
-    </task>
-    <task id="LOCAL-00026" summary="webhook is configured">
-      <created>1553006566087</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1553006566087</updated>
-    </task>
-    <task id="LOCAL-00027" summary="webhook is configured">
-      <created>1553006625971</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1553006625971</updated>
+      <workItem from="1553432757363" duration="23401000" />
     </task>
     <task id="LOCAL-00028" summary="webhook is configured">
       <created>1553007228150</created>
@@ -637,11 +601,25 @@
       <option name="project" value="LOCAL" />
       <updated>1553577446078</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="get_distance TEST">
+      <created>1553601840979</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1553601840979</updated>
+    </task>
+    <task id="LOCAL-00076" summary="localization edit">
+      <created>1553604913506</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1553604913506</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95646000" />
+    <option name="totallyTimeSpent" value="99239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -649,7 +627,7 @@
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.5018587" side_tool="true" weight="0.15503356" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49814126" visible="true" weight="0.15704697" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49814126" weight="0.15704697" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.23796034" />
@@ -681,7 +659,8 @@
     <MESSAGE value="Status_check + zip_searching" />
     <MESSAGE value="get_distance" />
     <MESSAGE value="get_distance TEST" />
-    <option name="LAST_COMMIT_MESSAGE" value="get_distance TEST" />
+    <MESSAGE value="localization edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="localization edit" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -801,6 +780,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -808,13 +797,6 @@
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -828,20 +810,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="45" column="14" selection-start-line="45" selection-end-line="45" selection-end-column="14" />
+        <state relative-caret-position="-195">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="-1007">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

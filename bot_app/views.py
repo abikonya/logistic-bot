@@ -127,10 +127,15 @@ def send_info(message):
     keyboard.add(button)
     bot.send_message(message.chat.id, text=success[language] + add_info['task_id'], reply_markup=keyboard)
 
+
+# Правая ветка. Right branch
+
+
+
 # Анкета. Profile
 
 
-@bot.message_handler(func=lambda message: re.search(r'[0-9a-zA-Zа-яА-я]+', message.text))
+@bot.message_handler(func=lambda message: re.search(r'[a-zA-Zа-яА-я]+', message.text))
 def form(message):
     global position, api_instance
     if position == 'enter_info':

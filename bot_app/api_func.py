@@ -79,7 +79,7 @@ class Api:
             request = requests.get('https://strongbox.cc/?a=fnc.api.zip.getdistance&zip={zipcode}&tuser={user_id}'.format(
                 zipcode=self.zipcode,
                 user_id=self.user_id))
-            return request.text
+            return json.loads(request.text)
         except Exception as err:
             print(err)
 
