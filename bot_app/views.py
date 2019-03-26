@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 bot = telebot.TeleBot(config.token)
 api_instance = Api()
 language = str()
+position = str()
 
 
 class UpdateBot(APIView):
@@ -64,6 +65,7 @@ def lang_select(call):
 
 
 @bot.message_handler(func=lambda message: message.text == localization.rules_button[language])
+@bot.message_handler(func=lambda message: message.text == localization.success_button[language])
 def main(message):
     global language
     bot.send_message(message.chat.id, localization.zip_searching[language] + '\n\n' + localization.status_check[language],
@@ -86,8 +88,7 @@ def zip_list(message):
             keyboard.add(button)
             bot.send_message(message.chat.id, localization.zip_list_choose[language], reply_markup=keyboard)
     elif type(get_distance) != dict():
-        print('Server error!!!')
-        bot.send_message(message.chat.id, 'Ошибка сервера')
+        bot.send_message(message.chat.id, 'Ошибка сервера. Попробуйте позже')
     else:
         bot.send_message(message.chat.id, 'Введенный zip-code не найден')
 
@@ -95,15 +96,78 @@ def zip_list(message):
 @bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.text))
 def stuff_list(call):
     global language, api_instance
+    api_instance.set_zipcode(call.text)
     get_stuff_list = api_instance.get_all()
     if type(get_stuff_list) == dict() and get_stuff_list['stuff_list']:
-        keyboard = types.InlineKeyboardMarkup()
-        for each in get_stuff_list['stuff_list']:
-            button = types.InlineKeyboardButton(
-                text='{}'.format(each['stuff_list']), callback_data=each['stuff_list'])
-            keyboard.add(button)
-            bot.send_message(call.message.chat.id, text=localization.zip_list[language].format(api_instance.return_zipcode()),
-                             reply_markup=keyboard)
+        keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+        button_approve = types.KeyboardButton(text=localization.choosen_zip_approve[language])
+        button_reset = types.KeyboardButton(text=localization.choosen_zip_reset[language])
+        keyboard.add(button_approve, button_reset)
+        bot.send_message(call.message.chat.id, text=localization.zip_list[language].format(api_instance.return_zipcode()),
+                         reply_markup=keyboard)
     elif type(get_stuff_list) != dict():
-        print('Server error!!!')
-        bot.send_message(call.message.chat.id, 'Ошибка сервера')
+        bot.send_message(call.message.chat.id, 'Ошибка сервера. Поопробуйте позже')
+
+
+@bot.message_handler(func=lambda message: message.text == 'Принять')
+def enter_info(message):
+    global language, position
+    position = 'enter_info'
+    bot.send_message(message.chat.id, text=localization.about_cargo[language])
+    bot.send_message(message.chat.id, text=localization.pickup_location[language])
+
+
+@bot.message_handler(func=lambda message: message.text == 'Отправить')
+def send_info(message):
+    global api_instance, language
+    add_info = api_instance.add_info()
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    button = types.ReplyKeyboardMarkup(localization.success_button[language])
+    keyboard.add(button)
+    bot.send_message(message.chat.id, text=localization.success[language] + add_info['task_id'], reply_markup=keyboard)
+
+# Анкета. Profile
+
+
+@bot.message_handler(func=lambda message: re.search(r'[0-9a-zA-Zа-яА-я]+', message.text))
+def form(message):
+    global position, api_instance
+    if position == 'enter_info':
+        position = 'pickup_location'
+        api_instance.set_pickup_location(message.text)
+        bot.send_message(message.chat.id, text=localization.store_name[language], reply_markup=types.ReplyKeyboardRemove)
+    elif position == 'pickup_location':
+        position = 'store_name'
+        api_instance.set_store_name(message.text)
+        bot.send_message(message.chat.id, text=localization.store_phone[language])
+    elif position == 'store_name':
+        position = 'store_phone'
+        api_instance.set_store_phone(message.text)
+        bot.send_message(message.chat.id, text=localization.order_number[language])
+    elif position == 'store_phone':
+        position = 'order_number'
+        api_instance.set_order_number(message.text)
+        bot.send_message(message.chat.id, text=localization.pickup_person[language])
+    elif position == 'order_number':
+        position = 'pickup_person'
+        api_instance.set_pickup_person(message.text)
+        bot.send_message(message.chat.id, text=localization.additional_info[language])
+    elif position == 'pickup_person':
+        position = 'additional_info'
+        api_instance.set_additional_info(message.text)
+        bot.send_message(message.text.id, text=localization.product_name[language])
+    elif position == 'additional_info':
+        position = 'product_name'
+        api_instance.set_product_name(message.text)
+        bot.send_message(message.text.id, text=localization.price[language])
+    elif position == 'product_name':
+        api_instance.set_price(message.text)
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        button = types.KeyboardButton(text=localization.send_button[language])
+        keyboard.add(button)
+        bot.send_message(message.chat.id, text=localization.all_is_done[language], reply_markup=keyboard)
+
+
+@bot.message_handler(func=lambda message: message.text == '')
+def empty_message(message):
+    bot.send_message(message.chat.id, text='Пожалуйста введите запрашиваемую информацию')

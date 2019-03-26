@@ -38,6 +38,9 @@ additional_info = {'en': 'Any additional information required for pick up(option
 product_name = {'en': 'Product name', 'ru': ''}
 
 price = {'en': 'Price', 'ru': 'Цена'}
+send_button = {'en': 'Send', 'ru': 'Отправить'}
+
+all_is_done = {'en': 'The data entered is correct', 'ru': 'Введенные данные верны'}
 
 success = {'en': '', 'ru': 'Заказ успешно создан! Ваш ID-заказа:'}
 success_button = {'en': 'Main menu', 'ru': 'Главное меню'}
