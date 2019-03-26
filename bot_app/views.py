@@ -2,7 +2,8 @@ import telebot
 from telebot import types
 import re
 import json
-from bot_app import config, localization
+from bot_app import config
+from bot_app.localization import *
 from bot_app.api_func import Api, sort_by_dist
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -40,12 +41,12 @@ def start(message):
 @bot.message_handler(commands=['zip'])
 def enter_zip(message):
     global language
-    bot.send_message(message.chat.id, localization.enter_zip[language])
+    bot.send_message(message.chat.id, enter_zipcode[language])
 
 
 @bot.message_handler(commands=['status'])
 def status_check(message):
-    bot.send_message(message.chat.id, localization.enter_id[language])
+    bot.send_message(message.chat.id, enter_id[language])
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ['ru', 'en'])
@@ -54,28 +55,28 @@ def lang_select(call):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     if call.data == 'ru':
         language = 'ru'
-        button = types.KeyboardButton(text=localization.rules_button[language])
+        button = types.KeyboardButton(text=rules_button[language])
         keyboard.add(button)
-        bot.send_message(text=localization.rules[language], chat_id=call.message.chat.id, reply_markup=keyboard)
+        bot.send_message(text=rules[language], chat_id=call.message.chat.id, reply_markup=keyboard)
     else:
         language = 'en'
-        button = types.KeyboardButton(text=localization.rules_button[language])
+        button = types.KeyboardButton(text=rules_button[language])
         keyboard.add(button)
-        bot.send_message(text=localization.rules[language], chat_id=call.message.chat.id, reply_markup=keyboard)
+        bot.send_message(text=rules[language], chat_id=call.message.chat.id, reply_markup=keyboard)
 
 
-@bot.message_handler(func=lambda message: message.text == localization.rules_button[language])
-@bot.message_handler(func=lambda message: message.text == localization.success_button[language])
+@bot.message_handler(func=lambda message: message.text == rules_button[language])
+@bot.message_handler(func=lambda message: message.text == success_button[language])
 def main(message):
     global language
-    bot.send_message(message.chat.id, localization.zip_searching[language] + '\n\n' + localization.status_check[language],
+    bot.send_message(message.chat.id, zip_searching[language] + '\n\n' + status_checking[language],
                      reply_markup=types.ReplyKeyboardRemove())
 
 
 # Левая ветка. Left branch
 
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
-def zip_list(message):
+def zip_listing(message):
     global language, api_instance
     api_instance.set_zipcode(message.text)
     get_distance = api_instance.get_distance()
@@ -86,7 +87,7 @@ def zip_list(message):
             button = types.InlineKeyboardButton(
                 text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']), callback_data=each['zip'])
             keyboard.add(button)
-            bot.send_message(message.chat.id, localization.zip_list_choose[language], reply_markup=keyboard)
+            bot.send_message(message.chat.id, zip_list_choose[language], reply_markup=keyboard)
     elif type(get_distance) != dict():
         bot.send_message(message.chat.id, 'Ошибка сервера. Попробуйте позже')
     else:
@@ -100,10 +101,10 @@ def stuff_list(call):
     get_stuff_list = api_instance.get_all()
     if type(get_stuff_list) == dict() and get_stuff_list['stuff_list']:
         keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-        button_approve = types.KeyboardButton(text=localization.choosen_zip_approve[language])
-        button_reset = types.KeyboardButton(text=localization.choosen_zip_reset[language])
+        button_approve = types.KeyboardButton(text=choosen_zip_approve[language])
+        button_reset = types.KeyboardButton(text=choosen_zip_reset[language])
         keyboard.add(button_approve, button_reset)
-        bot.send_message(call.message.chat.id, text=localization.zip_list[language].format(api_instance.return_zipcode()),
+        bot.send_message(call.message.chat.id, text=zip_list[language].format(api_instance.return_zipcode()),
                          reply_markup=keyboard)
     elif type(get_stuff_list) != dict():
         bot.send_message(call.message.chat.id, 'Ошибка сервера. Поопробуйте позже')
@@ -113,8 +114,8 @@ def stuff_list(call):
 def enter_info(message):
     global language, position
     position = 'enter_info'
-    bot.send_message(message.chat.id, text=localization.about_cargo[language])
-    bot.send_message(message.chat.id, text=localization.pickup_location[language])
+    bot.send_message(message.chat.id, text=about_cargo[language])
+    bot.send_message(message.chat.id, text=pickup_location[language])
 
 
 @bot.message_handler(func=lambda message: message.text == 'Отправить')
@@ -122,9 +123,9 @@ def send_info(message):
     global api_instance, language
     add_info = api_instance.add_info()
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    button = types.ReplyKeyboardMarkup(localization.success_button[language])
+    button = types.ReplyKeyboardMarkup(success_button[language])
     keyboard.add(button)
-    bot.send_message(message.chat.id, text=localization.success[language] + add_info['task_id'], reply_markup=keyboard)
+    bot.send_message(message.chat.id, text=success[language] + add_info['task_id'], reply_markup=keyboard)
 
 # Анкета. Profile
 
@@ -135,37 +136,37 @@ def form(message):
     if position == 'enter_info':
         position = 'pickup_location'
         api_instance.set_pickup_location(message.text)
-        bot.send_message(message.chat.id, text=localization.store_name[language], reply_markup=types.ReplyKeyboardRemove)
+        bot.send_message(message.chat.id, text=store_name[language], reply_markup=types.ReplyKeyboardRemove)
     elif position == 'pickup_location':
         position = 'store_name'
         api_instance.set_store_name(message.text)
-        bot.send_message(message.chat.id, text=localization.store_phone[language])
+        bot.send_message(message.chat.id, text=store_phone[language])
     elif position == 'store_name':
         position = 'store_phone'
         api_instance.set_store_phone(message.text)
-        bot.send_message(message.chat.id, text=localization.order_number[language])
+        bot.send_message(message.chat.id, text=order_number[language])
     elif position == 'store_phone':
         position = 'order_number'
         api_instance.set_order_number(message.text)
-        bot.send_message(message.chat.id, text=localization.pickup_person[language])
+        bot.send_message(message.chat.id, text=pickup_person[language])
     elif position == 'order_number':
         position = 'pickup_person'
         api_instance.set_pickup_person(message.text)
-        bot.send_message(message.chat.id, text=localization.additional_info[language])
+        bot.send_message(message.chat.id, text=additional_info[language])
     elif position == 'pickup_person':
         position = 'additional_info'
         api_instance.set_additional_info(message.text)
-        bot.send_message(message.text.id, text=localization.product_name[language])
+        bot.send_message(message.text.id, text=product_name[language])
     elif position == 'additional_info':
         position = 'product_name'
         api_instance.set_product_name(message.text)
-        bot.send_message(message.text.id, text=localization.price[language])
+        bot.send_message(message.text.id, text=price[language])
     elif position == 'product_name':
         api_instance.set_price(message.text)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        button = types.KeyboardButton(text=localization.send_button[language])
+        button = types.KeyboardButton(text=send_button[language])
         keyboard.add(button)
-        bot.send_message(message.chat.id, text=localization.all_is_done[language], reply_markup=keyboard)
+        bot.send_message(message.chat.id, text=all_is_done[language], reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text == '')
