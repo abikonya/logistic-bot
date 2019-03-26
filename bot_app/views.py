@@ -30,7 +30,6 @@ class UpdateBot(APIView):
 def start(message):
     global api_instance
     api_instance.set_user_id(message.chat.id)
-    print(api_instance)
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     button_en = types.InlineKeyboardButton(text='English', callback_data='en')
     button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
@@ -80,6 +79,7 @@ def zip_list(message):
     api_instance.set_zipcode(message.text)
     print(api_instance)
     get_distance = api_instance.get_distance()
+    print(get_distance)
     couriers_list = sorted(get_distance['address'], key=sort_by_dist)
     keyboard = types.InlineKeyboardMarkup()
     for each in couriers_list:
