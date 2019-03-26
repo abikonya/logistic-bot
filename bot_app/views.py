@@ -3,7 +3,6 @@ from telebot import types
 import re
 import json
 from bot_app import config, localization
-from bot_app import examples_req # не забыть удалить
 from bot_app.api_func import Api, sort_by_dist
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -86,5 +85,10 @@ def zip_list(message):
                 text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),callback_data=each['zip'])
             keyboard.add(button)
             bot.send_message(message.chat.id, localization.zip_list_choose[language], reply_markup=keyboard)
+    elif type(get_distance) != dict():
+        print('Server error!!!')
+        bot.send_message(message.chat.id, 'Ошибка сервера')
     else:
         bot.send_message(message.chat.id, 'Введенный zip-code не найден')
+
+
