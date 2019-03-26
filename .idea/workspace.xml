@@ -24,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="397">
+              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -291,21 +291,7 @@
       <workItem from="1553349756787" duration="655000" />
       <workItem from="1553355090928" duration="583000" />
       <workItem from="1553413298989" duration="5155000" />
-      <workItem from="1553432757363" duration="8979000" />
-    </task>
-    <task id="LOCAL-00015" summary="add config file">
-      <created>1552808334916</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1552808334917</updated>
-    </task>
-    <task id="LOCAL-00016" summary="add config file">
-      <created>1552896921197</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1552896921198</updated>
+      <workItem from="1553432757363" duration="9479000" />
     </task>
     <task id="LOCAL-00017" summary="some corrections">
       <created>1552901356923</created>
@@ -636,11 +622,25 @@
       <option name="project" value="LOCAL" />
       <updated>1553569970361</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="get_distance TEST">
+      <created>1553570318753</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1553570318753</updated>
+    </task>
+    <task id="LOCAL-00065" summary="get_distance TEST">
+      <created>1553570557285</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1553570557285</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84817000" />
+    <option name="totallyTimeSpent" value="85317000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -839,8 +839,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="397">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

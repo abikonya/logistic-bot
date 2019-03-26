@@ -80,8 +80,11 @@ def zip_list(message):
     get_distance = api_instance.get_distance()
     couriers_list = sorted(get_distance['address'], key=sort_by_dist)
     keyboard = types.InlineKeyboardMarkup()
-    for each in couriers_list:
-        button = types.InlineKeyboardButton(text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),
-                                            callback_data=each['zip'])
-        keyboard.add(button)
-    bot.send_message(message.chat.id, localization.zip_list_choose[language], reply_markup=keyboard)
+    if couriers_list == True:
+        for each in couriers_list:
+            button = types.InlineKeyboardButton(
+                text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),callback_data=each['zip'])
+            keyboard.add(button)
+            bot.send_message(message.chat.id, localization.zip_list_choose[language], reply_markup=keyboard)
+    else:
+        bot.send_message(message.chat.id, 'Введенный zip-code не найден')
