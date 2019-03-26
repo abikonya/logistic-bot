@@ -63,6 +63,9 @@ class Api:
     def set_list_id(self, list_id):
         self.list_id = list_id
 
+    def return_zipcode(self):
+        return self.zipcode
+
     def __repr__(self):
         return ('{} {}\n'*14).format('user_id =', self.user_id, 'zipcode =', self.zipcode, 'store_name =', self.store_name,
                                      'store_phone =', self.store_phone, 'order_number =', self.order_number,

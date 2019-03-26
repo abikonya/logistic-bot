@@ -82,7 +82,7 @@ def zip_list(message):
         keyboard = types.InlineKeyboardMarkup()
         for each in couriers_list:
             button = types.InlineKeyboardButton(
-                text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),callback_data=each['zip'])
+                text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']), callback_data=each['zip'])
             keyboard.add(button)
             bot.send_message(message.chat.id, localization.zip_list_choose[language], reply_markup=keyboard)
     elif type(get_distance) != dict():
@@ -92,3 +92,18 @@ def zip_list(message):
         bot.send_message(message.chat.id, 'Введенный zip-code не найден')
 
 
+@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.text))
+def stuff_list(call):
+    global language, api_instance
+    get_stuff_list = api_instance.get_all()
+    if type(get_stuff_list) == dict() and get_stuff_list['stuff_list']:
+        keyboard = types.InlineKeyboardMarkup()
+        for each in get_stuff_list['stuff_list']:
+            button = types.InlineKeyboardButton(
+                text='{}'.format(each['stuff_list']), callback_data=each['stuff_list'])
+            keyboard.add(button)
+            bot.send_message(call.message.chat.id, text=localization.zip_list[language].format(api_instance.return_zipcode()),
+                             reply_markup=keyboard)
+    elif type(get_stuff_list) != dict():
+        print('Server error!!!')
+        bot.send_message(call.message.chat.id, 'Ошибка сервера')
