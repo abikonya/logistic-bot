@@ -30,7 +30,7 @@ class UpdateBot(APIView):
 @bot.message_handler(commands=['start'])
 def start(message):
     global api_instance
-    api_instance.set_user_id(message.chat.id)
+    api_instance.set_user_id('D87hd487ft4')
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     button_en = types.InlineKeyboardButton(text='English', callback_data='en')
     button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
