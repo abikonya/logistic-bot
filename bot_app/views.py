@@ -80,7 +80,6 @@ def zip_listing(message):
     global language, api_instance
     api_instance.set_zipcode(message.text)
     get_distance = api_instance.get_distance()
-    print(type(get_distance))
     if type(get_distance) == dict() and get_distance['address']:
         couriers_list = sorted(get_distance['address'], key=sort_by_dist)
         keyboard = types.InlineKeyboardMarkup()
@@ -89,10 +88,10 @@ def zip_listing(message):
                 text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']), callback_data=each['zip'])
             keyboard.add(button)
             bot.send_message(message.chat.id, zip_list_choose[language], reply_markup=keyboard)
+    elif not get_distance['address']:
+        bot.send_message(message.chat.id, 'Введенный zip-code не найден')
     elif type(get_distance) != dict():
         bot.send_message(message.chat.id, 'Ошибка сервера. Попробуйте позже')
-    else:
-        bot.send_message(message.chat.id, 'Введенный zip-code не найден')
 
 
 @bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.text))
