@@ -7,10 +7,10 @@ get_distance = {"address": [{"zip": "65721", "distance": "'238'", "name": "AMBER
                             {"zip": "23567", "distance": "'234'", "name": "AMBER GREENSLATE", "id": "5085"}]}
 
 ans = json.dumps(get_distance)
-
+answer = json.loads(ans)
 
 a = api_func.Api()
 
 a.set_more_info('some more info')
 
-print(a)
+print()

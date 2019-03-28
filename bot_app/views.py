@@ -40,12 +40,15 @@ def start(message):
 
 @bot.message_handler(commands=['zip'])
 def enter_zip(message):
-    global language
+    global language, position
+    position = 'zip'
     bot.send_message(message.chat.id, enter_zipcode[language])
 
 
 @bot.message_handler(commands=['status'])
 def status_check(message):
+    global position, language
+    position = 'status'
     bot.send_message(message.chat.id, enter_id[language])
 
 
