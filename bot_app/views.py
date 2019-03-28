@@ -1,7 +1,6 @@
 import telebot
 from telebot import types
 import re
-import json
 from bot_app import config
 from bot_app.localization import *
 from bot_app.api_func import Api, sort_by_dist
@@ -132,7 +131,6 @@ def send_info(message):
 
 
 # Правая ветка. Right branch
-
 
 
 # Анкета. Profile
