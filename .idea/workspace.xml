@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/examples_req.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/examples_req.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,11 +74,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="985">
-              <caret line="119" column="13" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
+            <state relative-caret-position="-197">
+              <caret line="80" column="40" selection-start-line="80" selection-end-line="81" />
+              <folding>
+                <element signature="e#313#322#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -132,6 +142,7 @@
       <find>print</find>
       <find>lo</find>
       <find>localization</find>
+      <find>stat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,16 +156,16 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/logistic_bot/wsgi.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/logistic_bot/settings.py" />
         <option value="$PROJECT_DIR$/logistic_bot/urls.py" />
         <option value="$PROJECT_DIR$/bot_app/urls.py" />
         <option value="$PROJECT_DIR$/bot_app/config.py" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/bot_app/api_functions.py" />
-        <option value="$PROJECT_DIR$/bot_app/localization.py" />
         <option value="$PROJECT_DIR$/bot_app/api_func.py" />
         <option value="$PROJECT_DIR$/bot_app/examples_req.py" />
         <option value="$PROJECT_DIR$/bot_app/views.py" />
+        <option value="$PROJECT_DIR$/logistic_bot/settings.py" />
+        <option value="$PROJECT_DIR$/bot_app/localization.py" />
       </list>
     </option>
   </component>
@@ -341,21 +352,7 @@
       <workItem from="1553615286179" duration="117000" />
       <workItem from="1553654955265" duration="2584000" />
       <workItem from="1553659724830" duration="7014000" />
-      <workItem from="1553783058192" duration="921000" />
-    </task>
-    <task id="LOCAL-00033" summary="Status_check + zip_searching">
-      <created>1553153617998</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1553153617998</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Status_check + zip_searching">
-      <created>1553154034383</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1553154034383</updated>
+      <workItem from="1553783058192" duration="3672000" />
     </task>
     <task id="LOCAL-00035" summary="Status_check + zip_searching">
       <created>1553154492344</created>
@@ -686,21 +683,36 @@
       <option name="project" value="LOCAL" />
       <updated>1553764585338</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="testing">
+      <created>1553785890953</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1553785890953</updated>
+    </task>
+    <task id="LOCAL-00083" summary="testing">
+      <created>1553839928617</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1553839928617</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109875000" />
+    <option name="totallyTimeSpent" value="112626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.5018587" side_tool="true" weight="0.15503356" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49814126" visible="true" weight="0.15838926" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.23796034" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.23796034" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -708,8 +720,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.23796034" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" weight="0.3286119" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -845,13 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-195">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -914,8 +919,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="985">
-          <caret line="119" column="13" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
+        <state relative-caret-position="-197">
+          <caret line="80" column="40" selection-start-line="80" selection-end-line="81" />
+          <folding>
+            <element signature="e#313#322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
