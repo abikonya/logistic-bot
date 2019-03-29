@@ -98,10 +98,10 @@ def zip_listing(message):
         bot.send_message(message.chat.id, 'Ошибка сервера. Попробуйте позже')
 
 
-@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.text))
+@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data))
 def stuff_list(call):
     global language, api_instance
-    api_instance.set_zipcode(call.text)
+    api_instance.set_zipcode(call.data)
     get_stuff_list = api_instance.get_all()
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
