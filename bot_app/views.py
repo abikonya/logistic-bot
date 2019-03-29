@@ -84,7 +84,7 @@ def zip_listing(message):
     print(api_instance)
     get_distance = api_instance.get_distance()
     print(type(get_distance))
-    if type(get_distance) == dict() and get_distance['address']:
+    if type(get_distance) == dict and get_distance['address']:
         couriers_list = sorted(get_distance['address'], key=sort_by_dist)
         keyboard = types.InlineKeyboardMarkup()
         for each in couriers_list:
@@ -94,7 +94,7 @@ def zip_listing(message):
             bot.send_message(message.chat.id, zip_list_choose[language], reply_markup=keyboard)
     elif not get_distance['address']:
         bot.send_message(message.chat.id, 'Введенный zip-code не найден')
-    elif type(get_distance) != dict():
+    elif type(get_distance) != dict:
         bot.send_message(message.chat.id, 'Ошибка сервера. Попробуйте позже')
 
 
@@ -103,14 +103,14 @@ def stuff_list(call):
     global language, api_instance
     api_instance.set_zipcode(call.text)
     get_stuff_list = api_instance.get_all()
-    if type(get_stuff_list) == dict() and get_stuff_list['stuff_list']:
+    if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
         button_approve = types.KeyboardButton(text=choosen_zip_approve[language])
         button_reset = types.KeyboardButton(text=choosen_zip_reset[language])
         keyboard.add(button_approve, button_reset)
         bot.send_message(call.message.chat.id, text=zip_list[language].format(api_instance.return_zipcode()),
                          reply_markup=keyboard)
-    elif type(get_stuff_list) != dict():
+    elif type(get_stuff_list) != dict:
         bot.send_message(call.message.chat.id, 'Ошибка сервера. Поопробуйте позже')
 
 
