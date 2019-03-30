@@ -85,7 +85,7 @@ class Api:
 
     def get_all(self):
         try:
-            request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}'.format(
+            request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}&count=10&offset=1'.format(
                 user_id=self.user_id,
                 zipcode=self.zipcode))
             return json.loads(request.text)

@@ -81,9 +81,7 @@ def main(message):
 def zip_listing(message):
     global language, api_instance
     api_instance.set_zipcode(message.text)
-    print(api_instance)
     get_distance = api_instance.get_distance()
-    print(type(get_distance))
     if type(get_distance) == dict and get_distance['address']:
         couriers_list = sorted(get_distance['address'], key=sort_by_dist)
         keyboard = types.InlineKeyboardMarkup()
