@@ -28,8 +28,6 @@ class UpdateBot(APIView):
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    global api_instance
-    api_instance.set_user_id('D87hd487ft4')
     keyboard = types.InlineKeyboardMarkup(row_width=2)
     button_en = types.InlineKeyboardButton(text='English', callback_data='en')
     button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
@@ -80,6 +78,7 @@ def main(message):
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
 def zip_listing(message):
     global language, api_instance
+    api_instance.set_user_id('D87hd487ft4')
     api_instance.set_zipcode(message.text)
     get_distance = api_instance.get_distance()
     if type(get_distance) == dict and get_distance['address']:
@@ -100,6 +99,7 @@ def zip_listing(message):
 def stuff_list(call):
     global language, api_instance
     api_instance.set_zipcode(call.data)
+    print(api_instance)
     get_stuff_list = api_instance.get_all()
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
