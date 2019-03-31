@@ -97,7 +97,8 @@ def zip_listing(message):
 
 @bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data))
 def stuff_list(call):
-    global language, api_instance
+    global language, api_instance, position
+    position = 'stuff_list'
     api_instance.set_zipcode(call.data)
     print(api_instance)
     get_stuff_list = api_instance.get_all()
@@ -109,7 +110,7 @@ def stuff_list(call):
         bot.send_message(call.message.chat.id, text=zip_list[language].format(api_instance.return_zipcode()),
                          reply_markup=keyboard)
     elif type(get_stuff_list) != dict:
-        bot.send_message(call.message.chat.id, 'Ошибка сервера. Поопробуйте позже')
+        bot.send_message(call.message.chat.id, 'Ошибка сервера. Попробуйте позже')
 
 
 @bot.message_handler(func=lambda message: message.text == 'Принять')
@@ -133,10 +134,35 @@ def send_info(message):
 # Правая ветка. Right branch
 
 
+@bot.message_handler(func=lambda message: re.search(r'^[0-9]', message.text))
+def status_checker(message):
+    global api_instance, language, position
+    position = 'status_checker'
+    user_id = api_instance.set_user_id(message.chat.id)
+    get_status = api_instance.get_status()
+    if type(get_status) == dict and get_status['package_list']:
+        for each in get_status['package_list']:
+            if each['pack_id'] == message.text:
+                bot.send_message(message.chat.id, text=status[language] + each['pack_id'])
+                if each['status'] == 'Conﬁrm':
+                    api_instance.set_pack_id(each['pack_id'])
+                    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+                    button = types.KeyboardButton(text=enter_requisites_button[language])
+                    keyboard.add(button)
+                    bot.send_message(message.chat.id, text=enter_requisites[language], reply_markup=keyboard)
+
+
+@bot.message_handler(func=lambda message: re.search(r'', message.text))
+def payment(message):
+    global position, api_instance, language
+    if position == 'status_checker':
+        api_instance.payment(message.text)
+
+
 # Анкета. Profile
 
 
-@bot.message_handler(func=lambda message: re.search(r'[a-zA-Zа-яА-я]+', message.text))
+@bot.message_handler(func=lambda message: re.search(r'\w+', message.text), position == 'stuff_list')
 def form(message):
     global position, api_instance
     if position == 'enter_info':
