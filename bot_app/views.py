@@ -152,7 +152,7 @@ def status_checker(message):
                     bot.send_message(message.chat.id, text=enter_requisites[language], reply_markup=keyboard)
 
 
-@bot.message_handler(func=lambda message: re.search(r'', message.text))
+@bot.message_handler(func=lambda message: re.search(r'\w+', message.text))
 def payment(message):
     global position, api_instance, language
     if position == 'status_checker':
@@ -162,7 +162,7 @@ def payment(message):
 # Анкета. Profile
 
 
-@bot.message_handler(func=lambda message: re.search(r'\w+', message.text), position == 'stuff_list')
+@bot.message_handler(func=lambda message: re.search(r'\w+', message.text))
 def form(message):
     global position, api_instance
     if position == 'enter_info':
