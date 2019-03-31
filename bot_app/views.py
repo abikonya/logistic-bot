@@ -162,7 +162,7 @@ def payment(message):
 # Анкета. Profile
 
 
-@bot.message_handler(func=lambda message: re.search(r'\w+', message.text))
+@bot.message_handler(func=lambda message: re.search(r'\w+', message.text) and position == 'stuff_list')
 def form(message):
     global position, api_instance
     if position == 'enter_info':
