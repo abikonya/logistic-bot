@@ -152,7 +152,7 @@ def status_checker(message):
                     bot.send_message(message.chat.id, text=enter_requisites[language], reply_markup=keyboard)
 
 
-@bot.message_handler(func=lambda message: re.search(r'\w+', message.text))
+@bot.message_handler(func=lambda message: re.search(r'\w+', message.text) and position == 'any')
 def payment(message):
     global position, api_instance, language
     if position == 'status_checker':
