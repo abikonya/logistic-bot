@@ -127,7 +127,8 @@ def show_stuff_list(message):
                 text='{} {}'.format(each['id'], each['stuff_name']), callback_data=each['id'])
             keyboard.add(button)
         keyboard.add(button_prev, button_next)
-        bot.send_message(message.chat.id, text='Товары принимаемые курьером стр {} из {}'.format(offset, pages),
+        bot.send_message(message.chat.id, text='Выберите товар, который хотите отправить.\n '
+                                               'Товар принимаемый курьером:\n стр {} из {}'.format(offset, pages),
                          reply_markup=keyboard)
     elif type(get_stuff_list) != dict:
         bot.send_message(message.chat.id, server_error[language])
@@ -137,7 +138,10 @@ def show_stuff_list(message):
 def next_stuff_list(call):
     global api_instance, language
     global offset, pages
-    offset += 1
+    if offset < pages:
+        offset += 1
+    else:
+        offset = 1
     get_stuff_list = api_instance.get_all(offset)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
@@ -145,10 +149,12 @@ def next_stuff_list(call):
         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
         for each in get_stuff_list['stuff_list']:
             button = types.InlineKeyboardButton(
-                text='{} {}'.format(each['id'], each['stuff_name']), callback_data='ok')
+                text='{} {}'.format(each['id'], each['stuff_name']), callback_data=each['id'])
             keyboard.add(button)
         keyboard.add(button_prev, button_next)
-        bot.edit_message_text(text='Товары принимаемые курьером стр {} из {}'.format(offset, pages), chat_id=call.message.chat.id,
+        bot.edit_message_text(text='Выберите товар, который хотите отправить.\n '
+                                   'Товар принимаемый курьером:\n стр {} из {}'.format(offset, pages),
+                              chat_id=call.message.chat.id,
                               message_id=call.message.message_id,
                               reply_markup=keyboard)
     elif type(get_stuff_list) != dict:
@@ -170,15 +176,27 @@ def prev_stuff_list(call):
         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
         for each in get_stuff_list['stuff_list']:
             button = types.InlineKeyboardButton(
-                text='{} {}'.format(each['id'], each['stuff_name']), callback_data='ok')
+                text='{} {}'.format(each['id'], each['stuff_name']), callback_data=each['id'])
             keyboard.add(button)
         keyboard.add(button_prev, button_next)
-        bot.edit_message_text(text='Товары принимаемые курьером стр {} из {}'.format(offset, pages),
+        bot.edit_message_text(text='Выберите товар, который хотите отправить.\n '
+                                   'Товар принимаемый курьером:\n стр {} из {}'.format(offset, pages),
                               chat_id=call.message.chat.id,
                               message_id=call.message.message_id,
                               reply_markup=keyboard)
     elif type(get_stuff_list) != dict:
         bot.send_message(call.message.chat.id, server_error[language])
+
+
+@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]$', call.data))
+def chosen_item_id(call):
+    global language, api_instance
+    api_instance.set_product_item(call.data)
+    keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+    button_confirm = types.KeyboardButton(text=chosen_zip_approve)
+    button_reset = types.KeyboardButton(text=chosen_zip_reset)
+    keyboard.add(button_confirm, button_reset)
+    bot.send_message(call.message.chat.id, text='Вы выбрали {}'.format(call.data), reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text == 'Принять')

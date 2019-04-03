@@ -21,8 +21,8 @@ zip_list_choose = {'en': 'Make your choice please:', 'ru': 'Выберите о�
 zip_list = {'en': 'You selected - {}', 'ru': 'Вы выбрали - {}'}
 zip_list_button = {'en': 'Show list of goods', 'ru': 'Посмотреть список товаров'}
 
-choosen_zip_approve = {'en': 'Confirm', 'ru': 'Принять'}
-choosen_zip_reset = {'en': 'Reset', 'ru': 'Сбросить'}
+chosen_zip_approve = {'en': 'Confirm', 'ru': 'Принять'}
+chosen_zip_reset = {'en': 'Reset', 'ru': 'Сбросить'}
 
 about_cargo = {'en': 'Enter product info', 'ru': 'Введите информацию о товаре'}
 
