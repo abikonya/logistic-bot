@@ -117,7 +117,7 @@ def show_stuff_list(message):
     global offset, pages
     offset = 1
     get_stuff_list = api_instance.get_all(offset)
-    pages = get_stuff_list['pages']
+    pages = int(get_stuff_list['pages'])
     print(pages)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
