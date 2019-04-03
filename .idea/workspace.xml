@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+            <state relative-caret-position="447">
+              <caret line="121" column="47" lean-forward="true" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -317,28 +318,7 @@
       <workItem from="1553868405613" duration="19942000" />
       <workItem from="1554266875964" duration="3787000" />
       <workItem from="1554273340939" duration="846000" />
-      <workItem from="1554275004026" duration="13746000" />
-    </task>
-    <task id="LOCAL-00066" summary="get_distance TEST">
-      <created>1553570809619</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1553570809619</updated>
-    </task>
-    <task id="LOCAL-00067" summary="get_distance TEST">
-      <created>1553571031079</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1553571031079</updated>
-    </task>
-    <task id="LOCAL-00068" summary="get_distance TEST">
-      <created>1553571235250</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1553571235250</updated>
+      <workItem from="1554275004026" duration="14880000" />
     </task>
     <task id="LOCAL-00069" summary="get_distance TEST">
       <created>1553571755811</created>
@@ -662,11 +642,32 @@
       <option name="project" value="LOCAL" />
       <updated>1554296615821</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="testing">
+      <created>1554297049507</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1554297049507</updated>
+    </task>
+    <task id="LOCAL-00116" summary="testing">
+      <created>1554297237114</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1554297237114</updated>
+    </task>
+    <task id="LOCAL-00117" summary="testing">
+      <created>1554297624787</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1554297624787</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159883000" />
+    <option name="totallyTimeSpent" value="161017000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -684,7 +685,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3281471" />
-      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3281471" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" weight="0.3281471" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
@@ -898,8 +899,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+        <state relative-caret-position="447">
+          <caret line="121" column="47" lean-forward="true" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
