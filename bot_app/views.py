@@ -12,8 +12,8 @@ bot = telebot.TeleBot(config.token)
 api_instance = Api()
 language = str()
 position = str()
-# offset = int()
-# pages = int()
+offset = int()
+pages = int()
 
 
 class UpdateBot(APIView):
