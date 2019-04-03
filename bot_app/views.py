@@ -113,12 +113,12 @@ def call_data_answers(call):
                          reply_markup=keyboard)
     elif position == 'stuff_list':
         api_instance.set_product_item(call.data)
+        print(api_instance)
         keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         button_confirm = types.KeyboardButton(text=chosen_zip_approve)
         button_reset = types.KeyboardButton(text=chosen_zip_reset)
         keyboard.add(button_confirm, button_reset)
-        bot.send_message(chat_id=call.message.chat.id, text='Вы выбрали {}'.format(api_instance.return_product_id),
-                         reply_markup=keyboard)
+        bot.send_message(chat_id=call.message.chat.id, text='Вы выбрали', reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text == zip_list_button[language])
