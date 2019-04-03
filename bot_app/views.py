@@ -117,7 +117,7 @@ def call_data_answers(call):
         button_confirm = types.KeyboardButton(text=chosen_zip_approve)
         button_reset = types.KeyboardButton(text=chosen_zip_reset)
         keyboard.add(button_confirm, button_reset)
-        bot.send_message(call.message.chat.id, text='Вы выбрали {}'.format(call.data), reply_markup=keyboard)
+        bot.send_message(call.message.chat.id, text='Вы выбрали {}'.format(api_instance.return_product_id), reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text == zip_list_button[language])
