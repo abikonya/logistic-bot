@@ -82,7 +82,8 @@ def main(message):
 
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
 def zip_listing(message):
-    global language, api_instance
+    global language, api_instance, position
+    position = 'zip_listing'
     api_instance.set_user_id('D87hd487ft4')
     api_instance.set_zipcode(message.text)
     get_distance = api_instance.get_distance()
@@ -101,20 +102,30 @@ def zip_listing(message):
 
 
 @bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data))
-def chosen_list(call):
+def call_data_answers(call):
     global language, api_instance, position
-    api_instance.set_zipcode(call.data)
-    keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-    button = types.KeyboardButton(text=zip_list_button[language])
-    keyboard.add(button)
-    bot.send_message(call.message.chat.id, text=zip_list[language].format(api_instance.return_zipcode()),
-                     reply_markup=keyboard)
+    if position == 'zip_listing':
+        api_instance.set_zipcode(call.data)
+        keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+        button = types.KeyboardButton(text=zip_list_button[language])
+        keyboard.add(button)
+        bot.send_message(call.message.chat.id, text=zip_list[language].format(api_instance.return_zipcode()),
+                         reply_markup=keyboard)
+    elif position == 'stuff_list':
+        global language, api_instance
+        api_instance.set_product_item(call.data)
+        keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+        button_confirm = types.KeyboardButton(text=chosen_zip_approve)
+        button_reset = types.KeyboardButton(text=chosen_zip_reset)
+        keyboard.add(button_confirm, button_reset)
+        bot.send_message(call.message.chat.id, text='Вы выбрали {}'.format(call.data), reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text == zip_list_button[language])
 def show_stuff_list(message):
     global language, position, api_instance
     global offset, pages
+    position = 'stuff_list'
     offset = 1
     get_stuff_list = api_instance.get_all(offset)
     pages = int(get_stuff_list['pages'])
@@ -186,17 +197,6 @@ def prev_stuff_list(call):
                               reply_markup=keyboard)
     elif type(get_stuff_list) != dict:
         bot.send_message(call.message.chat.id, server_error[language])
-
-
-@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]$', call.data))
-def chosen_item_id(call):
-    global language, api_instance
-    api_instance.set_product_item(call.data)
-    keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-    button_confirm = types.KeyboardButton(text=chosen_zip_approve)
-    button_reset = types.KeyboardButton(text=chosen_zip_reset)
-    keyboard.add(button_confirm, button_reset)
-    bot.send_message(call.message.chat.id, text='Вы выбрали {}'.format(call.data), reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text == 'Принять')
