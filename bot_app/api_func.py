@@ -100,7 +100,7 @@ class Api:
         try:
             request = requests.get('https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}'
                                    '&store_phone={store_phone}&order_number={order_number}&pickup_person={pickup_person}'
-                                   '&pickup_location={pickup_location}&more_information={more_info}&product_category={product_category}'
+                                   '&pickup_location={pickup_location}&more_information={more_info}'
                                    '&product_item={product_item}&product_price={price}'.format(user_id=self.user_id,
                                                                                                zipcode=self.zipcode,
                                                                                                store_name=self.store_name,
@@ -109,7 +109,6 @@ class Api:
                                                                                                pickup_person=self.pickup_person,
                                                                                                pickup_location=self.pickup_location,
                                                                                                more_info=self.more_info,
-                                                                                               product_category=self.product_category,
                                                                                                product_item=self.product_item,
                                                                                                price=self.price))
             return json.loads(request.text)

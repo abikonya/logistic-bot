@@ -211,11 +211,11 @@ def enter_info(message):
 @bot.message_handler(func=lambda message: message.text == 'Отправить')
 def send_info(message):
     global api_instance, language
-    add_info = api_instance.add_info()
+    add_data = api_instance.add_data()
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     button = types.ReplyKeyboardMarkup(success_button[language])
     keyboard.add(button)
-    bot.send_message(message.chat.id, text=success[language] + add_info['task_id'], reply_markup=keyboard)
+    bot.send_message(message.chat.id, text=success[language] + add_data['task_id'], reply_markup=keyboard)
 
 
 # Правая ветка. Right branch
