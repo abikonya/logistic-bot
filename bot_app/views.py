@@ -115,10 +115,10 @@ def call_data_answers(call):
         api_instance.set_product_item(call.data)
         print(api_instance)
         keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-        button_confirm = types.KeyboardButton(text=chosen_zip_approve)
-        button_reset = types.KeyboardButton(text=chosen_zip_reset)
+        button_confirm = types.KeyboardButton(text=chosen_zip_approve[language])
+        button_reset = types.KeyboardButton(text=chosen_zip_reset[language])
         keyboard.add(button_confirm, button_reset)
-        bot.send_message(call.message.chat.id, text='Вы выбрали {id}'.format(id=str(api_instance.return_product_item())),
+        bot.send_message(call.message.chat.id, text='Вы выбрали {}'.format(api_instance.return_product_item()),
                          reply_markup=keyboard)
 
 
