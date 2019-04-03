@@ -110,15 +110,14 @@ def chosen_list(call):
 
 
 @bot.message_handler(func=lambda message: message.text == zip_list_button[language])
-def show_products_list(message):
+def show_stuff_list(message):
     global language, position, api_instance
     get_stuff_list = api_instance.get_all()
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
-        keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-        button = types.KeyboardButton(text=zip_list_button[language])
+        keyboard = types.InlineKeyboardMarkup()
         for each in get_stuff_list['stuff_list']:
             button = types.InlineKeyboardButton(
-                text='{} {}'.format(each['id'], each['stuff_name']))
+                text='{} {}'.format(each['id'], each['stuff_name']), callback_data='ok')
             keyboard.add(button)
         bot.send_message(message.chat.id, text='Товары принимаемые курьером',
                          reply_markup=keyboard)
