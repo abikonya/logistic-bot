@@ -12,6 +12,8 @@ bot = telebot.TeleBot(config.token)
 api_instance = Api()
 language = str()
 position = str()
+offset = int()
+pages = int()
 
 
 class UpdateBot(APIView):
@@ -122,7 +124,7 @@ def show_stuff_list(message):
         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
         for each in get_stuff_list['stuff_list']:
             button = types.InlineKeyboardButton(
-                text='{} {}'.format(each['id'], each['stuff_name']), callback_data='ok')
+                text='{} {}'.format(each['id'], each['stuff_name']), callback_data=each['id'])
             keyboard.add(button)
         keyboard.add(button_prev, button_next)
         bot.send_message(message.chat.id, text='Товары принимаемые курьером',
@@ -133,6 +135,7 @@ def show_stuff_list(message):
 
 @bot.callback_query_handler(func=lambda call: call.text == 'next')
 def next_stuff_list(call):
+    global api_instance, language
     global offset
     offset += 1
     get_stuff_list = api_instance.get_all(offset)
@@ -154,6 +157,7 @@ def next_stuff_list(call):
 
 @bot.callback_query_handler(func=lambda call: call.text == 'prev')
 def prev_stuff_list(call):
+    global api_instance, language
     global offset, pages
     if offset > 1:
         offset -= 1
