@@ -162,8 +162,7 @@ def prev_stuff_list(call):
     if offset > 1:
         offset -= 1
     else:
-        offset = (pages + 9)//10
-        print('------------------------->', offset)
+        offset = pages
     get_stuff_list = api_instance.get_all(offset)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
