@@ -83,11 +83,12 @@ class Api:
         except Exception as err:
             print(err)
 
-    def get_all(self):
+    def get_all(self, offset):
         try:
-            request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}&count=10&offset=1'.format(
+            request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}&count=10&offset={offset}'.format(
                 user_id=self.user_id,
-                zipcode=self.zipcode))
+                zipcode=self.zipcode,
+                offset=offset))
             return json.loads(request.text)
         except Exception as err:
             print(err)
