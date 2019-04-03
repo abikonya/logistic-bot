@@ -66,7 +66,7 @@ class Api:
     def return_zipcode(self):
         return self.zipcode
 
-    def return_product_id(self):
+    def return_product_item(self):
         return self.product_item
 
     def __repr__(self):
