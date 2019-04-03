@@ -101,7 +101,7 @@ def zip_listing(message):
         bot.send_message(message.chat.id, text=server_error[language])
 
 
-@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data))
+@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data) or re.search(r'^[0-9]{4}$', call.data))
 def call_data_answers(call):
     global language, api_instance, position
     if position == 'zip_listing':
