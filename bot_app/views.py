@@ -112,7 +112,6 @@ def call_data_answers(call):
         bot.send_message(call.message.chat.id, text=zip_list[language].format(api_instance.return_zipcode()),
                          reply_markup=keyboard)
     elif position == 'stuff_list':
-        global language, api_instance
         api_instance.set_product_item(call.data)
         keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         button_confirm = types.KeyboardButton(text=chosen_zip_approve)
