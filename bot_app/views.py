@@ -118,7 +118,6 @@ def show_stuff_list(message):
     offset = 1
     get_stuff_list = api_instance.get_all(offset)
     pages = int(get_stuff_list['pages'])
-    print(pages)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
@@ -164,6 +163,7 @@ def prev_stuff_list(call):
         offset -= 1
     else:
         offset = (pages + 9)//10
+        print('------------------------->', offset)
     get_stuff_list = api_instance.get_all(offset)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
@@ -174,7 +174,8 @@ def prev_stuff_list(call):
                 text='{} {}'.format(each['id'], each['stuff_name']), callback_data='ok')
             keyboard.add(button)
         keyboard.add(button_prev, button_next)
-        bot.edit_message_text(text='Товары принимаемые курьером стр {} из {}'.format(offset, pages), chat_id=call.message.chat.id,
+        bot.edit_message_text(text='Товары принимаемые курьером стр {} из {}'.format(offset, pages),
+                              chat_id=call.message.chat.id,
                               message_id=call.message.message_id,
                               reply_markup=keyboard)
     elif type(get_stuff_list) != dict:
