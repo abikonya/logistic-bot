@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/api_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/api_func.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,10 +66,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="789">
-              <caret line="164" column="24" lean-forward="true" selection-start-line="164" selection-start-column="24" selection-end-line="164" selection-end-column="24" />
+            <state relative-caret-position="304">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
+                <marker date="1554291269751" expanded="true" signature="341:371" ph="..." />
               </folding>
             </state>
           </provider>
@@ -317,21 +317,7 @@
       <workItem from="1553868405613" duration="19942000" />
       <workItem from="1554266875964" duration="3787000" />
       <workItem from="1554273340939" duration="846000" />
-      <workItem from="1554275004026" duration="6055000" />
-    </task>
-    <task id="LOCAL-00053" summary="get_distance TEST">
-      <created>1553418736859</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1553418736859</updated>
-    </task>
-    <task id="LOCAL-00054" summary="get_distance TEST">
-      <created>1553433311476</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1553433311477</updated>
+      <workItem from="1554275004026" duration="7977000" />
     </task>
     <task id="LOCAL-00055" summary="get_distance TEST">
       <created>1553492643609</created>
@@ -662,11 +648,25 @@
       <option name="project" value="LOCAL" />
       <updated>1554276433353</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="testing">
+      <created>1554287247686</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1554287247686</updated>
+    </task>
+    <task id="LOCAL-00103" summary="testing">
+      <created>1554288389337</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1554288389337</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152192000" />
+    <option name="totallyTimeSpent" value="154114000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -898,10 +898,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="164" column="24" lean-forward="true" selection-start-line="164" selection-start-column="24" selection-end-line="164" selection-end-column="24" />
+        <state relative-caret-position="304">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+            <marker date="1554291269751" expanded="true" signature="341:371" ph="..." />
           </folding>
         </state>
       </provider>
