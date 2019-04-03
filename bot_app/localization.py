@@ -14,6 +14,9 @@ zip_searching = {'en': 'Enter command /zip to search Zip-code', 'ru': 'Введ�
 
 enter_zipcode = {'en': 'Enter zip', 'ru': 'Введите цифровой номер (Zip-код)'}
 
+zip_not_found = {'en': 'Entered zip not found', 'ru': 'Введенный zip не найден'}
+server_error = {'en': 'Server error. Try later', 'ru': 'Ошибка сервера. Попробуйте позже'}
+
 zip_list_choose = {'en': 'Make your choice please:', 'ru': 'Выберите один из Zip-ов'}
 zip_list = {'en': 'You selected - {}', 'ru': 'Вы выбрали - {}'}
 zip_list_button = {'en': 'Show list of goods', 'ru': 'Посмотреть список товаров'}

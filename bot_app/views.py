@@ -49,6 +49,9 @@ def status_check(message):
     bot.send_message(message.chat.id, enter_id[language])
 
 
+# Выбор языка. Language select.
+
+
 @bot.callback_query_handler(func=lambda call: call.data in ['ru', 'en'])
 def lang_select(call):
     global language
@@ -90,27 +93,37 @@ def zip_listing(message):
             keyboard.add(button)
             bot.send_message(message.chat.id, zip_list_choose[language], reply_markup=keyboard)
     elif not get_distance['address']:
-        bot.send_message(message.chat.id, 'Введенный zip-code не найден')
+        bot.send_message(message.chat.id, text=zip_not_found[language])
     elif type(get_distance) != dict:
-        bot.send_message(message.chat.id, 'Ошибка сервера. Попробуйте позже')
+        bot.send_message(message.chat.id, text=server_error[language])
 
 
 @bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data))
-def stuff_list(call):
+def chosen_list(call):
     global language, api_instance, position
-    position = 'stuff_list'
     api_instance.set_zipcode(call.data)
-    print(api_instance)
+    keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+    button = types.KeyboardButton(text=zip_list_button[language])
+    keyboard.add(button)
+    bot.send_message(call.message.chat.id, text=zip_list[language].format(api_instance.return_zipcode()),
+                     reply_markup=keyboard)
+
+
+@bot.message_handler(func=lambda message: message.text == zip_list_button[language])
+def show_products_list(message):
+    global language, position, api_instance
     get_stuff_list = api_instance.get_all()
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-        button_approve = types.KeyboardButton(text=choosen_zip_approve[language])
-        button_reset = types.KeyboardButton(text=choosen_zip_reset[language])
-        keyboard.add(button_approve, button_reset)
-        bot.send_message(call.message.chat.id, text=zip_list[language].format(api_instance.return_zipcode()),
+        button = types.KeyboardButton(text=zip_list_button[language])
+        for each in get_stuff_list['stuff_list']:
+            button = types.InlineKeyboardButton(
+                text='{} {}'.format(each['id'], each['stuff_name']))
+            keyboard.add(button)
+        bot.send_message(message.chat.id, text='Товары принимаемые курьером',
                          reply_markup=keyboard)
     elif type(get_stuff_list) != dict:
-        bot.send_message(call.message.chat.id, 'Ошибка сервера. Попробуйте позже')
+        bot.send_message(message.chat.id, server_error[language])
 
 
 @bot.message_handler(func=lambda message: message.text == 'Принять')
@@ -152,7 +165,7 @@ def status_checker(message):
                     bot.send_message(message.chat.id, text=enter_requisites[language], reply_markup=keyboard)
 
 
-@bot.message_handler(func=lambda message: re.search(r'\w+', message.text) and position == 'any')
+@bot.message_handler(func=lambda message: re.search(r'\w+', message.text))
 def payment(message):
     global position, api_instance, language
     if position == 'status_checker':
@@ -162,7 +175,7 @@ def payment(message):
 # Анкета. Profile
 
 
-@bot.message_handler(func=lambda message: re.search(r'\w+', message.text) and position != 'stuff_list')
+@bot.message_handler(func=lambda message: re.search(r'\w+', message.text))
 def form(message):
     global position, api_instance
     if position == 'enter_info':
