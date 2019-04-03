@@ -239,20 +239,15 @@ def status_checker(message):
                     bot.send_message(message.chat.id, text=enter_requisites[language], reply_markup=keyboard)
 
 
-@bot.message_handler(func=lambda message: re.search(r'\w+', message.text))
-def payment(message):
-    global position, api_instance, language
-    if position == 'status_checker':
-        api_instance.payment(message.text)
-
-
 # Анкета. Profile
 
 
 @bot.message_handler(func=lambda message: re.search(r'\w+', message.text))
 def form(message):
-    global position, api_instance
-    if position == 'enter_info':
+    global position, api_instance, language
+    if position == 'status_checker':
+        api_instance.payment(message.text)
+    elif position == 'enter_info':
         position = 'pickup_location'
         api_instance.set_pickup_location(message.text)
         bot.send_message(message.chat.id, text=store_name[language], reply_markup=types.ReplyKeyboardRemove)
