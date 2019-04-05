@@ -196,6 +196,7 @@ def prev_stuff_list(call):
                               chat_id=call.message.chat.id,
                               message_id=call.message.message_id,
                               reply_markup=keyboard)
+        bot.answer_callback_query(callback_query_id='prev')
     elif type(get_stuff_list) != dict:
         bot.send_message(call.message.chat.id, server_error[language])
 
