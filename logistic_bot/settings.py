@@ -27,8 +27,7 @@ SECRET_KEY = '(%5xa1z-!s*gngf*#6gge$)$t5qf&1m4ibi62lvqq^%yc$nrlo'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'test-logisticbot.herokuapp.com',
-    '127.0.0.1',
+    '*'
 ]
 
 
