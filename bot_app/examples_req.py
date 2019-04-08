@@ -3,6 +3,7 @@ import requests
 import json
 from bot_app.localization import Localization
 from vedis import Vedis
+from bot_app.tech_info import TechInfo
 
 # a = api_func.Api()
 #
@@ -18,17 +19,20 @@ from vedis import Vedis
 # print(json.loads(request.text))
 
 
-b = Localization()
-print(b.return_translation('paid_status', 'ru'))
+# b = Localization()
+# print(b.return_translation('paid_status', 'ru'))
+#
+#
+# def print_localization(name, lang):
+#     print(b.return_translation(name=name, language=lang))
+#
+#
+# print_localization('rules', 'ru')
+#
+#
+# print(b.return_all_translations('rules'))
 
 
-def print_localization(name, lang):
-    print(b.return_translation(name=name, language=lang))
+TechInfo().set_offset('test', 555)
 
-
-print_localization('rules', 'ru')
-
-
-print(b.return_all_translations('rules'))
-
-
+print(TechInfo().return_offset('test'))
