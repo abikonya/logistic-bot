@@ -19,20 +19,19 @@ from bot_app.tech_info import TechInfo
 # print(json.loads(request.text))
 
 
-# b = Localization()
-# print(b.return_translation('paid_status', 'ru'))
-#
-#
-# def print_localization(name, lang):
-#     print(b.return_translation(name=name, language=lang))
-#
-#
-# print_localization('rules', 'ru')
-#
-#
-# print(b.return_all_translations('rules'))
+b = Localization()
+TechInfo().set_language('test', 'ru')
+language = TechInfo().return_language('test')
+print(b.return_translation('rules_button', language))
 
 
-TechInfo().set_offset('test', 555)
 
-print(TechInfo().return_offset('test'))
+def print_localization(name, lang):
+    print(b.return_translation(name=name, language=lang))
+
+
+print_localization('rules_button', 'ru')
+
+
+print(b.return_all_translations('rules'))
+

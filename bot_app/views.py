@@ -56,13 +56,13 @@ def status_check(message):
 def lang_select(call):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     if call.data == 'ru':
-        TechInfo().set_language(call.message.chat.id, 'ru')
+        TechInfo().set_language(call.message.chat.id, call.data)
         language = TechInfo().return_language(call.message.chat.id)
         button = types.KeyboardButton(text=localization.return_translation('rules_button', language))
         keyboard.add(button)
         bot.send_message(text=localization.return_translation('rules', language), chat_id=call.message.chat.id, reply_markup=keyboard)
     else:
-        TechInfo().set_language(call.message.chat.id, 'en')
+        TechInfo().set_language(call.message.chat.id, call.data)
         language = TechInfo().return_language(call.message.chat.id)
         button = types.KeyboardButton(text=localization.return_translation('rules_button', language))
         keyboard.add(button)
