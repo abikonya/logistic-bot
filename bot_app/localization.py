@@ -33,7 +33,7 @@ def return_all_translations(name):
             position = db.Hash(name)
             for each in position.values():
                 answer.append(each.decode('UTF-8'))
-                return answer
+            return answer
         except Exception as err:
             print(err)
 

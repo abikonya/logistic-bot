@@ -1,9 +1,9 @@
 from bot_app import api_func
 import requests
 import json
-from bot_app.localization import Localization
+from bot_app import localization
 from vedis import Vedis
-from bot_app.tech_info import TechInfo
+from bot_app import tech_info
 
 # a = api_func.Api()
 #
@@ -19,19 +19,17 @@ from bot_app.tech_info import TechInfo
 # print(json.loads(request.text))
 
 
-b = Localization()
-TechInfo().set_language('test', 'ru')
-language = TechInfo().return_language('test')
-print(b.return_translation('rules_button', language))
-
+tech_info.set_language('test', 'ru')
+language = tech_info.return_language('test')
+print(localization.return_translation('rules_button', language))
 
 
 def print_localization(name, lang):
-    print(b.return_translation(name=name, language=lang))
+    print(localization.return_translation(name=name, language=lang))
 
 
 print_localization('rules_button', 'ru')
 
 
-print(b.return_all_translations('rules'))
+print(localization.return_all_translations('rules'))
 
