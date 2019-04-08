@@ -3,14 +3,13 @@ from telebot import types
 import re
 from bot_app import config
 from bot_app import localization
-from bot_app.api_func import Api, sort_by_dist
+from bot_app import api_func
 from bot_app import tech_info
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
 bot = telebot.TeleBot(config.token)
-api_instance = Api()
 
 
 class UpdateBot(APIView):
@@ -83,14 +82,13 @@ def main(message):
 
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
 def zip_listing(message):
-    global api_instance
     language = tech_info.return_language(message.chat.id)
     tech_info.set_position(message.chat.id, 'zip_listing')
-    api_instance.set_user_id(telegram_id=message.chat.id, user_id='D87hd487ft4')
-    api_instance.set_zipcode(telegram_id=message.chat.id, zipcode=message.text)
-    get_distance = api_instance.get_distance(telegram_id=message.chat.id)
+    api_func.set_user_id(telegram_id=message.chat.id, user_id='D87hd487ft4')
+    api_func.set_zipcode(telegram_id=message.chat.id, zipcode=message.text)
+    get_distance = api_func.get_distance(telegram_id=message.chat.id)
     if type(get_distance) == dict and get_distance['address']:
-        couriers_list = sorted(get_distance['address'], key=sort_by_dist)
+        couriers_list = sorted(get_distance['address'], key=api_func.sort_by_dist)
         keyboard = types.InlineKeyboardMarkup()
         for each in couriers_list:
             button = types.InlineKeyboardButton(
@@ -104,36 +102,34 @@ def zip_listing(message):
 
 @bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data) or re.search(r'^[0-9]{4}$', call.data))
 def call_data_answers(call):
-    global api_instance
     position = tech_info.return_language(call.message.chat.id)
     language = tech_info.return_position(call.message.chat.id)
     if position == 'zip_listing':
-        api_instance.set_zipcode(telegram_id=call.message.chat.id, zipcode=call.data)
+        api_func.set_zipcode(telegram_id=call.message.chat.id, zipcode=call.data)
         keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
         button = types.KeyboardButton(text=localization.return_translation('zip_list_button', language))
         keyboard.add(button)
         bot.send_message(call.message.chat.id,
                          text=localization.return_translation('zip_list', language).format(
-                             api_instance.return_param(telegram_id=call.message.chat.id, param='zipcode')),
+                             api_func.return_param(telegram_id=call.message.chat.id, param='zipcode')),
                          reply_markup=keyboard)
     elif position == 'stuff_list':
-        api_instance.set_product_item(telegram_id=call.message.chat.id, product_item=call.data)
+        api_func.set_product_item(telegram_id=call.message.chat.id, product_item=call.data)
         keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         button_confirm = types.KeyboardButton(text=localization.return_translation('chosen_zip_approve', language))
         button_reset = types.KeyboardButton(text=localization.return_translation('chosen_zip_reset', language))
         keyboard.add(button_confirm, button_reset)
-        bot.send_message(call.message.chat.id, text='Вы выбрали {}'.format(api_instance.return_param(telegram_id=call.message.chat.id, param='product_item')),
+        bot.send_message(call.message.chat.id, text='Вы выбрали {}'.format(api_func.return_param(telegram_id=call.message.chat.id, param='product_item')),
                          reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text in localization.return_all_translations('zip_list_button'))
 def show_stuff_list(message):
-    global api_instance
     tech_info.set_offset(message.chat.id, 1)
     offset = tech_info.return_offset(message.chat.id)
     language = tech_info.return_language(message.chat.id)
     tech_info.set_position(message.chat.id, 'stuff_list')
-    get_stuff_list = api_instance.get_all(telegram_id=message.chat.id, offset=offset)
+    get_stuff_list = api_func.get_all(telegram_id=message.chat.id, offset=offset)
     tech_info.set_pages(message.chat.id, int(get_stuff_list['pages']))
     pages = tech_info.return_pages(message.chat.id)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
@@ -154,7 +150,6 @@ def show_stuff_list(message):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'next')
 def next_stuff_list(call):
-    global api_instance
     language = tech_info.return_language(call.message.chat.id)
     offset = tech_info.return_offset(call.message.chat.id)
     pages = tech_info.return_pages(call.message.chat.id)
@@ -162,7 +157,7 @@ def next_stuff_list(call):
         offset = tech_info.set_offset(call.message.chat.id, offset + 1)
     else:
         tech_info.set_offset(call.message.chat.id, 1)
-    get_stuff_list = api_instance.get_all(telegram_id=call.message.chat.id, offset=offset)
+    get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
@@ -183,7 +178,6 @@ def next_stuff_list(call):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'prev')
 def prev_stuff_list(call):
-    global api_instance
     language = tech_info.return_language(call.message.chat.id)
     offset = tech_info.return_offset(call.message.chat.id)
     pages = tech_info.return_pages(call.message.chat.id)
@@ -191,7 +185,7 @@ def prev_stuff_list(call):
         tech_info.set_offset(call.message.chat.id, offset - 1)
     else:
         tech_info.set_offset(call.message.chat.id, pages)
-    get_stuff_list = api_instance.get_all(telegram_id=call.message.chat.id, offset=offset)
+    get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
@@ -221,9 +215,8 @@ def enter_info(message):
 
 @bot.message_handler(func=lambda message: message.text == 'Отправить')
 def send_info(message):
-    global api_instance
     language = tech_info.return_language(message.chat.id)
-    add_data = api_instance.add_data(telegram_id=message.chat.id)
+    add_data = api_func.add_data(telegram_id=message.chat.id)
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     button = types.ReplyKeyboardMarkup(localization.return_translation('success_button', language))
     keyboard.add(button)
@@ -235,17 +228,16 @@ def send_info(message):
 
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]', message.text))
 def status_checker(message):
-    global api_instance
     language = tech_info.return_language(message.chat.id)
     tech_info.set_position(message.chat.id, 'status_checker')
-    api_instance.set_user_id(telegram_id=message.chat.id, user_id=message.chat.id)
-    get_status = api_instance.get_status(telegram_id=message.chat.id)
+    api_func.set_user_id(telegram_id=message.chat.id, user_id=message.chat.id)
+    get_status = api_func.get_status(telegram_id=message.chat.id)
     if type(get_status) == dict and get_status['package_list']:
         for each in get_status['package_list']:
             if each['pack_id'] == message.text:
                 bot.send_message(message.chat.id, text=localization.return_translation('status', language) + each['pack_id'])
                 if each['status'] == 'Conﬁrm':
-                    api_instance.set_pack_id(telegram_id=message.chat.id, pack_id=each['pack_id'])
+                    api_func.set_pack_id(telegram_id=message.chat.id, pack_id=each['pack_id'])
                     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
                     button = types.KeyboardButton(text=localization.return_translation('enter_requisites_button', language))
                     keyboard.add(button)
@@ -258,41 +250,40 @@ def status_checker(message):
 
 @bot.message_handler(func=lambda message: re.search(r'\w+', message.text))
 def form(message):
-    global api_instance
     language = tech_info.return_language(message.chat.id)
     position = tech_info.return_position(message.chat.id)
     if position == 'status_checker':
-        api_instance.set_payout(telegram_id=message.chat.id, payout=message.text)
+        api_func.set_payout(telegram_id=message.chat.id, payout=message.text)
     elif position == 'enter_info':
         tech_info.set_position(message.chat.id, 'pickup_location')
-        api_instance.set_pickup_location(telegram_id=message.chat.id, pickup_location=message.text)
+        api_func.set_pickup_location(telegram_id=message.chat.id, pickup_location=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('store_name', language), reply_markup=types.ReplyKeyboardRemove)
     elif position == 'pickup_location':
         tech_info.set_position(message.chat.id, 'store_name')
-        api_instance.set_store_name(telegram_id=message.chat.id, store_name=message.text)
+        api_func.set_store_name(telegram_id=message.chat.id, store_name=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('store_phone', language))
     elif position == 'store_name':
         tech_info.set_position(message.chat.id, 'store_phone')
-        api_instance.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
+        api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
     elif position == 'store_phone':
         tech_info.set_position(message.chat.id, 'order_number')
-        api_instance.set_order_number(telegram_id=message.chat.id, order_number=message.text)
+        api_func.set_order_number(telegram_id=message.chat.id, order_number=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('pickup_person', language))
     elif position == 'order_number':
         tech_info.set_position(message.chat.id, 'pickup_person')
-        api_instance.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
+        api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('additional_info', language))
     elif position == 'pickup_person':
         tech_info.set_position(message.chat.id, 'additional_info')
-        api_instance.set_more_info(telegram_id=message.chat.id, more_info=message.text)
+        api_func.set_more_info(telegram_id=message.chat.id, more_info=message.text)
         bot.send_message(message.text.id, text=localization.return_translation('product_name', language))
     elif position == 'additional_info':
         tech_info.set_position(message.chat.id, 'product_name')
-        api_instance.set_product_item(telegram_id=message.chat.id, product_item=message.text)
+        api_func.set_product_item(telegram_id=message.chat.id, product_item=message.text)
         bot.send_message(message.text.id, text=localization.return_translation('price', language))
     elif position == 'product_name':
-        api_instance.set_price(telegram_id=message.chat.id, price=message.text)
+        api_func.set_price(telegram_id=message.chat.id, price=message.text)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         button = types.KeyboardButton(text=localization.return_translation('send_button', language))
         keyboard.add(button)
