@@ -9,7 +9,7 @@ from vedis import Vedis
 
 
 def add_translation(name, language, translation):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis('localization.vdb') as db:
         try:
             position = db.Hash(name)
             position[language] = translation
@@ -18,7 +18,7 @@ def add_translation(name, language, translation):
 
 
 def return_translation(name, language):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis('localization.vdb') as db:
         try:
             position = db.Hash(name)
             return position[language].decode('UTF-8')
@@ -27,7 +27,7 @@ def return_translation(name, language):
 
 
 def return_all_translations(name):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis('localization.vdb') as db:
         try:
             answer = []
             position = db.Hash(name)
@@ -115,7 +115,7 @@ translations = [
 def update_translations(list_of_translations):
     count = 0
     for each in list_of_translations:
-        Localization().add_translation(name=each[0], language=each[1], translation=each[2])
+        add_translation(name=each[0], language=each[1], translation=each[2])
         count += 1
 
     print('Done. Added or update {} translations'.format(count))
