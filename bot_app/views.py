@@ -7,13 +7,9 @@ from bot_app import api_func
 from bot_app import tech_info
 from rest_framework.response import Response
 from rest_framework.views import APIView
-import logging
 
 
 bot = telebot.TeleBot(config.token)
-
-logger = telebot.logger
-telebot.logger.setLevel(logging.basicConfig(filename='bot.log', level=logging.DEBUG))
 
 
 class UpdateBot(APIView):
