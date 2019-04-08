@@ -5,7 +5,8 @@ from vedis import Vedis
 
 class Api:
     def __init__(self):
-        self.db = Vedis(filename='accounts_info.vdb', open_database=True)
+        with Vedis('tech_info.vdb') as db:
+            self.db = db
 
     def set_user_id(self, telegram_id, user_id):
         account = self.db.Hash(telegram_id)
