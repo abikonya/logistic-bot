@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 import re
 from bot_app import config
-from bot_app.localization import Localization
+from bot_app import localization
 from bot_app.api_func import Api, sort_by_dist
 from bot_app import tech_info
 from rest_framework.response import Response
@@ -11,7 +11,6 @@ from rest_framework.views import APIView
 
 bot = telebot.TeleBot(config.token)
 api_instance = Api()
-localization = Localization()
 
 
 class UpdateBot(APIView):
@@ -59,7 +58,7 @@ def lang_select(call):
         tech_info.set_language(call.message.chat.id, call.data)
         language = tech_info.return_language(call.message.chat.id)
         print(language)
-        button = types.KeyboardButton(text=Localization().return_translation('rules_button', language))
+        button = types.KeyboardButton(text=localization.return_translation('rules_button', language))
         keyboard.add(button)
         bot.send_message(text=localization.return_translation('rules', language), chat_id=call.message.chat.id, reply_markup=keyboard)
     else:

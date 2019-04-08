@@ -8,24 +8,34 @@ Translations file.
 from vedis import Vedis
 
 
-class Localization:
-    def __init__(self):
-        self.db = Vedis(filename='localization.vdb', open_database=True)
+def add_translation(name, language, translation):
+    with Vedis('tech_info.vdb') as db:
+        try:
+            position = db.Hash(name)
+            position[language] = translation
+        except Exception as err:
+            print(err)
 
-    def add_translation(self, name, language, translation):
-        position = self.db.Hash(name)
-        position[language] = translation
 
-    def return_translation(self, name, language):
-        position = self.db.Hash(name)
-        return position[language].decode('UTF-8')
+def return_translation(name, language):
+    with Vedis('tech_info.vdb') as db:
+        try:
+            position = db.Hash(name)
+            return position[language].decode('UTF-8')
+        except Exception as err:
+            print(err)
 
-    def return_all_translations(self, name):
-        answer = []
-        position = self.db.Hash(name)
-        for each in position.values():
-            answer.append(each.decode('UTF-8'))
-        return answer
+
+def return_all_translations(name):
+    with Vedis('tech_info.vdb') as db:
+        try:
+            answer = []
+            position = db.Hash(name)
+            for each in position.values():
+                answer.append(each.decode('UTF-8'))
+                return answer
+        except Exception as err:
+            print(err)
 
 
 # Installed translations: 'en', 'ru'
