@@ -55,6 +55,7 @@ def status_check(message):
 @bot.callback_query_handler(func=lambda call: call.data in ['ru', 'en'])
 def lang_select(call):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+    print(localization)
     if call.data == 'ru':
         TechInfo().set_language(call.message.chat.id, call.data)
         language = TechInfo().return_language(call.message.chat.id)
