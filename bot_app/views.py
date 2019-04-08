@@ -12,8 +12,8 @@ import logging
 
 bot = telebot.TeleBot(config.token)
 
-logging.basicConfig(filename='bot.log', level=logging.DEBUG)
 logger = telebot.logger
+telebot.logger.setLevel(logging.basicConfig(filename='bot.log', level=logging.DEBUG))
 
 
 class UpdateBot(APIView):
