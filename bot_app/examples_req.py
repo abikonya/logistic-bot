@@ -1,16 +1,34 @@
-import json
 from bot_app import api_func
+import requests
+import json
+from bot_app.localization import Localization
+from vedis import Vedis
 
-get_distance = {"address": [{"zip": "65721", "distance": "'238'", "name": "AMBER GREENSLATE", "id": "5085"},
-                            {"zip": "12345", "distance": "'435'", "name": "AMBER GREENSLATE", "id": "5085"},
-                            {"zip": "45678", "distance": "'245'", "name": "AMBER GREENSLATE", "id": "5085"},
-                            {"zip": "23567", "distance": "'234'", "name": "AMBER GREENSLATE", "id": "5085"}]}
+# a = api_func.Api()
+#
+# a.set_user_id(telegram_id='test', user_id='D87hd487ft4')
+# a.set_zipcode('test', 33815)
+# print(a.return_param('test', 'user_id'))
+# print(a.return_param('test', 'zipcode'))
+#
+# request = requests.get('https://strongbox.cc/?a=fnc.api.zip.getdistance&zip={zipcode}&tuser={user_id}'.format(
+#                   zipcode=a.return_param('test', 'zipcode'),
+#                   user_id=a.return_param('test', 'user_id')))
+#
+# print(json.loads(request.text))
 
-ans = json.dumps(get_distance)
-answer = json.loads(ans)
 
-a = api_func.Api()
+b = Localization()
+print(b.return_translation('paid_status', 'ru'))
 
-a.set_more_info('some more info')
 
-print()
+def print_localization(name, lang):
+    print(b.return_translation(name=name, language=lang))
+
+
+print_localization('rules', 'ru')
+
+
+print(b.return_all_translations('rules'))
+
+

@@ -1,153 +1,143 @@
 import requests
 import json
+from vedis import Vedis
 
 
 class Api:
-    def __init__(self, user_id='', zipcode='', store_name='', store_phone='', order_number='', pickup_person='',
-                 pickup_location='', more_info='', product_category='', product_item='', price='', pack_id='',
-                 payout='', list_id=''):
-        self.user_id = user_id
-        self.zipcode = zipcode
-        self.store_name = store_name
-        self.store_phone = store_phone
-        self.order_number = order_number
-        self.pickup_person = pickup_person
-        self.pickup_location = pickup_location
-        self.more_info = more_info
-        self.product_category = product_category
-        self.product_item = product_item
-        self.price = price
-        self.pack_id = pack_id
-        self.payout = payout
-        self.list_id = list_id
+    def __init__(self):
+        self.db = Vedis(filename='accounts_info.vdb', open_database=True)
 
-    def set_user_id(self, user_id):
-        self.user_id = user_id
+    def set_user_id(self, telegram_id, user_id):
+        account = self.db.Hash(telegram_id)
+        account['user_id'] = user_id
 
-    def set_zipcode(self, zipcode):
-        self.zipcode = zipcode
+    def set_zipcode(self, telegram_id, zipcode):
+        account = self.db.Hash(telegram_id)
+        account['zipcode'] = zipcode
 
-    def set_store_name(self, store_name):
-        self.store_name = store_name
+    def set_store_name(self, telegram_id, store_name):
+        account = self.db.Hash(telegram_id)
+        account['store_name'] = store_name
 
-    def set_store_phone(self, store_phone):
-        self.store_phone = store_phone
+    def set_store_phone(self, telegram_id, store_phone):
+        account = self.db.Hash(telegram_id)
+        account['store_phone'] = store_phone
 
-    def set_order_number(self, order_number):
-        self.order_number = order_number
+    def set_order_number(self, telegram_id, order_number):
+        account = self.db.Hash(telegram_id)
+        account['order_number'] = order_number
 
-    def set_pickup_person(self, pickup_person):
-        self.pickup_person = pickup_person
+    def set_pickup_person(self, telegram_id, pickup_person):
+        account = self.db.Hash(telegram_id)
+        account['pickup_person'] = pickup_person
 
-    def set_pickup_location(self, pickup_location):
-        self.pickup_location = pickup_location
+    def set_pickup_location(self, telegram_id, pickup_location):
+        account = self.db.Hash(telegram_id)
+        account['pickup_location'] = pickup_location
 
-    def set_more_info(self, more_info):
-        self.more_info = more_info
+    def set_more_info(self, telegram_id, more_info):
+        account = self.db.Hash(telegram_id)
+        account['more_info'] = more_info
 
-    def set_product_category(self, product_category):
-        self.product_category = product_category
+    def set_product_category(self, telegram_id, product_category):
+        account = self.db.Hash(telegram_id)
+        account['product_category'] = product_category
 
-    def set_product_item(self, product_item):
-        self.product_item = product_item
+    def set_product_item(self, telegram_id, product_item):
+        account = self.db.Hash(telegram_id)
+        account['product_item'] = product_item
 
-    def set_price(self, price):
-        self.price = price
+    def set_price(self, telegram_id, price):
+        account = self.db.Hash(telegram_id)
+        account['price'] = price
 
-    def set_pack_id(self, pack_id):
-        self.pack_id = pack_id
+    def set_pack_id(self, telegram_id, pack_id):
+        account = self.db.Hash(telegram_id)
+        account['pack_id'] = pack_id
 
-    def set_payout(self, payout):
-        self.payout = payout
+    def set_payout(self, telegram_id, payout):
+        account = self.db.Hash(telegram_id)
+        account['payout'] = payout
 
-    def set_list_id(self, list_id):
-        self.list_id = list_id
+    def set_list_id(self, telegram_id, list_id):
+        account = self.db.Hash(telegram_id)
+        account['list_id'] = list_id
 
-    def return_zipcode(self):
-        return self.zipcode
+    def return_param(self, telegram_id, param):
+        account = self.db.Hash(telegram_id)
+        return account[param].decode('UTF-8')
 
-    def return_product_item(self):
-        return self.product_item
-
-    def __repr__(self):
-        return ('{} {}\n'*14).format('user_id =', self.user_id, 'zipcode =', self.zipcode, 'store_name =', self.store_name,
-                                     'store_phone =', self.store_phone, 'order_number =', self.order_number,
-                                     'pickup_person =', self.pickup_person, 'pickup_location =', self.pickup_location,
-                                     'more_info =', self.more_info, 'product_category =', self.product_category,
-                                     'product_item =', self.product_item, 'price =', self.price, 'pack_id =', self.pack_id,
-                                     'payout =', self.payout, 'list_id =', self.list_id)
-
-    def get_distance(self):
+    def get_distance(self, telegram_id):
         try:
             request = requests.get('https://strongbox.cc/?a=fnc.api.zip.getdistance&zip={zipcode}&tuser={user_id}'.format(
-                zipcode=self.zipcode,
-                user_id=self.user_id))
+                zipcode=self.return_param(telegram_id, 'zipcode'),
+                user_id=self.return_param(telegram_id, 'user_id')))
             return json.loads(request.text)
         except Exception as err:
             print(err)
 
-    def get_all(self, offset):
+    def get_all(self, telegram_id, offset):
         try:
             request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}&count=10&offset={offset}'.format(
-                user_id=self.user_id,
-                zipcode=self.zipcode,
+                user_id=self.return_param(telegram_id, 'user_id'),
+                zipcode=self.return_param(telegram_id, 'zipcode'),
                 offset=offset))
             return json.loads(request.text)
         except Exception as err:
             print(err)
 
-    def add_data(self):
+    def add_data(self, telegram_id):
         try:
             request = requests.get('https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}'
                                    '&store_phone={store_phone}&order_number={order_number}&pickup_person={pickup_person}'
                                    '&pickup_location={pickup_location}&more_information={more_info}'
-                                   '&product_item={product_item}&product_price={price}'.format(user_id=self.user_id,
-                                                                                               zipcode=self.zipcode,
-                                                                                               store_name=self.store_name,
-                                                                                               store_phone=self.store_phone,
-                                                                                               order_number=self.order_number,
-                                                                                               pickup_person=self.pickup_person,
-                                                                                               pickup_location=self.pickup_location,
-                                                                                               more_info=self.more_info,
-                                                                                               product_item=self.product_item,
-                                                                                               price=self.price))
+                                   '&product_item={product_item}&product_price={price}'.format(user_id=self.return_param(telegram_id, 'user_id'),
+                                                                                               zipcode=self.return_param(telegram_id, 'zipcode'),
+                                                                                               store_name=self.return_param(telegram_id, 'store_name'),
+                                                                                               store_phone=self.return_param(telegram_id, 'store_phone'),
+                                                                                               order_number=self.return_param(telegram_id, 'order_number'),
+                                                                                               pickup_person=self.return_param(telegram_id, 'pickup_person'),
+                                                                                               pickup_location=self.return_param(telegram_id, 'pickup_location'),
+                                                                                               more_info=self.return_param(telegram_id, 'more_info'),
+                                                                                               product_item=self.return_param(telegram_id, 'product_item'),
+                                                                                               price=self.return_param(telegram_id, 'price')))
             return json.loads(request.text)
         except Exception as err:
             print(err)
 
-    def get_category(self):
+    def get_category(self, telegram_id):
         try:
             request = requests.get('https://strongbox.cc/?a=fnc.api.list.getcategory&tuser={user_id}&zip={zipcode}'.format(
-                user_id=self.user_id,
-                zipcode=self.zipcode))
+                user_id=self.return_param(telegram_id, 'user_id'),
+                zipcode=self.return_param(telegram_id, 'zipcode')))
             return json.loads(request.text)
         except Exception as err:
             print(err)
 
-    def get_items(self):
+    def get_items(self, telegram_id):
         try:
             request = requests.get('https://strongbox.cc/?a=fnc.api.list.getitems&tuser={user_id}&zip={zipcode}&list_id={list_id}'.format(
-                user_id=self.user_id,
-                zipcode=self.zipcode,
-                list_id=self.list_id))
+                user_id=self.return_param(telegram_id, 'user_id'),
+                zipcode=self.return_param(telegram_id, 'zipcode'),
+                list_id=self.return_param(telegram_id, 'list_id')))
             return json.loads(request.text)
         except Exception as err:
             print(err)
 
-    def get_status(self):
+    def get_status(self, telegram_id):
         try:
             request = requests.get('https://strongbox.cc/?a=fnc.api.package.getstatus&tuser={user_id}'.format(
-                user_id=self.user_id))
+                user_id=self.return_param(telegram_id, 'user_id')))
             return json.loads(request.text)
         except Exception as err:
             print(err)
 
-    def payment(self):
+    def payment(self, telegram_id):
         try:
             request = requests.get('https://strongbox.cc/?a=fnc.api.package.payment&tuser={user_id}&pack_id={pack_id}&payout={payout}'.format(
-                user_id=self.user_id,
-                pack_id=self.pack_id,
-                payout=self.payout))
+                user_id=self.return_param(telegram_id, 'user_id'),
+                pack_id=self.return_param(telegram_id, 'pack_id'),
+                payout=self.return_param(telegram_id, 'payout')))
             return json.loads(request.text)
         except Exception as err:
             print(err)
