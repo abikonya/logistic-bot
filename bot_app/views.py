@@ -37,7 +37,7 @@ def start(message):
 
 @bot.message_handler(commands=['zip'])
 def enter_zip(message):
-    position = TechInfo().set_position(message.chat.id, 'zip')
+    TechInfo().set_position(message.chat.id, 'zip')
     language = TechInfo().return_language(message.chat.id)
     bot.send_message(message.chat.id, localization.return_translation('enter_zipcode', language))
 
@@ -45,7 +45,7 @@ def enter_zip(message):
 @bot.message_handler(commands=['status'])
 def status_check(message):
     language = TechInfo().return_language(message.chat.id)
-    position = TechInfo().set_position(message.chat.id, 'status')
+    TechInfo().set_position(message.chat.id, 'status')
     bot.send_message(message.chat.id, localization.return_translation('enter_id', language))
 
 
@@ -56,13 +56,13 @@ def status_check(message):
 def lang_select(call):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     if call.data == 'ru':
-        set_language = TechInfo().set_language(call.message.chat.id, 'ru')
+        TechInfo().set_language(call.message.chat.id, 'ru')
         language = TechInfo().return_language(call.message.chat.id)
         button = types.KeyboardButton(text=localization.return_translation('rules_button', language))
         keyboard.add(button)
         bot.send_message(text=localization.return_translation('rules', language), chat_id=call.message.chat.id, reply_markup=keyboard)
     else:
-        set_language = TechInfo().set_language(call.message.chat.id, 'en')
+        TechInfo().set_language(call.message.chat.id, 'en')
         language = TechInfo().return_language(call.message.chat.id)
         button = types.KeyboardButton(text=localization.return_translation('rules_button', language))
         keyboard.add(button)
@@ -85,7 +85,7 @@ def main(message):
 def zip_listing(message):
     global api_instance
     language = TechInfo().return_language(message.chat.id)
-    position = TechInfo().set_position(message.chat.id, 'zip_listing')
+    TechInfo().set_position(message.chat.id, 'zip_listing')
     api_instance.set_user_id(telegram_id=message.chat.id, user_id='D87hd487ft4')
     api_instance.set_zipcode(telegram_id=message.chat.id, zipcode=message.text)
     get_distance = api_instance.get_distance(telegram_id=message.chat.id)
@@ -129,11 +129,13 @@ def call_data_answers(call):
 @bot.message_handler(func=lambda message: message.text in localization.return_all_translations('zip_list_button'))
 def show_stuff_list(message):
     global api_instance
-    offset = TechInfo().set_offset(message.chat.id, 1)
+    TechInfo().set_offset(message.chat.id, 1)
+    offset = TechInfo().return_offset(message.chat.id)
     language = TechInfo().return_language(message.chat.id)
-    position = TechInfo().set_position(message.chat.id, 'stuff_list')
+    TechInfo().set_position(message.chat.id, 'stuff_list')
     get_stuff_list = api_instance.get_all(telegram_id=message.chat.id, offset=offset)
-    pages = TechInfo().set_pages(message.chat.id, int(get_stuff_list['pages']))
+    TechInfo().set_pages(message.chat.id, int(get_stuff_list['pages']))
+    pages = TechInfo().return_pages(message.chat.id)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
@@ -157,9 +159,9 @@ def next_stuff_list(call):
     offset = TechInfo().return_offset(call.message.chat.id)
     pages = TechInfo().return_pages(call.message.chat.id)
     if offset < pages:
-        offset += 1
+        offset = TechInfo().set_offset(call.message.chat.id, offset + 1)
     else:
-        offset = TechInfo().set_offset(call.message.chat.id, 1)
+        TechInfo().set_offset(call.message.chat.id, 1)
     get_stuff_list = api_instance.get_all(telegram_id=call.message.chat.id, offset=offset)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
@@ -186,9 +188,9 @@ def prev_stuff_list(call):
     offset = TechInfo().return_offset(call.message.chat.id)
     pages = TechInfo().return_pages(call.message.chat.id)
     if offset > 1:
-        offset = TechInfo().set_offset(call.message.chat.id, offset - 1)
+        TechInfo().set_offset(call.message.chat.id, offset - 1)
     else:
-        offset = pages
+        TechInfo().set_offset(call.message.chat.id, pages)
     get_stuff_list = api_instance.get_all(telegram_id=call.message.chat.id, offset=offset)
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
@@ -212,7 +214,7 @@ def prev_stuff_list(call):
 @bot.message_handler(func=lambda message: message.text == 'Принять')
 def enter_info(message):
     language = TechInfo().return_language(message.chat.id)
-    position = TechInfo().set_position(message.chat.id, 'enter_info')
+    TechInfo().set_position(message.chat.id, 'enter_info')
     bot.send_message(message.chat.id, text=localization.return_translation('about_cargo', language))
     bot.send_message(message.chat.id, text=localization.return_translation('pickup_location', language))
 
@@ -235,8 +237,8 @@ def send_info(message):
 def status_checker(message):
     global api_instance
     language = TechInfo().return_language(message.chat.id)
-    position = TechInfo().set_position(message.chat.id, 'status_checker')
-    user_id = api_instance.set_user_id(telegram_id=message.chat.id, user_id=message.chat.id)
+    TechInfo().set_position(message.chat.id, 'status_checker')
+    api_instance.set_user_id(telegram_id=message.chat.id, user_id=message.chat.id)
     get_status = api_instance.get_status(telegram_id=message.chat.id)
     if type(get_status) == dict and get_status['package_list']:
         for each in get_status['package_list']:
@@ -262,31 +264,31 @@ def form(message):
     if position == 'status_checker':
         api_instance.set_payout(telegram_id=message.chat.id, payout=message.text)
     elif position == 'enter_info':
-        position = 'pickup_location'
+        TechInfo().set_position(message.chat.id, 'pickup_location')
         api_instance.set_pickup_location(telegram_id=message.chat.id, pickup_location=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('store_name', language), reply_markup=types.ReplyKeyboardRemove)
     elif position == 'pickup_location':
-        position = 'store_name'
+        TechInfo().set_position(message.chat.id, 'store_name')
         api_instance.set_store_name(telegram_id=message.chat.id, store_name=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('store_phone', language))
     elif position == 'store_name':
-        position = 'store_phone'
+        TechInfo().set_position(message.chat.id, 'store_phone')
         api_instance.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
     elif position == 'store_phone':
-        position = 'order_number'
+        TechInfo().set_position(message.chat.id, 'order_number')
         api_instance.set_order_number(telegram_id=message.chat.id, order_number=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('pickup_person', language))
     elif position == 'order_number':
-        position = 'pickup_person'
+        TechInfo().set_position(message.chat.id, 'pickup_person')
         api_instance.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('additional_info', language))
     elif position == 'pickup_person':
-        position = 'additional_info'
+        TechInfo().set_position(message.chat.id, 'additional_info')
         api_instance.set_more_info(telegram_id=message.chat.id, more_info=message.text)
         bot.send_message(message.text.id, text=localization.return_translation('product_name', language))
     elif position == 'additional_info':
-        position = 'product_name'
+        TechInfo().set_position(message.chat.id, 'product_name')
         api_instance.set_product_item(telegram_id=message.chat.id, product_item=message.text)
         bot.send_message(message.text.id, text=localization.return_translation('price', language))
     elif position == 'product_name':
