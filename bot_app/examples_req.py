@@ -21,7 +21,7 @@ from bot_app import tech_info
 
 tech_info.set_language('test', 'ru')
 language = tech_info.return_language('test')
-print(localization.return_translation('rules_button', language))
+print(localization.return_translation('rules', language))
 
 
 def print_localization(name, lang):
