@@ -57,13 +57,13 @@ def lang_select(call):
     if call.data == 'ru':
         tech_info.set_language(call.message.chat.id, call.data)
         language = tech_info.return_language(call.message.chat.id)
-        print(language)
         button = types.KeyboardButton(text=localization.return_translation('rules_button', language))
         keyboard.add(button)
         bot.send_message(text=localization.return_translation('rules', language), chat_id=call.message.chat.id, reply_markup=keyboard)
     else:
         tech_info.set_language(call.message.chat.id, call.data)
         language = tech_info.return_language(call.message.chat.id)
+        print(language)
         button = types.KeyboardButton(text=localization.return_translation('rules_button', language))
         keyboard.add(button)
         bot.send_message(text=localization.return_translation('rules', language), chat_id=call.message.chat.id, reply_markup=keyboard)
