@@ -154,7 +154,7 @@ def next_stuff_list(call):
     offset = int(tech_info.return_offset(call.message.chat.id))
     pages = int(tech_info.return_pages(call.message.chat.id))
     if offset < pages:
-        offset = tech_info.set_offset(call.message.chat.id, offset + 1)
+        tech_info.set_offset(call.message.chat.id, offset + 1)
     else:
         tech_info.set_offset(call.message.chat.id, 1)
     get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
