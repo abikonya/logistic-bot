@@ -94,6 +94,7 @@ def zip_listing(message):
             button = types.InlineKeyboardButton(
                 text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']), callback_data=each['zip'])
             keyboard.add(button)
+        bot.send_message(message.chat.id, text=localization.return_translation('zip_list_choose', language), reply_markup=keyboard)
     elif not get_distance['address']:
         bot.send_message(message.chat.id, text=localization.return_translation('zip_not_found', language))
     elif type(get_distance) != dict:
