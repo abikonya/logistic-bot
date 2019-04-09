@@ -250,38 +250,6 @@ def send_info(message):
     bot.send_message(message.chat.id, text=localization.return_translation('success', language) + add_data['task_id'], reply_markup=keyboard)
 
 
-# Правая ветка. Right branch
-
-
-# @bot.message_handler(func=lambda message: re.search(r'^[0-9]', message.text))
-# def status_checker(message):
-#     position = tech_info.return_position(message.chat.id)
-#     language = tech_info.return_language(message.chat.id)
-#     if position == 'status':
-#         tech_info.set_position(message.chat.id, 'status_checker')
-#         api_func.set_user_id(telegram_id=message.chat.id, user_id=message.chat.id)
-#         get_status = api_func.get_status(telegram_id=message.chat.id)
-#         if type(get_status) == dict and get_status['package_list']:
-#             for each in get_status['package_list']:
-#                 if each['pack_id'] == message.text:
-#                     bot.send_message(message.chat.id, text=localization.return_translation('status', language) + each['pack_id'])
-#                     if each['status'] == 'Conﬁrm':
-#                         api_func.set_pack_id(telegram_id=message.chat.id, pack_id=each['pack_id'])
-#                         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-#                         button = types.KeyboardButton(text=localization.return_translation('enter_requisites_button', language))
-#                         keyboard.add(button)
-#                         bot.send_message(message.chat.id, text=localization.return_translation('enter_requisites', language),
-#                                          reply_markup=keyboard)
-#     elif position == 'store_phone':
-#         tech_info.set_position(message.chat.id, 'order_number')
-#         api_func.set_order_number(telegram_id=message.chat.id, order_number=message.text)
-#         bot.send_message(message.chat.id, text=localization.return_translation('pickup_person', language))
-#     elif position == 'order_number':
-#         tech_info.set_position(message.chat.id, 'pickup_person')
-#         api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
-#         bot.send_message(message.chat.id, text=localization.return_translation('additional_info', language))
-
-
 # Анкета. Profile
 
 
