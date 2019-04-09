@@ -22,9 +22,6 @@ class UpdateBot(APIView):
         return Response({'code': 200})
 
 
-# Обработчики команд. Command's handlers
-
-
 @bot.message_handler(commands=['start'])
 def start(message):
     keyboard = types.InlineKeyboardMarkup(row_width=2)
@@ -46,9 +43,6 @@ def status_check(message):
     language = tech_info.return_language(message.chat.id)
     tech_info.set_position(message.chat.id, 'status')
     bot.send_message(message.chat.id, localization.return_translation('enter_id', language))
-
-
-# Выбор языка. Language select.
 
 
 @bot.callback_query_handler(func=lambda call: call.data in ['ru', 'en'])
@@ -78,10 +72,8 @@ def main(message):
                      reply_markup=types.ReplyKeyboardRemove())
 
 
-# Левая ветка. Left branch
-
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
-def zip_listing(message):
+def answer_on_digits(message):
     position = tech_info.return_position(message.chat.id)
     language = tech_info.return_language(message.chat.id)
     if position == 'zip':
@@ -116,14 +108,14 @@ def zip_listing(message):
                         keyboard.add(button)
                         bot.send_message(message.chat.id, text=localization.return_translation('enter_requisites', language),
                                          reply_markup=keyboard)
+    elif position == 'store_name':
+        tech_info.set_position(message.chat.id, 'store_phone')
+        api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
+        bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
     elif position == 'store_phone':
         tech_info.set_position(message.chat.id, 'order_number')
         api_func.set_order_number(telegram_id=message.chat.id, order_number=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('pickup_person', language))
-    elif position == 'order_number':
-        tech_info.set_position(message.chat.id, 'pickup_person')
-        api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('additional_info', language))
 
 
 @bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data) or re.search(r'^[0-9]{4}$', call.data))
@@ -267,10 +259,10 @@ def form(message):
         tech_info.set_position(message.chat.id, 'store_name')
         api_func.set_store_name(telegram_id=message.chat.id, store_name=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('store_phone', language))
-    elif position == 'store_name':
-        tech_info.set_position(message.chat.id, 'store_phone')
-        api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
+    elif position == 'order_number':
+        tech_info.set_position(message.chat.id, 'pickup_person')
+        api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
+        bot.send_message(message.chat.id, text=localization.return_translation('additional_info', language))
     elif position == 'pickup_person':
         tech_info.set_position(message.chat.id, 'additional_info')
         api_func.set_more_info(telegram_id=message.chat.id, more_info=message.text)

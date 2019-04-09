@@ -66,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+            <state relative-caret-position="380">
+              <caret line="110" column="30" lean-forward="true" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -207,7 +207,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tech_info">
+  <component name="RunManager" selected="Django server.logistic_bot">
     <configuration name="api_functions" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="logistic_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -397,21 +397,7 @@
       <workItem from="1554466671962" duration="813000" />
       <workItem from="1554631369810" duration="99000" />
       <workItem from="1554631606963" duration="47882000" />
-      <workItem from="1554803523893" duration="2701000" />
-    </task>
-    <task id="LOCAL-00108" summary="testing">
-      <created>1554292983481</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1554292983482</updated>
-    </task>
-    <task id="LOCAL-00109" summary="testing">
-      <created>1554293290289</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1554293290289</updated>
+      <workItem from="1554803523893" duration="3688000" />
     </task>
     <task id="LOCAL-00110" summary="testing">
       <created>1554294605634</created>
@@ -742,11 +728,25 @@
       <option name="project" value="LOCAL" />
       <updated>1554805318940</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="Vedis support added. Code refactored">
+      <created>1554806280745</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1554806280745</updated>
+    </task>
+    <task id="LOCAL-00158" summary="Vedis support added. Code refactored">
+      <created>1554806979896</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1554806979896</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223077000" />
+    <option name="totallyTimeSpent" value="224064000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -763,7 +763,7 @@
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.5049505" side_tool="true" weight="0.16621985" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4950495" visible="true" weight="0.17426273" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4950495" weight="0.17426273" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.23762377" />
@@ -774,7 +774,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3281471" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3281471" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.3281471" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" weight="0.3281471" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3286119" />
@@ -1049,8 +1049,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+        <state relative-caret-position="380">
+          <caret line="110" column="30" lean-forward="true" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
