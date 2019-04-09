@@ -228,21 +228,31 @@ def send_info(message):
 
 @bot.message_handler(func=lambda message: re.search(r'^[0-9]', message.text))
 def status_checker(message):
+    position = tech_info.return_position(message.chat.id)
     language = tech_info.return_language(message.chat.id)
-    tech_info.set_position(message.chat.id, 'status_checker')
-    api_func.set_user_id(telegram_id=message.chat.id, user_id=message.chat.id)
-    get_status = api_func.get_status(telegram_id=message.chat.id)
-    if type(get_status) == dict and get_status['package_list']:
-        for each in get_status['package_list']:
-            if each['pack_id'] == message.text:
-                bot.send_message(message.chat.id, text=localization.return_translation('status', language) + each['pack_id'])
-                if each['status'] == 'Conﬁrm':
-                    api_func.set_pack_id(telegram_id=message.chat.id, pack_id=each['pack_id'])
-                    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-                    button = types.KeyboardButton(text=localization.return_translation('enter_requisites_button', language))
-                    keyboard.add(button)
-                    bot.send_message(message.chat.id, text=localization.return_translation('enter_requisites', language),
-                                     reply_markup=keyboard)
+    if position == 'status':
+        tech_info.set_position(message.chat.id, 'status_checker')
+        api_func.set_user_id(telegram_id=message.chat.id, user_id=message.chat.id)
+        get_status = api_func.get_status(telegram_id=message.chat.id)
+        if type(get_status) == dict and get_status['package_list']:
+            for each in get_status['package_list']:
+                if each['pack_id'] == message.text:
+                    bot.send_message(message.chat.id, text=localization.return_translation('status', language) + each['pack_id'])
+                    if each['status'] == 'Conﬁrm':
+                        api_func.set_pack_id(telegram_id=message.chat.id, pack_id=each['pack_id'])
+                        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+                        button = types.KeyboardButton(text=localization.return_translation('enter_requisites_button', language))
+                        keyboard.add(button)
+                        bot.send_message(message.chat.id, text=localization.return_translation('enter_requisites', language),
+                                         reply_markup=keyboard)
+    elif position == 'store_phone':
+        tech_info.set_position(message.chat.id, 'order_number')
+        api_func.set_order_number(telegram_id=message.chat.id, order_number=message.text)
+        bot.send_message(message.chat.id, text=localization.return_translation('pickup_person', language))
+    elif position == 'order_number':
+        tech_info.set_position(message.chat.id, 'pickup_person')
+        api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
+        bot.send_message(message.chat.id, text=localization.return_translation('additional_info', language))
 
 
 # Анкета. Profile
@@ -257,7 +267,7 @@ def form(message):
     elif position == 'enter_info':
         tech_info.set_position(message.chat.id, 'pickup_location')
         api_func.set_pickup_location(telegram_id=message.chat.id, pickup_location=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('store_name', language))
+        bot.send_message(message.chat.id, text=localization.return_translation('store_name', language), reply_markup=types.ReplyKeyboardRemove)
     elif position == 'pickup_location':
         tech_info.set_position(message.chat.id, 'store_name')
         api_func.set_store_name(telegram_id=message.chat.id, store_name=message.text)
@@ -266,14 +276,6 @@ def form(message):
         tech_info.set_position(message.chat.id, 'store_phone')
         api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
-    elif position == 'store_phone':
-        tech_info.set_position(message.chat.id, 'order_number')
-        api_func.set_order_number(telegram_id=message.chat.id, order_number=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('pickup_person', language))
-    elif position == 'order_number':
-        tech_info.set_position(message.chat.id, 'pickup_person')
-        api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('additional_info', language))
     elif position == 'pickup_person':
         tech_info.set_position(message.chat.id, 'additional_info')
         api_func.set_more_info(telegram_id=message.chat.id, more_info=message.text)
