@@ -72,7 +72,7 @@ def main(message):
                      reply_markup=types.ReplyKeyboardRemove())
 
 
-@bot.message_handler(func=lambda message: re.search(r'^[0-9]{5}$', message.text))
+@bot.message_handler(func=lambda message: re.search(r'^[0-9]$', message.text))
 def answer_on_digits(message):
     position = tech_info.return_position(message.chat.id)
     language = tech_info.return_language(message.chat.id)
