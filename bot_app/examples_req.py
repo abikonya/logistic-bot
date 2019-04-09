@@ -4,6 +4,7 @@ import json
 from bot_app import localization
 from vedis import Vedis
 from bot_app import tech_info
+from logistic_bot import settings
 
 # a = api_func.Api()
 #
@@ -32,4 +33,4 @@ print_localization('rules_button', 'ru')
 
 
 print(localization.return_all_translations('rules'))
-
+print(settings.BASE_DIR + r'\bot_app\localization.vdb')

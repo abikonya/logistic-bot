@@ -1,10 +1,15 @@
 import requests
 import json
 from vedis import Vedis
+import os
+
+
+base_dir = os.path.dirname(os.path.abspath(__file__))
+os.path.join(base_dir, 'accounts_info.vdb')
 
 
 def set_user_id(telegram_id, user_id):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['user_id'] = user_id
@@ -13,7 +18,7 @@ def set_user_id(telegram_id, user_id):
 
 
 def set_zipcode(telegram_id, zipcode):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['zipcode'] = zipcode
@@ -22,7 +27,7 @@ def set_zipcode(telegram_id, zipcode):
 
 
 def set_store_name(telegram_id, store_name):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['store_name'] = store_name
@@ -31,7 +36,7 @@ def set_store_name(telegram_id, store_name):
 
 
 def set_store_phone(telegram_id, store_phone):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['store_phone'] = store_phone
@@ -40,7 +45,7 @@ def set_store_phone(telegram_id, store_phone):
 
 
 def set_order_number(telegram_id, order_number):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['order_number'] = order_number
@@ -49,7 +54,7 @@ def set_order_number(telegram_id, order_number):
 
 
 def set_pickup_person(telegram_id, pickup_person):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['pickup_person'] = pickup_person
@@ -58,7 +63,7 @@ def set_pickup_person(telegram_id, pickup_person):
 
 
 def set_pickup_location(telegram_id, pickup_location):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['pickup_location'] = pickup_location
@@ -67,7 +72,7 @@ def set_pickup_location(telegram_id, pickup_location):
 
 
 def set_more_info(telegram_id, more_info):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, os.path.join(base_dir, 'accounts_info.vdb'))) as db:
         try:
             account = db.Hash(telegram_id)
             account['more_info'] = more_info
@@ -76,7 +81,7 @@ def set_more_info(telegram_id, more_info):
 
 
 def set_product_category(telegram_id, product_category):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['product_category'] = product_category
@@ -85,7 +90,7 @@ def set_product_category(telegram_id, product_category):
 
 
 def set_product_item(telegram_id, product_item):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['product_item'] = product_item
@@ -94,7 +99,7 @@ def set_product_item(telegram_id, product_item):
 
 
 def set_price(telegram_id, price):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['price'] = price
@@ -103,7 +108,7 @@ def set_price(telegram_id, price):
 
 
 def set_pack_id(telegram_id, pack_id):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['pack_id'] = pack_id
@@ -112,7 +117,7 @@ def set_pack_id(telegram_id, pack_id):
 
 
 def set_payout(telegram_id, payout):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['payout'] = payout
@@ -121,7 +126,7 @@ def set_payout(telegram_id, payout):
 
 
 def set_list_id(telegram_id, list_id):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             account['list_id'] = list_id
@@ -130,7 +135,7 @@ def set_list_id(telegram_id, list_id):
 
 
 def return_param(telegram_id, param):
-    with Vedis('accounts_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
             return account[param].decode('UTF-8')

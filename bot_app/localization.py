@@ -6,10 +6,15 @@ Translations file.
 
 
 from vedis import Vedis
+import os
+
+
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
 
 
 def add_translation(name, language, translation):
-    with Vedis('localization.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'localization.vdb')) as db:
         try:
             position = db.Hash(name)
             position[language] = translation
@@ -18,7 +23,7 @@ def add_translation(name, language, translation):
 
 
 def return_translation(name, language):
-    with Vedis('localization.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'localization.vdb')) as db:
         try:
             position = db.Hash(name)
             return position[language].decode('UTF-8')
@@ -27,7 +32,7 @@ def return_translation(name, language):
 
 
 def return_all_translations(name):
-    with Vedis('localization.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'localization.vdb')) as db:
         try:
             answer = []
             position = db.Hash(name)

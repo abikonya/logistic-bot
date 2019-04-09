@@ -6,10 +6,14 @@ Technical information file (language, position, offset and pages of answer).
 
 
 from vedis import Vedis
+import os
+
+
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
 
 def set_language(telegram_id, language):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'tech_info.vdb')) as db:
         try:
             user = db.Hash(telegram_id)
             user['language'] = language
@@ -18,7 +22,7 @@ def set_language(telegram_id, language):
 
 
 def return_language(telegram_id):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'tech_info.vdb')) as db:
         try:
             user = db.Hash(telegram_id)
             return user['language'].decode('UTF-8')
@@ -27,7 +31,7 @@ def return_language(telegram_id):
 
 
 def set_position(telegram_id, position):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'tech_info.vdb')) as db:
         try:
             user = db.Hash(telegram_id)
             user['position'] = position
@@ -36,7 +40,7 @@ def set_position(telegram_id, position):
 
 
 def return_position(telegram_id):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'tech_info.vdb')) as db:
         try:
             user = db.Hash(telegram_id)
             return user['position'].decode('UTF-8')
@@ -45,7 +49,7 @@ def return_position(telegram_id):
 
 
 def set_offset(telegram_id, offset):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'tech_info.vdb')) as db:
         try:
             user = db.Hash(telegram_id)
             user['offset'] = offset
@@ -54,7 +58,7 @@ def set_offset(telegram_id, offset):
 
 
 def return_offset(telegram_id):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'tech_info.vdb')) as db:
         try:
             user = db.Hash(telegram_id)
             return user['offset'].decode('UTF-8')
@@ -63,7 +67,7 @@ def return_offset(telegram_id):
 
 
 def set_pages(telegram_id, pages):
-    with Vedis('tech_info.vdb') as db:
+    with Vedis(os.path.join(base_dir, 'tech_info.vdb')) as db:
         try:
             user = db.Hash(telegram_id)
             user['pages'] = pages
@@ -71,8 +75,8 @@ def set_pages(telegram_id, pages):
             print(err)
 
 
-def return_pages( telegram_id):
-    with Vedis('tech_info.vdb') as db:
+def return_pages(telegram_id):
+    with Vedis(os.path.join(base_dir, 'tech_info.vdb')) as db:
         try:
             user = db.Hash(telegram_id)
             return user['pages'].decode('UTF-8')

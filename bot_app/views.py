@@ -1,10 +1,10 @@
 import telebot
 from telebot import types
 import re
-from . import config
-from . import localization
-from . import api_func
-from . import tech_info
+from bot_app import config
+from bot_app import localization
+from bot_app import api_func
+from bot_app import tech_info
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
