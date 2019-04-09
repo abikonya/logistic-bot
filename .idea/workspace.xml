@@ -66,10 +66,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3424">
-              <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="59">
+              <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,7 +78,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2926">
+            <state relative-caret-position="2983">
               <caret line="157" column="125" selection-start-line="157" selection-start-column="125" selection-end-line="157" selection-end-column="125" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -90,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1406">
-              <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+            <state relative-caret-position="76">
+              <caret line="99" column="14" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="14" />
               <folding>
                 <element signature="e#46#69#0" expanded="true" />
               </folding>
@@ -122,6 +122,7 @@
       <find>api_instance</find>
       <find>self</find>
       <find>int(</find>
+      <find>remove</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -396,21 +397,7 @@
       <workItem from="1554466671962" duration="813000" />
       <workItem from="1554631369810" duration="99000" />
       <workItem from="1554631606963" duration="47882000" />
-      <workItem from="1554803523893" duration="937000" />
-    </task>
-    <task id="LOCAL-00106" summary="testing">
-      <created>1554291999007</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1554291999007</updated>
-    </task>
-    <task id="LOCAL-00107" summary="testing">
-      <created>1554292470369</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1554292470369</updated>
+      <workItem from="1554803523893" duration="2701000" />
     </task>
     <task id="LOCAL-00108" summary="testing">
       <created>1554292983481</created>
@@ -741,11 +728,25 @@
       <option name="project" value="LOCAL" />
       <updated>1554789431978</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="Vedis support added. Code refactored">
+      <created>1554804617615</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1554804617615</updated>
+    </task>
+    <task id="LOCAL-00156" summary="Vedis support added. Code refactored">
+      <created>1554805318939</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1554805318940</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221313000" />
+    <option name="totallyTimeSpent" value="223077000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1026,19 +1027,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3424">
-          <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2926">
+        <state relative-caret-position="2983">
           <caret line="157" column="125" selection-start-line="157" selection-start-column="125" selection-end-line="157" selection-end-column="125" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -1048,10 +1039,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1406">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+        <state relative-caret-position="76">
+          <caret line="99" column="14" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="14" />
           <folding>
             <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
