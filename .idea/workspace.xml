@@ -65,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="97" column="37" lean-forward="true" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
+            <state relative-caret-position="323">
+              <caret line="110" column="55" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -393,21 +393,7 @@
       <workItem from="1554456352795" duration="4513000" />
       <workItem from="1554466671962" duration="813000" />
       <workItem from="1554631369810" duration="99000" />
-      <workItem from="1554631606963" duration="44373000" />
-    </task>
-    <task id="LOCAL-00096" summary="testing">
-      <created>1554035391005</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1554035391005</updated>
-    </task>
-    <task id="LOCAL-00097" summary="testing">
-      <created>1554036973828</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1554036973828</updated>
+      <workItem from="1554631606963" duration="44693000" />
     </task>
     <task id="LOCAL-00098" summary="testing">
       <created>1554037254118</created>
@@ -738,11 +724,25 @@
       <option name="project" value="LOCAL" />
       <updated>1554786299416</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Vedis support added. Code refactored">
+      <created>1554786605447</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1554786605447</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Vedis support added. Code refactored">
+      <created>1554786785627</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1554786785627</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216867000" />
+    <option name="totallyTimeSpent" value="217187000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1031,8 +1031,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="97" column="37" lean-forward="true" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
+        <state relative-caret-position="323">
+          <caret line="110" column="55" selection-start-line="110" selection-start-column="55" selection-end-line="110" selection-end-column="55" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
