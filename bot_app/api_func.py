@@ -166,7 +166,7 @@ def get_all(telegram_id, offset):
 
 def add_data(telegram_id):
     try:
-        request = requests.get('https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}'
+        url = ('https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}'
                                 '&store_phone={store_phone}&order_number={order_number}&pickup_person={pickup_person}'
                                 '&pickup_location={pickup_location}&more_information={more_info}'
                                 '&product_item={product_item}&product_price={price}'.format(user_id=return_param(telegram_id, 'user_id'),
@@ -179,6 +179,8 @@ def add_data(telegram_id):
                                                                                             more_info=return_param(telegram_id, 'more_info'),
                                                                                             product_item=return_param(telegram_id, 'product_item'),
                                                                                             price=return_param(telegram_id, 'price')))
+        print(url)
+        request = requests.get(url)
         return json.loads(request.text)
     except Exception as err:
         print(err)
