@@ -257,7 +257,7 @@ def form(message):
     elif position == 'enter_info':
         tech_info.set_position(message.chat.id, 'pickup_location')
         api_func.set_pickup_location(telegram_id=message.chat.id, pickup_location=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('store_name', language), reply_markup=types.ReplyKeyboardRemove)
+        bot.send_message(message.chat.id, text=localization.return_translation('store_name', language))
     elif position == 'pickup_location':
         tech_info.set_position(message.chat.id, 'store_name')
         api_func.set_store_name(telegram_id=message.chat.id, store_name=message.text)
