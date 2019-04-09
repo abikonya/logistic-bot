@@ -117,6 +117,7 @@ def answer_on_digits(message):
         api_func.set_order_number(telegram_id=message.chat.id, order_number=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('pickup_person', language))
     elif position == 'additional_info':
+        tech_info.set_position(message.chat.id, 'price')
         api_func.set_price(telegram_id=message.chat.id, price=message.text)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         button = types.KeyboardButton(text=localization.return_translation('send_button', language))
@@ -272,13 +273,7 @@ def form(message):
     elif position == 'pickup_person':
         tech_info.set_position(message.chat.id, 'additional_info')
         api_func.set_more_info(telegram_id=message.chat.id, more_info=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('product_name', language))
-    elif position == 'additional_info':
-        api_func.set_price(telegram_id=message.chat.id, price=message.text)
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        button = types.KeyboardButton(text=localization.return_translation('send_button', language))
-        keyboard.add(button)
-        bot.send_message(message.chat.id, text=localization.return_translation('all_is_done', language), reply_markup=keyboard)
+        bot.send_message(message.chat.id, text=localization.return_translation('price', language))
 
 
 @bot.message_handler(func=lambda message: message.text == '')

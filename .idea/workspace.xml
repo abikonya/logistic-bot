@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="" />
+    <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3334">
-              <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
+            <state relative-caret-position="572">
+              <caret line="124" column="127" selection-start-line="124" selection-start-column="127" selection-end-line="124" selection-end-column="127" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -394,14 +397,7 @@
       <workItem from="1554466671962" duration="813000" />
       <workItem from="1554631369810" duration="99000" />
       <workItem from="1554631606963" duration="47882000" />
-      <workItem from="1554803523893" duration="5055000" />
-    </task>
-    <task id="LOCAL-00113" summary="testing">
-      <created>1554296024076</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1554296024076</updated>
+      <workItem from="1554803523893" duration="5756000" />
     </task>
     <task id="LOCAL-00114" summary="testing">
       <created>1554296615821</created>
@@ -739,11 +735,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554808326796</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="Vedis support added. Code refactored">
+      <created>1554808737553</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1554808737553</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225431000" />
+    <option name="totallyTimeSpent" value="226132000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -837,17 +840,6 @@
     <MESSAGE value="testing" />
     <MESSAGE value="Vedis support added. Code refactored" />
     <option name="LAST_COMMIT_MESSAGE" value="Vedis support added. Code refactored" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bot_app/views.py</url>
-          <line>259</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/logistic_bot$localization.coverage" NAME="localization Coverage Results" MODIFIED="1554724530389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bot_app" />
@@ -1057,8 +1049,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3334">
-          <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
+        <state relative-caret-position="572">
+          <caret line="124" column="127" selection-start-line="124" selection-start-column="127" selection-end-line="124" selection-end-column="127" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
