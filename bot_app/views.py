@@ -153,7 +153,7 @@ def next_stuff_list(call):
     language = tech_info.return_language(call.message.chat.id)
     offset = tech_info.return_offset(call.message.chat.id)
     pages = tech_info.return_pages(call.message.chat.id)
-    if offset < pages:
+    if int(offset) < pages:
         offset = tech_info.set_offset(call.message.chat.id, int(offset) + 1)
     else:
         tech_info.set_offset(call.message.chat.id, 1)
@@ -181,7 +181,7 @@ def prev_stuff_list(call):
     language = tech_info.return_language(call.message.chat.id)
     offset = tech_info.return_offset(call.message.chat.id)
     pages = tech_info.return_pages(call.message.chat.id)
-    if offset > 1:
+    if int(offset) > 1:
         tech_info.set_offset(call.message.chat.id, int(offset) - 1)
     else:
         tech_info.set_offset(call.message.chat.id, pages)
