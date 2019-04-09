@@ -86,6 +86,7 @@ def zip_listing(message):
     api_func.set_user_id(telegram_id=message.chat.id, user_id='D87hd487ft4')
     api_func.set_zipcode(telegram_id=message.chat.id, zipcode=message.text)
     get_distance = api_func.get_distance(telegram_id=message.chat.id)
+    print(get_distance)
     if type(get_distance) == dict and get_distance['address']:
         couriers_list = sorted(get_distance['address'], key=api_func.sort_by_dist)
         keyboard = types.InlineKeyboardMarkup()
