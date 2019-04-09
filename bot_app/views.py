@@ -126,12 +126,12 @@ def call_data_answers(call):
 @bot.message_handler(func=lambda message: message.text in localization.return_all_translations('zip_list_button'))
 def show_stuff_list(message):
     tech_info.set_offset(message.chat.id, 1)
-    offset = tech_info.return_offset(message.chat.id)
+    offset = int(tech_info.return_offset(message.chat.id))
     language = tech_info.return_language(message.chat.id)
     tech_info.set_position(message.chat.id, 'stuff_list')
     get_stuff_list = api_func.get_all(telegram_id=message.chat.id, offset=offset)
     tech_info.set_pages(message.chat.id, int(get_stuff_list['pages']))
-    pages = tech_info.return_pages(message.chat.id)
+    pages = int(tech_info.return_pages(message.chat.id))
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
