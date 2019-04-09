@@ -86,7 +86,6 @@ def zip_listing(message):
     api_func.set_user_id(telegram_id=message.chat.id, user_id='D87hd487ft4')
     api_func.set_zipcode(telegram_id=message.chat.id, zipcode=message.text)
     get_distance = api_func.get_distance(telegram_id=message.chat.id)
-    print(get_distance)
     if type(get_distance) == dict and get_distance['address']:
         couriers_list = sorted(get_distance['address'], key=api_func.sort_by_dist)
         keyboard = types.InlineKeyboardMarkup()
@@ -103,9 +102,8 @@ def zip_listing(message):
 
 @bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data) or re.search(r'^[0-9]{4}$', call.data))
 def call_data_answers(call):
-    position = tech_info.return_language(call.message.chat.id)
-    print(position)
-    language = tech_info.return_position(call.message.chat.id)
+    position = tech_info.return_position(call.message.chat.id)
+    language = tech_info.return_language(call.message.chat.id)
     if position == 'zip_listing':
         api_func.set_zipcode(telegram_id=call.message.chat.id, zipcode=call.data)
         keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
