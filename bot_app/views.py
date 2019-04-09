@@ -104,6 +104,7 @@ def zip_listing(message):
 @bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data) or re.search(r'^[0-9]{4}$', call.data))
 def call_data_answers(call):
     position = tech_info.return_language(call.message.chat.id)
+    print(position)
     language = tech_info.return_position(call.message.chat.id)
     if position == 'zip_listing':
         api_func.set_zipcode(telegram_id=call.message.chat.id, zipcode=call.data)
