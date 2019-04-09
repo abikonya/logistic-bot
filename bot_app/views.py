@@ -277,11 +277,11 @@ def form(message):
     elif position == 'pickup_person':
         tech_info.set_position(message.chat.id, 'additional_info')
         api_func.set_more_info(telegram_id=message.chat.id, more_info=message.text)
-        bot.send_message(message.text.id, text=localization.return_translation('product_name', language))
+        bot.send_message(message.chat.id, text=localization.return_translation('product_name', language))
     elif position == 'additional_info':
         tech_info.set_position(message.chat.id, 'product_name')
         api_func.set_product_item(telegram_id=message.chat.id, product_item=message.text)
-        bot.send_message(message.text.id, text=localization.return_translation('price', language))
+        bot.send_message(message.chat.id, text=localization.return_translation('price', language))
     elif position == 'product_name':
         api_func.set_price(telegram_id=message.chat.id, price=message.text)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
