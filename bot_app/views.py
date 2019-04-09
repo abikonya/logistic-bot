@@ -243,8 +243,9 @@ def enter_info(message):
 def send_info(message):
     language = tech_info.return_language(message.chat.id)
     add_data = api_func.add_data(telegram_id=message.chat.id)
+    print(add_data)
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    button = types.ReplyKeyboardMarkup(localization.return_translation('success_button', language))
+    button = types.KeyboardButton(localization.return_translation('success_button', language))
     keyboard.add(button)
     bot.send_message(message.chat.id, text=localization.return_translation('success', language) + add_data['task_id'], reply_markup=keyboard)
 
