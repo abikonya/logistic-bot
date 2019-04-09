@@ -151,10 +151,10 @@ def show_stuff_list(message):
 @bot.callback_query_handler(func=lambda call: call.data == 'next')
 def next_stuff_list(call):
     language = tech_info.return_language(call.message.chat.id)
-    offset = tech_info.return_offset(call.message.chat.id)
-    pages = tech_info.return_pages(call.message.chat.id)
-    if int(offset) < pages:
-        offset = tech_info.set_offset(call.message.chat.id, int(offset) + 1)
+    offset = int(tech_info.return_offset(call.message.chat.id))
+    pages = int(tech_info.return_pages(call.message.chat.id))
+    if offset < pages:
+        offset = tech_info.set_offset(call.message.chat.id, offset + 1)
     else:
         tech_info.set_offset(call.message.chat.id, 1)
     get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
@@ -179,10 +179,10 @@ def next_stuff_list(call):
 @bot.callback_query_handler(func=lambda call: call.data == 'prev')
 def prev_stuff_list(call):
     language = tech_info.return_language(call.message.chat.id)
-    offset = tech_info.return_offset(call.message.chat.id)
-    pages = tech_info.return_pages(call.message.chat.id)
-    if int(offset) > 1:
-        tech_info.set_offset(call.message.chat.id, int(offset) - 1)
+    offset = int(tech_info.return_offset(call.message.chat.id))
+    pages = int(tech_info.return_pages(call.message.chat.id))
+    if offset > 1:
+        tech_info.set_offset(call.message.chat.id, offset - 1)
     else:
         tech_info.set_offset(call.message.chat.id, pages)
     get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
