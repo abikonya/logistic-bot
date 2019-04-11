@@ -239,8 +239,7 @@ def prev_stuff_list(call):
 def courier_approved(call):
     language = tech_info.return_language(call.message.chat.id)
     tech_info.set_position(call.message.chat.id, 'enter_info')
-    bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language),
-                     reply_markup=types.ReplyKeyboardRemove())
+    bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
     bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
 
 
