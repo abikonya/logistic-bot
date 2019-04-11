@@ -66,6 +66,8 @@ translations = [
     ['zip_list_button', 'ru', 'Посмотреть список товаров'],
     ['choose_category', 'en', 'Choose category of your product'],
     ['choose_category', 'ru', 'Выберите категорию Вашего товара'],
+    ['choose_item', 'ru', 'Выберите Ваш товар'],
+    ['choose_item', 'en', 'Choose your product'],
     ['chosen_zip_approve', 'en', 'Confirm'],
     ['chosen_zip_approve', 'ru', 'Принять'],
     ['chosen_zip_reset', 'en', 'Reset'],

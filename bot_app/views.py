@@ -138,6 +138,14 @@ def call_digit_answers(call):
                          text=localization.return_translation('zip_list', language).format(
                              api_func.return_param(telegram_id=call.message.chat.id, param='zipcode')),
                          reply_markup=keyboard)
+    elif position == 'choose_category':
+        api_func.set_product_category(telegram_id=call.message.chat.id, product_category=call.data)
+        keyboard = types.InlineKeyboardMarkup()
+        get_items = api_func.get_items(call.message.chat.id)
+        for each in get_items['items_list']:
+            button = types.InlineKeyboardButton(text='{}'.format(each['item_name']), callback_data=each['item_id'])
+            keyboard.add(button)
+        bot.send_message(call.message.chat.id, text=localization.return_translation('choose_item', language), reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text in localization.return_all_translations('zip_list_button'))
@@ -238,7 +246,7 @@ def prev_stuff_list(call):
 @bot.callback_query_handler(func=lambda call: call.data == 'confirm')
 def courier_approved(call):
     language = tech_info.return_language(call.message.chat.id)
-    tech_info.set_position(call.message.chat.id, 'enter_info')
+    tech_info.set_position(call.message.chat.id, 'choose_category')
     keyboard = types.InlineKeyboardMarkup()
     get_category = api_func.get_category(call.message.chat.id)
     for each in get_category['stuff_list']:
