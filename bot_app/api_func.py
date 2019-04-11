@@ -93,7 +93,7 @@ def set_product_item(telegram_id, product_item):
     with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
-            account['product_item'] = product_item
+            account['item_id'] = product_item
         except Exception as err:
             print(err)
 
@@ -166,19 +166,20 @@ def get_all(telegram_id, offset):
 
 def add_data(telegram_id):
     try:
-        url = ('https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}'
-                                '&store_phone={store_phone}&order_number={order_number}&pickup_person={pickup_person}'
-                                '&pickup_location={pickup_location}&more_information={more_info}'
-                                '&product_item={product_item}&product_price={price}'.format(user_id=return_param(telegram_id, 'user_id'),
-                                                                                            zipcode=return_param(telegram_id, 'zipcode'),
-                                                                                            store_name=return_param(telegram_id, 'store_name'),
-                                                                                            store_phone=return_param(telegram_id, 'store_phone'),
-                                                                                            order_number=return_param(telegram_id, 'order_number'),
-                                                                                            pickup_person=return_param(telegram_id, 'pickup_person'),
-                                                                                            pickup_location=return_param(telegram_id, 'pickup_location'),
-                                                                                            more_info=return_param(telegram_id, 'more_info'),
-                                                                                            product_item=return_param(telegram_id, 'product_item'),
-                                                                                            price=return_param(telegram_id, 'price')))
+        url = ('https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}&'
+               'store_phone={store_phone}&order_number={order_number}&pickup_person={pickup_person}&'
+               'pickup_location={pickup_location}&more_information={more_info}&product_category={product_category}&'
+               'product_item={product_item}&product_price={price}'.format(user_id=return_param(telegram_id, 'user_id'),
+                                                                          zipcode=return_param(telegram_id, 'zipcode'),
+                                                                          store_name=return_param(telegram_id, 'store_name'),
+                                                                          store_phone=return_param(telegram_id, 'store_phone'),
+                                                                          order_number=return_param(telegram_id, 'order_number'),
+                                                                          pickup_person=return_param(telegram_id, 'pickup_person'),
+                                                                          pickup_location=return_param(telegram_id, 'pickup_location'),
+                                                                          more_info=return_param(telegram_id, 'more_info'),
+                                                                          product_category=return_param(telegram_id, 'product_category'),
+                                                                          product_item=return_param(telegram_id, 'product_item'),
+                                                                          price=return_param(telegram_id, 'price')))
         print(url)
         request = requests.get(url)
         return json.loads(request.text)
@@ -201,7 +202,7 @@ def get_items(telegram_id):
         request = requests.get('https://strongbox.cc/?a=fnc.api.list.getitems&tuser={user_id}&zip={zipcode}&list_id={list_id}'.format(
             user_id=return_param(telegram_id, 'user_id'),
             zipcode=return_param(telegram_id, 'zipcode'),
-            list_id=return_param(telegram_id, 'list_id')))
+            list_id=return_param(telegram_id, 'product_category')))
         return json.loads(request.text)
     except Exception as err:
         print(err)
