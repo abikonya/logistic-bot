@@ -95,7 +95,7 @@ def answer_on_digits(message):
             bot.send_message(message.chat.id, text=localization.return_translation('server_error', language))
     if position == 'status':
         tech_info.set_position(message.chat.id, 'status_checker')
-        api_func.set_user_id(telegram_id=message.chat.id, user_id=message.chat.id)
+        api_func.set_user_id(telegram_id=message.chat.id, user_id='D87hd487ft4')
         get_status = api_func.get_status(telegram_id=message.chat.id)
         if type(get_status) == dict and get_status['package_list']:
             for each in get_status['package_list']:
