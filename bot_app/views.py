@@ -108,10 +108,12 @@ def answer_on_digits(message):
                         keyboard.add(button)
                         bot.send_message(message.chat.id, text=localization.return_translation('enter_requisites', language),
                                          reply_markup=keyboard)
+        else:
+            bot.send_message(message.chat.id, text='Нет такого заказа')
     elif position == 'store_name':
         tech_info.set_position(message.chat.id, 'store_phone')
         api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
+        bot.send_message(message.chat.id, text=localization.return_translation('order_number', language), reply_markup=types.ReplyKeyboardRemove())
     elif position == 'store_phone':
         tech_info.set_position(message.chat.id, 'order_number')
         api_func.set_order_number(telegram_id=message.chat.id, order_number=message.text)
@@ -312,7 +314,7 @@ def form(message):
     elif position == 'store_name':
         tech_info.set_position(message.chat.id, 'store_phone')
         api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
+        bot.send_message(message.chat.id, text=localization.return_translation('order_number', language), reply_markup=types.ReplyKeyboardRemove())
     elif position == 'order_number':
         tech_info.set_position(message.chat.id, 'pickup_person')
         api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
@@ -324,10 +326,10 @@ def form(message):
         tech_info.set_position(message.chat.id, 'additional_info')
         if message.text in localization.return_all_translations('skip'):
             api_func.set_more_info(telegram_id=message.chat.id, more_info='')
-            bot.send_message(message.chat.id, text=localization.return_translation('price', language))
+            bot.send_message(message.chat.id, text=localization.return_translation('price', language), reply_markup=types.ReplyKeyboardRemove())
         else:
             api_func.set_more_info(telegram_id=message.chat.id, more_info=message.text)
-            bot.send_message(message.chat.id, text=localization.return_translation('price', language))
+            bot.send_message(message.chat.id, text=localization.return_translation('price', language), reply_markup=types.ReplyKeyboardRemove())
 
 
 @bot.message_handler(func=lambda message: message.text == '')
