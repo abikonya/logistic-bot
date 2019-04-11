@@ -235,7 +235,7 @@ def prev_stuff_list(call):
         bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
 
 
-@bot.callback_query_handler(func=lambda call: call.data in localization.return_all_translations('chosen_zip_approve'))
+@bot.callback_query_handler(func=lambda call: call.data == 'confirm')
 def courier_approved(call):
     language = tech_info.return_language(call.message.chat.id)
     tech_info.set_position(call.message.chat.id, 'enter_info')
@@ -243,7 +243,7 @@ def courier_approved(call):
     bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
 
 
-@bot.callback_query_handler(func=lambda call: call.data in localization.return_all_translations('chosen_zip_reset'))
+@bot.callback_query_handler(func=lambda call: call.data == 'reset')
 def courier_reset(call):
     language = tech_info.return_language(call.message.chat.id)
     tech_info.set_position(call.message.chat.id, 'zip_listing')
