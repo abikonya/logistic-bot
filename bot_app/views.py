@@ -99,7 +99,8 @@ def answer_on_digits(message):
         get_status = api_func.get_status(telegram_id=message.chat.id)
         if type(get_status) == dict and get_status['package_list']:
             for each in get_status['package_list']:
-                if each['pack_id'] == message.text:
+                pack_id = int(each['pack_id'])
+                if pack_id == message.text:
                     bot.send_message(message.chat.id, text=localization.return_translation('status', language) + each['pack_id'])
                     if each['status'] == 'Conﬁrm':
                         api_func.set_pack_id(telegram_id=message.chat.id, pack_id=each['pack_id'])
