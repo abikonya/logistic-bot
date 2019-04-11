@@ -93,7 +93,7 @@ def set_product_item(telegram_id, product_item):
     with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:
             account = db.Hash(telegram_id)
-            account['item_id'] = product_item
+            account['product_item'] = product_item
         except Exception as err:
             print(err)
 

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_app/api_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/api_func.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="141" column="25" selection-start-line="141" selection-start-column="25" selection-end-line="141" selection-end-column="25" />
+            <state relative-caret-position="1050">
+              <caret line="300" column="4" selection-start-line="300" selection-start-column="4" selection-end-line="303" selection-end-column="103" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -77,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="185" column="28" lean-forward="true" selection-start-line="185" selection-start-column="28" selection-end-line="185" selection-end-column="28" />
+            <state relative-caret-position="248">
+              <caret line="95" column="33" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -89,7 +91,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
+            <state relative-caret-position="275">
               <caret line="68" column="17" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="17" />
               <folding>
                 <element signature="e#46#69#0" expanded="true" />
@@ -125,6 +127,7 @@
       <find>choo</find>
       <find>call.data</find>
       <find>list_id</find>
+      <find>enter_info</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,8 +152,8 @@
         <option value="$PROJECT_DIR$/bot_app/examples_req.py" />
         <option value="$PROJECT_DIR$/bot_app/tech_info.py" />
         <option value="$PROJECT_DIR$/bot_app/localization.py" />
-        <option value="$PROJECT_DIR$/bot_app/views.py" />
         <option value="$PROJECT_DIR$/bot_app/api_func.py" />
+        <option value="$PROJECT_DIR$/bot_app/views.py" />
       </list>
     </option>
   </component>
@@ -400,28 +403,7 @@
       <workItem from="1554631369810" duration="99000" />
       <workItem from="1554631606963" duration="47882000" />
       <workItem from="1554803523893" duration="7162000" />
-      <workItem from="1554906414352" duration="9266000" />
-    </task>
-    <task id="LOCAL-00129" summary="Vedis support added. Code refactored">
-      <created>1554725068488</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1554725068488</updated>
-    </task>
-    <task id="LOCAL-00130" summary="Vedis support added. Code refactored">
-      <created>1554725112631</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1554725112631</updated>
-    </task>
-    <task id="LOCAL-00131" summary="Vedis support added. Code refactored">
-      <created>1554726212045</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1554726212045</updated>
+      <workItem from="1554906414352" duration="10234000" />
     </task>
     <task id="LOCAL-00132" summary="Vedis support added. Code refactored">
       <created>1554726691294</created>
@@ -745,11 +727,32 @@
       <option name="project" value="LOCAL" />
       <updated>1554963092616</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="Vedis support added. Code refactored">
+      <created>1554964028318</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1554964028318</updated>
+    </task>
+    <task id="LOCAL-00179" summary="Vedis support added. Code refactored">
+      <created>1554964258901</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1554964258902</updated>
+    </task>
+    <task id="LOCAL-00180" summary="Vedis support added. Code refactored">
+      <created>1554964558052</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1554964558052</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236804000" />
+    <option name="totallyTimeSpent" value="237772000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -849,7 +852,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot_app/views.py</url>
-          <line>256</line>
+          <line>260</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -1046,7 +1049,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
+        <state relative-caret-position="275">
           <caret line="68" column="17" selection-start-line="68" selection-start-column="6" selection-end-line="68" selection-end-column="17" />
           <folding>
             <element signature="e#46#69#0" expanded="true" />
@@ -1056,8 +1059,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="185" column="28" lean-forward="true" selection-start-line="185" selection-start-column="28" selection-end-line="185" selection-end-column="28" />
+        <state relative-caret-position="248">
+          <caret line="95" column="33" selection-start-line="95" selection-start-column="33" selection-end-line="95" selection-end-column="33" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -1066,8 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="141" column="25" selection-start-line="141" selection-start-column="25" selection-end-line="141" selection-end-column="25" />
+        <state relative-caret-position="1050">
+          <caret line="300" column="4" selection-start-line="300" selection-start-column="4" selection-end-line="303" selection-end-column="103" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

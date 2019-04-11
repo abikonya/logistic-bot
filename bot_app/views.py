@@ -142,10 +142,16 @@ def call_digit_answers(call):
         api_func.set_product_category(telegram_id=call.message.chat.id, product_category=call.data)
         keyboard = types.InlineKeyboardMarkup()
         get_items = api_func.get_items(call.message.chat.id)
+        tech_info.set_position(call.message.chat.id, 'choose_item')
         for each in get_items['items_list']:
             button = types.InlineKeyboardButton(text='{}'.format(each['item_name']), callback_data=each['item_id'])
             keyboard.add(button)
         bot.send_message(call.message.chat.id, text=localization.return_translation('choose_item', language), reply_markup=keyboard)
+    elif position == 'choose_item':
+        api_func.set_product_item(call.message.chat.id, call.data)
+        tech_info.set_position(call.message.chat.id, 'enter_info')
+        bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
+        bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
 
 
 @bot.message_handler(func=lambda message: message.text in localization.return_all_translations('zip_list_button'))
@@ -253,8 +259,6 @@ def courier_approved(call):
         button = types.InlineKeyboardButton(text='{}'.format(each['list_name']), callback_data=each['list_id'])
         keyboard.add(button)
     bot.send_message(call.message.chat.id, text=localization.return_translation('choose_category', language), reply_markup=keyboard)
-    # bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
-    # bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'reset')
