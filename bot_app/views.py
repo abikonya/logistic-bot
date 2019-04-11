@@ -162,13 +162,15 @@ def show_stuff_list(message):
         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
         button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
-        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language))
-        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language))
+        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language),
+                                                    callback_data='confirm')
+        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language),
+                                                  callback_data='reset')
+        keyboard.add(button_prev, button_page, button_next)
+        keyboard.add(button_confirm, button_reset)
         text = str()
         for each in get_stuff_list['stuff_list']:
             text += '{}\n'.format(each['stuff_name'])
-        keyboard.add(button_prev, button_page, button_next)
-        keyboard.add(button_confirm, button_reset)
         bot.send_message(message.chat.id, text='Товар принимаемый курьером:\n', reply_markup=types.ReplyKeyboardRemove())
         bot.send_message(message.chat.id, text=text, reply_markup=keyboard, disable_web_page_preview=True)
     elif type(get_stuff_list) != dict:
@@ -190,13 +192,15 @@ def next_stuff_list(call):
         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
         button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
-        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language))
-        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language))
+        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language),
+                                                    callback_data='confirm')
+        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language),
+                                                  callback_data='reset')
+        keyboard.add(button_prev, button_page, button_next)
+        keyboard.add(button_confirm, button_reset)
         text = str()
         for each in get_stuff_list['stuff_list']:
             text += '{}\n'.format(each['stuff_name'])
-        keyboard.add(button_prev, button_page, button_next)
-        keyboard.add(button_confirm, button_reset)
         bot.edit_message_text(text=text,
                               chat_id=call.message.chat.id,
                               message_id=call.message.message_id,
@@ -221,13 +225,15 @@ def prev_stuff_list(call):
         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
         button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
-        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language))
-        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language))
+        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language),
+                                                    callback_data='confirm')
+        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language),
+                                                  callback_data='reset')
+        keyboard.add(button_prev, button_page, button_next)
+        keyboard.add(button_confirm, button_reset)
         text = str()
         for each in get_stuff_list['stuff_list']:
             text += '{}\n'.format(each['stuff_name'])
-        keyboard.add(button_prev, button_page, button_next)
-        keyboard.add(button_confirm, button_reset)
         bot.edit_message_text(text=text,
                               chat_id=call.message.chat.id,
                               message_id=call.message.message_id,
