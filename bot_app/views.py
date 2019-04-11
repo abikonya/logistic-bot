@@ -110,8 +110,12 @@ def answer_on_digits(message):
                                          reply_markup=keyboard)
     elif position == 'store_name':
         tech_info.set_position(message.chat.id, 'store_phone')
-        api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
+        if message.text in localization.return_all_translations('skip'):
+            api_func.set_store_phone(telegram_id=message.chat.id, store_phone='')
+            bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
+        else:
+            api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
+            bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
     elif position == 'store_phone':
         tech_info.set_position(message.chat.id, 'order_number')
         api_func.set_order_number(telegram_id=message.chat.id, order_number=message.text)
@@ -305,15 +309,25 @@ def form(message):
     elif position == 'pickup_location':
         tech_info.set_position(message.chat.id, 'store_name')
         api_func.set_store_name(telegram_id=message.chat.id, store_name=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('store_phone', language))
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        button = types.KeyboardButton(localization.return_translation('skip', language))
+        keyboard.add(button)
+        bot.send_message(message.chat.id, text=localization.return_translation('store_phone', language), reply_markup=keyboard)
     elif position == 'order_number':
         tech_info.set_position(message.chat.id, 'pickup_person')
         api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('additional_info', language))
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        button = types.KeyboardButton(localization.return_translation('skip', language))
+        keyboard.add(button)
+        bot.send_message(message.chat.id, text=localization.return_translation('additional_info', language), reply_markup=keyboard)
     elif position == 'pickup_person':
         tech_info.set_position(message.chat.id, 'additional_info')
-        api_func.set_more_info(telegram_id=message.chat.id, more_info=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('price', language))
+        if message.text in localization.return_all_translations('skip'):
+            api_func.set_more_info(telegram_id=message.chat.id, more_info='')
+            bot.send_message(message.chat.id, text=localization.return_translation('price', language))
+        else:
+            api_func.set_more_info(telegram_id=message.chat.id, more_info=message.text)
+            bot.send_message(message.chat.id, text=localization.return_translation('price', language))
 
 
 @bot.message_handler(func=lambda message: message.text == '')

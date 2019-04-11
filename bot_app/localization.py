@@ -67,6 +67,8 @@ translations = [
     ['choose_category', 'en', 'Choose category of your product'],
     ['choose_category', 'ru', 'Выберите категорию Вашего товара'],
     ['choose_item', 'ru', 'Выберите Ваш товар'],
+    ['skip', 'en', 'Skip'],
+    ['skip', 'ru', 'Пропустить'],
     ['choose_item', 'en', 'Choose your product'],
     ['chosen_zip_approve', 'en', 'Confirm'],
     ['chosen_zip_approve', 'ru', 'Принять'],
