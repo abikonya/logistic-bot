@@ -160,74 +160,72 @@ def show_stuff_list(message):
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
+        button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
+        text = str()
         for each in get_stuff_list['stuff_list']:
-            button = types.InlineKeyboardButton(
-                text='{} {}'.format(each['id'], each['stuff_name']), callback_data=each['id'])
-            keyboard.add(button)
-        keyboard.add(button_prev, button_next)
-        bot.send_message(message.chat.id, text='Выберите товар, который хотите отправить.\n '
-                                               'Товар принимаемый курьером:\n стр {} из {}'.format(offset, pages),
-                         reply_markup=keyboard)
+            text = '{}\n'.format(each['stuff_name'])
+        keyboard.add(button_prev, button_page, button_next)
+        bot.send_message(message.chat.id, text='Товар принимаемый курьером:\n' + text, reply_markup=keyboard)
     elif type(get_stuff_list) != dict:
         bot.send_message(message.chat.id, localization.return_translation('server_error', language))
-
-
-@bot.callback_query_handler(func=lambda call: call.data == 'next')
-def next_stuff_list(call):
-    language = tech_info.return_language(call.message.chat.id)
-    offset = int(tech_info.return_offset(call.message.chat.id))
-    pages = int(tech_info.return_pages(call.message.chat.id))
-    if offset < pages:
-        tech_info.set_offset(call.message.chat.id, offset + 1)
-    else:
-        tech_info.set_offset(call.message.chat.id, 1)
-    get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
-    if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
-        keyboard = types.InlineKeyboardMarkup()
-        button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
-        button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
-        for each in get_stuff_list['stuff_list']:
-            button = types.InlineKeyboardButton(
-                text='{} {}'.format(each['id'], each['stuff_name']), callback_data=each['id'])
-            keyboard.add(button)
-        keyboard.add(button_prev, button_next)
-        bot.edit_message_text(text='Выберите товар, который хотите отправить.\n '
-                                   'Товар принимаемый курьером:\n стр {} из {}'.format(offset, pages),
-                              chat_id=call.message.chat.id,
-                              message_id=call.message.message_id,
-                              reply_markup=keyboard)
-    elif type(get_stuff_list) != dict:
-        bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
-
-
-@bot.callback_query_handler(func=lambda call: call.data == 'prev')
-def prev_stuff_list(call):
-    language = tech_info.return_language(call.message.chat.id)
-    offset = int(tech_info.return_offset(call.message.chat.id))
-    pages = int(tech_info.return_pages(call.message.chat.id))
-    if offset > 1:
-        tech_info.set_offset(call.message.chat.id, offset - 1)
-    else:
-        tech_info.set_offset(call.message.chat.id, pages)
-    get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
-    if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
-        keyboard = types.InlineKeyboardMarkup()
-        button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
-        button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
-        for each in get_stuff_list['stuff_list']:
-            button = types.InlineKeyboardButton(
-                text='{} {}'.format(each['id'], each['stuff_name']), callback_data=each['id'])
-            keyboard.add(button)
-        keyboard.add(button_prev, button_next)
-        bot.edit_message_text(text='Выберите товар, который хотите отправить.\n '
-                                   'Товар принимаемый курьером:\n стр {} из {}'.format(offset, pages),
-                              chat_id=call.message.chat.id,
-                              message_id=call.message.message_id,
-                              reply_markup=keyboard)
-        bot.answer_callback_query(callback_query_id='prev')
-    elif type(get_stuff_list) != dict:
-        bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
+#
+#
+# @bot.callback_query_handler(func=lambda call: call.data == 'next')
+# def next_stuff_list(call):
+#     language = tech_info.return_language(call.message.chat.id)
+#     offset = int(tech_info.return_offset(call.message.chat.id))
+#     pages = int(tech_info.return_pages(call.message.chat.id))
+#     if offset < pages:
+#         tech_info.set_offset(call.message.chat.id, offset + 1)
+#     else:
+#         tech_info.set_offset(call.message.chat.id, 1)
+#     get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
+#     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
+#         keyboard = types.InlineKeyboardMarkup()
+#         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
+#         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
+#         for each in get_stuff_list['stuff_list']:
+#             button = types.InlineKeyboardButton(
+#                 text='{} {}'.format(each['id'], each['stuff_name']), callback_data=each['id'])
+#             keyboard.add(button)
+#         keyboard.add(button_prev, button_next)
+#         bot.edit_message_text(text='Выберите товар, который хотите отправить.\n '
+#                                    'Товар принимаемый курьером:\n стр {} из {}'.format(offset, pages),
+#                               chat_id=call.message.chat.id,
+#                               message_id=call.message.message_id,
+#                               reply_markup=keyboard)
+#     elif type(get_stuff_list) != dict:
+#         bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
+#
+#
+# @bot.callback_query_handler(func=lambda call: call.data == 'prev')
+# def prev_stuff_list(call):
+#     language = tech_info.return_language(call.message.chat.id)
+#     offset = int(tech_info.return_offset(call.message.chat.id))
+#     pages = int(tech_info.return_pages(call.message.chat.id))
+#     if offset > 1:
+#         tech_info.set_offset(call.message.chat.id, offset - 1)
+#     else:
+#         tech_info.set_offset(call.message.chat.id, pages)
+#     get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
+#     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
+#         keyboard = types.InlineKeyboardMarkup()
+#         button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
+#         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
+#         for each in get_stuff_list['stuff_list']:
+#             button = types.InlineKeyboardButton(
+#                 text='{} {}'.format(each['id'], each['stuff_name']), callback_data=each['id'])
+#             keyboard.add(button)
+#         keyboard.add(button_prev, button_next)
+#         bot.edit_message_text(text='Выберите товар, который хотите отправить.\n '
+#                                    'Товар принимаемый курьером:\n стр {} из {}'.format(offset, pages),
+#                               chat_id=call.message.chat.id,
+#                               message_id=call.message.message_id,
+#                               reply_markup=keyboard)
+#         bot.answer_callback_query(callback_query_id='prev')
+#     elif type(get_stuff_list) != dict:
+#         bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
 
 
 @bot.message_handler(func=lambda message: message.text == 'Принять')
