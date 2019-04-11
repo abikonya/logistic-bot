@@ -242,7 +242,7 @@ def courier_approved(call):
     keyboard = types.InlineKeyboardMarkup()
     get_category = api_func.get_category(call.message.chat.id)
     for each in get_category['stuff_list']:
-        button = types.InlineKeyboardButton(text='{}'.format(each['list_name']))
+        button = types.InlineKeyboardButton(text='{}'.format(each['list_name']), callback_data=each['list_id'])
         keyboard.add(button)
     bot.send_message(call.message.chat.id, text=localization.return_translation('choose_category', language), reply_markup=keyboard)
     # bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
