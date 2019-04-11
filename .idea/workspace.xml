@@ -67,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
-              <caret line="169" column="38" lean-forward="true" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
+              <caret line="221" column="35" selection-start-line="221" selection-start-column="35" selection-end-line="221" selection-end-column="35" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -398,28 +398,7 @@
       <workItem from="1554631369810" duration="99000" />
       <workItem from="1554631606963" duration="47882000" />
       <workItem from="1554803523893" duration="7162000" />
-      <workItem from="1554906414352" duration="2055000" />
-    </task>
-    <task id="LOCAL-00117" summary="testing">
-      <created>1554297624787</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1554297624787</updated>
-    </task>
-    <task id="LOCAL-00118" summary="testing">
-      <created>1554298183986</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1554298183986</updated>
-    </task>
-    <task id="LOCAL-00119" summary="testing">
-      <created>1554298817347</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1554298817347</updated>
+      <workItem from="1554906414352" duration="2815000" />
     </task>
     <task id="LOCAL-00120" summary="testing">
       <created>1554299095679</created>
@@ -743,11 +722,32 @@
       <option name="project" value="LOCAL" />
       <updated>1554810027840</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="Vedis support added. Code refactored">
+      <created>1554953954185</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1554953954187</updated>
+    </task>
+    <task id="LOCAL-00167" summary="Vedis support added. Code refactored">
+      <created>1554954142019</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1554954142019</updated>
+    </task>
+    <task id="LOCAL-00168" summary="Vedis support added. Code refactored">
+      <created>1554954375061</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1554954375061</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229593000" />
+    <option name="totallyTimeSpent" value="230353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1048,10 +1048,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/logistic_bot/gunicorn.conf.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
-          <caret line="169" column="38" lean-forward="true" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
+          <caret line="221" column="35" selection-start-line="221" selection-start-column="35" selection-end-line="221" selection-end-column="35" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

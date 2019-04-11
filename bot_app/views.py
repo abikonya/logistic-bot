@@ -166,7 +166,8 @@ def show_stuff_list(message):
         for each in get_stuff_list['stuff_list']:
             text += '{}\n'.format(each['stuff_name'])
         keyboard.add(button_prev, button_page, button_next)
-        bot.send_message(message.chat.id, text='Товар принимаемый курьером:\n' + text, reply_markup=keyboard, disable_web_page_preview=True)
+        bot.send_message(message.chat.id, text='Товар принимаемый курьером:\n', reply_markup=types.ReplyKeyboardRemove())
+        bot.send_message(message.chat.id, text=text, reply_markup=keyboard, disable_web_page_preview=True)
     elif type(get_stuff_list) != dict:
         bot.send_message(message.chat.id, localization.return_translation('server_error', language))
 
@@ -190,7 +191,7 @@ def next_stuff_list(call):
         for each in get_stuff_list['stuff_list']:
             text += '{}\n'.format(each['stuff_name'])
         keyboard.add(button_prev, button_page, button_next)
-        bot.edit_message_text(text='Товар принимаемый курьером:\n' + text,
+        bot.edit_message_text(text=text,
                               chat_id=call.message.chat.id,
                               message_id=call.message.message_id,
                               reply_markup=keyboard,
@@ -218,7 +219,7 @@ def prev_stuff_list(call):
         for each in get_stuff_list['stuff_list']:
             text += '{}\n'.format(each['stuff_name'])
         keyboard.add(button_prev, button_page, button_next)
-        bot.edit_message_text(text='Товар принимаемый курьером:\n' + text,
+        bot.edit_message_text(text=text,
                               chat_id=call.message.chat.id,
                               message_id=call.message.message_id,
                               reply_markup=keyboard,
