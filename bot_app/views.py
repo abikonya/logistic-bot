@@ -164,9 +164,9 @@ def show_stuff_list(message):
         button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
         text = str()
         for each in get_stuff_list['stuff_list']:
-            text = '{}\n'.format(each['stuff_name'])
+            text += '{}\n'.format(each['stuff_name'])
         keyboard.add(button_prev, button_page, button_next)
-        bot.send_message(message.chat.id, text='Товар принимаемый курьером:\n' + text, reply_markup=keyboard)
+        bot.send_message(message.chat.id, text='Товар принимаемый курьером:\n' + text, reply_markup=keyboard, disable_web_page_preview=True)
     elif type(get_stuff_list) != dict:
         bot.send_message(message.chat.id, localization.return_translation('server_error', language))
 #
