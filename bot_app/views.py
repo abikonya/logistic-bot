@@ -103,12 +103,17 @@ def answer_on_digits(message):
                 if pack_id == message.text:
                     bot.send_message(message.chat.id, text=localization.return_translation('status', language) + each['pack_id'])
                     if each['status'] == 'Conﬁrm':
+                        bot.send_message(message.chat.id, text=localization.return_translation('status_confirm', language))
                         api_func.set_pack_id(telegram_id=message.chat.id, pack_id=each['pack_id'])
                         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
                         button = types.KeyboardButton(text=localization.return_translation('enter_requisites_button', language))
                         keyboard.add(button)
                         bot.send_message(message.chat.id, text=localization.return_translation('enter_requisites', language),
                                          reply_markup=keyboard)
+                    elif each['status'] == 'Process':
+                        bot.send_message(message.chat.id, text=localization.return_translation('status_process', language))
+                    elif each['status'] == 'Rejected':
+                        bot.send_message(message.chat.id, text=localization.return_translation('status_cancel', language))
         else:
             bot.send_message(message.chat.id, text='Нет такого заказа')
     elif position == 'store_name':
