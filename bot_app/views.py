@@ -239,8 +239,14 @@ def prev_stuff_list(call):
 def courier_approved(call):
     language = tech_info.return_language(call.message.chat.id)
     tech_info.set_position(call.message.chat.id, 'enter_info')
-    bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
-    bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
+    keyboard = types.InlineKeyboardMarkup()
+    get_category = api_func.get_category(call.message.chat.id)
+    for each in get_category['stuff_list']:
+        button = types.InlineKeyboardButton(text='{}'.format(each['list_name']))
+        keyboard.add(button)
+    bot.send_message(call.message.chat.id, text=localization.return_translation('choose_category', language), reply_markup=keyboard)
+    # bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
+    # bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'reset')
