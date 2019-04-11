@@ -125,8 +125,8 @@ def answer_on_digits(message):
         bot.send_message(message.chat.id, text=localization.return_translation('all_is_done', language), reply_markup=keyboard)
 
 
-@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data) or re.search(r'^[0-9]{4}$', call.data))
-def call_data_answers(call):
+@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]{5}$', call.data))
+def call_digit_answers(call):
     position = tech_info.return_position(call.message.chat.id)
     language = tech_info.return_language(call.message.chat.id)
     if position == 'zip_listing':
@@ -137,14 +137,6 @@ def call_data_answers(call):
         bot.send_message(call.message.chat.id,
                          text=localization.return_translation('zip_list', language).format(
                              api_func.return_param(telegram_id=call.message.chat.id, param='zipcode')),
-                         reply_markup=keyboard)
-    elif position == 'stuff_list':
-        api_func.set_product_item(telegram_id=call.message.chat.id, product_item=call.data)
-        keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-        button_confirm = types.KeyboardButton(text=localization.return_translation('chosen_zip_approve', language))
-        button_reset = types.KeyboardButton(text=localization.return_translation('chosen_zip_reset', language))
-        keyboard.add(button_confirm, button_reset)
-        bot.send_message(call.message.chat.id, text='Вы выбрали {}'.format(api_func.return_param(telegram_id=call.message.chat.id, param='product_item')),
                          reply_markup=keyboard)
 
 
@@ -243,13 +235,30 @@ def prev_stuff_list(call):
         bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
 
 
-@bot.message_handler(func=lambda message: message.text == 'Принять')
-def enter_info(message):
-    language = tech_info.return_language(message.chat.id)
-    tech_info.set_position(message.chat.id, 'enter_info')
-    bot.send_message(message.chat.id, text=localization.return_translation('about_cargo', language),
+@bot.callback_query_handler(func=lambda call: call.data in localization.return_all_translations('chosen_zip_approve'))
+def courier_approved(call):
+    language = tech_info.return_language(call.message.chat.id)
+    tech_info.set_position(call.message.chat.id, 'enter_info')
+    bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language),
                      reply_markup=types.ReplyKeyboardRemove())
-    bot.send_message(message.chat.id, text=localization.return_translation('pickup_location', language))
+    bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
+
+
+@bot.callback_query_handler(func=lambda call: call.data in localization.return_all_translations('chosen_zip_reset'))
+def courier_reset(call):
+    language = tech_info.return_language(call.message.chat.id)
+    tech_info.set_position(call.message.chat.id, 'zip_listing')
+    get_distance = api_func.get_distance(telegram_id=call.message.chat.id)
+    if type(get_distance) == dict and get_distance['address']:
+        couriers_list = sorted(get_distance['address'], key=api_func.sort_by_dist)
+        keyboard = types.InlineKeyboardMarkup()
+        for each in couriers_list:
+            button = types.InlineKeyboardButton(
+                text='{} {} {}'.format(each['zip'], each['distance'].replace("'", ''), each['name']),
+                callback_data=each['zip'])
+            keyboard.add(button)
+        bot.send_message(call.message.chat.id, text=localization.return_translation('zip_list_choose', language),
+                         reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text == 'Отправить')
