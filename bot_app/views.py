@@ -125,7 +125,7 @@ def answer_on_digits(message):
         bot.send_message(message.chat.id, text=localization.return_translation('all_is_done', language), reply_markup=keyboard)
 
 
-@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]$', call.data))
+@bot.callback_query_handler(func=lambda call: re.search(r'^[0-9]+$', call.data))
 def call_digit_answers(call):
     position = tech_info.return_position(call.message.chat.id)
     language = tech_info.return_language(call.message.chat.id)
