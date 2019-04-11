@@ -110,12 +110,8 @@ def answer_on_digits(message):
                                          reply_markup=keyboard)
     elif position == 'store_name':
         tech_info.set_position(message.chat.id, 'store_phone')
-        if message.text in localization.return_all_translations('skip'):
-            api_func.set_store_phone(telegram_id=message.chat.id, store_phone='')
-            bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
-        else:
-            api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
-            bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
+        api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
+        bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
     elif position == 'store_phone':
         tech_info.set_position(message.chat.id, 'order_number')
         api_func.set_order_number(telegram_id=message.chat.id, order_number=message.text)
@@ -313,6 +309,10 @@ def form(message):
         button = types.KeyboardButton(localization.return_translation('skip', language))
         keyboard.add(button)
         bot.send_message(message.chat.id, text=localization.return_translation('store_phone', language), reply_markup=keyboard)
+    elif position == 'store_name':
+        tech_info.set_position(message.chat.id, 'store_phone')
+        api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
+        bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
     elif position == 'order_number':
         tech_info.set_position(message.chat.id, 'pickup_person')
         api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
