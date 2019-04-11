@@ -129,7 +129,7 @@ def update_translations(list_of_translations):
         add_translation(name=each[0], language=each[1], translation=each[2])
         count += 1
 
-    print('Done. Added or update {} translations'.format(count))
+    print('Done. Added or updated {} translations'.format(count))
 
 
 if __name__ == '__main__':
