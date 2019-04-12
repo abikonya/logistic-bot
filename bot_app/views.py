@@ -108,8 +108,7 @@ def answer_on_digits(message):
                         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
                         button = types.KeyboardButton(text=localization.return_translation('enter_requisites_button', language))
                         keyboard.add(button)
-                        bot.send_message(message.chat.id, text=localization.return_translation('enter_requisites', language),
-                                         reply_markup=keyboard)
+                        bot.send_message(message.chat.id, text=localization.return_translation('enter_requisites', language))
                     elif each['status'] == 'Process':
                         bot.send_message(message.chat.id, text=localization.return_translation('status_process', language))
                     elif each['status'] == 'Rejected':
@@ -306,8 +305,7 @@ def form(message):
     position = tech_info.return_position(message.chat.id)
     if position == 'status_checker':
         api_func.set_payout(telegram_id=message.chat.id, payout=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('paid_status', language),
-                         reply_markup=types.ReplyKeyboardRemove())
+        bot.send_message(message.chat.id, text=localization.return_translation('paid_status', language))
     elif position == 'enter_info':
         tech_info.set_position(message.chat.id, 'pickup_location')
         api_func.set_pickup_location(telegram_id=message.chat.id, pickup_location=message.text)

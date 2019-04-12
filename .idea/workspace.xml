@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="Vedis support added. Code refactored">
-      <change afterPath="$PROJECT_DIR$/logistic_bot/gunicorn.conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,11 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="110" column="98" selection-start-line="110" selection-start-column="98" selection-end-line="110" selection-end-column="98" />
+            <state relative-caret-position="247">
+              <caret line="308" column="79" selection-start-line="308" selection-start-column="79" selection-end-line="308" selection-end-column="79" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -78,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="212" column="97" selection-start-line="212" selection-start-column="32" selection-end-line="212" selection-end-column="97" />
+            <state relative-caret-position="390">
+              <caret line="224" column="50" lean-forward="true" selection-start-line="224" selection-start-column="50" selection-end-line="224" selection-end-column="50" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -87,7 +86,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
@@ -130,6 +129,7 @@
       <find>пропустить</find>
       <find>enter_id</find>
       <find>status_checker</find>
+      <find>status_che</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,30 +169,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="logistic_bot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logistic_bot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="logistic_bot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logistic_bot" type="462c0819:PsiDirectoryNode" />
-              <item name="bot_app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="logistic_bot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logistic_bot" type="462c0819:PsiDirectoryNode" />
-              <item name="logistic_bot" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -406,14 +383,7 @@
       <workItem from="1554631606963" duration="47882000" />
       <workItem from="1554803523893" duration="7162000" />
       <workItem from="1554906414352" duration="14960000" />
-      <workItem from="1555078667216" duration="613000" />
-    </task>
-    <task id="LOCAL-00141" summary="Vedis support added. Code refactored">
-      <created>1554735663475</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1554735663475</updated>
+      <workItem from="1555078667216" duration="1660000" />
     </task>
     <task id="LOCAL-00142" summary="Vedis support added. Code refactored">
       <created>1554735952059</created>
@@ -751,11 +721,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554971004928</updated>
     </task>
-    <option name="localTasksCounter" value="190" />
+    <task id="LOCAL-00190" summary="Vedis support added. Code refactored">
+      <created>1555079324567</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1555079324567</updated>
+    </task>
+    <option name="localTasksCounter" value="191" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243111000" />
+    <option name="totallyTimeSpent" value="244158000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -767,7 +744,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.50636494" side_tool="true" weight="0.17426273" />
@@ -1039,20 +1016,10 @@
     <entry file="file://$PROJECT_DIR$/logistic_bot/gunicorn.conf.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
-          <folding>
-            <element signature="e#46#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="212" column="97" selection-start-line="212" selection-start-column="32" selection-end-line="212" selection-end-column="97" />
+        <state relative-caret-position="390">
+          <caret line="224" column="50" lean-forward="true" selection-start-line="224" selection-start-column="50" selection-end-line="224" selection-end-column="50" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -1061,10 +1028,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="110" column="98" selection-start-line="110" selection-start-column="98" selection-end-line="110" selection-end-column="98" />
+        <state relative-caret-position="247">
+          <caret line="308" column="79" selection-start-line="308" selection-start-column="79" selection-end-line="308" selection-end-column="79" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
