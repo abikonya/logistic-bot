@@ -306,6 +306,8 @@ def form(message):
     position = tech_info.return_position(message.chat.id)
     if position == 'status_checker':
         api_func.set_payout(telegram_id=message.chat.id, payout=message.text)
+        bot.send_message(message.chat.id, text=localization.return_translation('paid_status', language),
+                         reply_markup=types.ReplyKeyboardRemove())
     elif position == 'enter_info':
         tech_info.set_position(message.chat.id, 'pickup_location')
         api_func.set_pickup_location(telegram_id=message.chat.id, pickup_location=message.text)
