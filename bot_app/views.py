@@ -102,7 +102,7 @@ def answer_on_digits(message):
                 pack_id = each['pack_id']
                 if pack_id == message.text:
                     bot.send_message(message.chat.id, text=localization.return_translation('status', language) + each['pack_id'])
-                    if each['status'] == 'Conﬁrm':
+                    if each['status'] == 'Confirm':
                         bot.send_message(message.chat.id, text=localization.return_translation('status_confirm', language))
                         api_func.set_pack_id(telegram_id=message.chat.id, pack_id=each['pack_id'])
                         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
