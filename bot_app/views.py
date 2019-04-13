@@ -113,6 +113,10 @@ def answer_on_digits(message):
                         bot.send_message(message.chat.id, text=localization.return_translation('status_process', language))
                     elif each['status'] == 'Rejected':
                         bot.send_message(message.chat.id, text=localization.return_translation('status_cancel', language))
+                    elif each['status'] == 'Paid':
+                        bot.send_message(message.chat.id,
+                                         text=localization.return_translation('paid_status', language).format(
+                                             each['summ'], each['date']))
         else:
             bot.send_message(message.chat.id, text='Нет такого заказа')
     elif position == 'store_name':
