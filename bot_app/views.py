@@ -305,7 +305,11 @@ def form(message):
     position = tech_info.return_position(message.chat.id)
     if position == 'status_checker':
         api_func.set_payout(telegram_id=message.chat.id, payout=message.text)
-        bot.send_message(message.chat.id, text=localization.return_translation('paid_status', language))
+        payment_info = api_func.payment(message.chat.id)
+        for each in payment_info['package_list']:
+            if each['pack_id'] == api_func.return_param(message.chat.id, 'pack_id'):
+                bot.send_message(message.chat.id,
+                                 text=localization.return_translation('paid_status', language).format(each['summ'], each['date']))
     elif position == 'enter_info':
         tech_info.set_position(message.chat.id, 'pickup_location')
         api_func.set_pickup_location(telegram_id=message.chat.id, pickup_location=message.text)

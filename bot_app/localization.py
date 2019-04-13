@@ -118,8 +118,8 @@ translations = [
     ['enter_requisites_button', 'ru', 'Отправить'],
     ['payment_info', 'en', 'Information about payments'],
     ['payment_info', 'ru', 'Информация о расчетах'],
-    ['paid_status', 'en', 'Paid'],
-    ['paid_status', 'ru', 'Оплачено']
+    ['paid_status', 'en', 'Paid. Amount of payment {}, date {}.'],
+    ['paid_status', 'ru', 'Оплачено. Сумма платежа {}, дата {}.']
 ]
 
 
