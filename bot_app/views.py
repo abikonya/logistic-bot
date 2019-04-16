@@ -161,8 +161,9 @@ def call_digit_answers(call):
     elif position == 'choose_item':
         api_func.set_product_item(call.message.chat.id, call.data)
         tech_info.set_position(call.message.chat.id, 'enter_info')
-        bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
-        bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
+        bot.send_message(call.message.chat.id, text='Тут надо изменить')
+        # bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
+        # bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
 
 
 @bot.message_handler(func=lambda message: message.text in localization.return_all_translations('zip_list_button'))

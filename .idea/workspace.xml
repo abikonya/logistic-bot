@@ -65,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="171" column="22" lean-forward="true" selection-start-line="171" selection-start-column="22" selection-end-line="176" selection-end-column="109" />
+            <state relative-caret-position="-1895">
+              <caret line="163" column="43" selection-start-line="163" selection-start-column="43" selection-end-line="163" selection-end-column="43" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -386,14 +386,7 @@
       <workItem from="1554906414352" duration="14960000" />
       <workItem from="1555078667216" duration="2006000" />
       <workItem from="1555125331329" duration="1685000" />
-      <workItem from="1555381446092" duration="3682000" />
-    </task>
-    <task id="LOCAL-00148" summary="Vedis support added. Code refactored">
-      <created>1554787101422</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1554787101422</updated>
+      <workItem from="1555381446092" duration="4382000" />
     </task>
     <task id="LOCAL-00149" summary="Vedis support added. Code refactored">
       <created>1554787655117</created>
@@ -731,11 +724,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555418280826</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="-=-==-=-=-=-">
+      <created>1555418770775</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1555418770775</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249871000" />
+    <option name="totallyTimeSpent" value="250571000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -753,9 +753,10 @@
       <window_info id="Structure" order="0" sideWeight="0.50636494" side_tool="true" weight="0.17426273" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4936351" weight="0.17426273" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.23762377" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.23762377" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -776,6 +777,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -829,15 +840,21 @@
     <MESSAGE value="testing" />
     <MESSAGE value="Vedis support added. Code refactored" />
     <MESSAGE value="Added kind of pickup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added kind of pickup" />
+    <MESSAGE value="-=-==-=-=-=-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-=-==-=-=-=-" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot_app/views.py</url>
-          <line>274</line>
+          <line>262</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bot_app/views.py</url>
+          <line>151</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1053,8 +1070,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="171" column="22" lean-forward="true" selection-start-line="171" selection-start-column="22" selection-end-line="176" selection-end-column="109" />
+        <state relative-caret-position="-1895">
+          <caret line="163" column="43" selection-start-line="163" selection-start-column="43" selection-end-line="163" selection-end-column="43" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
