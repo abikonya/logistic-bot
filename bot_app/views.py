@@ -168,7 +168,7 @@ def call_digit_answers(call):
         bot.send_message(call.message.chat.id, text=localization.return_translation('shop_or_company', language), reply_markup=keyboard)
 
 
-@bot.callback_query_handler(func=lambda call: call.data == 'shop')
+@bot.callback_query_handler(func=lambda call: call.data in ['shop', 'company'])
 def choose_kind(call):
     language = tech_info.return_language(call.message.chat.id)
     api_func.set_kind_of_pickup(call.message.chat.id, call.data)

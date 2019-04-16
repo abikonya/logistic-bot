@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="162" column="58" selection-start-line="162" selection-start-column="58" selection-end-line="162" selection-end-column="58" />
+            <state relative-caret-position="114">
+              <caret line="170" column="65" selection-start-line="170" selection-start-column="65" selection-end-line="170" selection-end-column="65" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -131,6 +131,7 @@
       <find>status_checker</find>
       <find>status_che</find>
       <find>choose_ca</find>
+      <find>about</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -386,28 +387,7 @@
       <workItem from="1554906414352" duration="14960000" />
       <workItem from="1555078667216" duration="2006000" />
       <workItem from="1555125331329" duration="1685000" />
-      <workItem from="1555381446092" duration="5598000" />
-    </task>
-    <task id="LOCAL-00150" summary="Vedis support added. Code refactored">
-      <created>1554788065570</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1554788065570</updated>
-    </task>
-    <task id="LOCAL-00151" summary="Vedis support added. Code refactored">
-      <created>1554788641838</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1554788641838</updated>
-    </task>
-    <task id="LOCAL-00152" summary="Vedis support added. Code refactored">
-      <created>1554788880700</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1554788880700</updated>
+      <workItem from="1555381446092" duration="6685000" />
     </task>
     <task id="LOCAL-00153" summary="Vedis support added. Code refactored">
       <created>1554789249403</created>
@@ -731,11 +711,32 @@
       <option name="project" value="LOCAL" />
       <updated>1555419311284</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="-=-==-=-=-=-">
+      <created>1555420455697</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1555420455697</updated>
+    </task>
+    <task id="LOCAL-00200" summary="added choosing kind of pickup">
+      <created>1555420700887</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1555420700887</updated>
+    </task>
+    <task id="LOCAL-00201" summary="added choosing kind of pickup">
+      <created>1555421251363</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1555421251363</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251787000" />
+    <option name="totallyTimeSpent" value="252874000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -841,14 +842,15 @@
     <MESSAGE value="Vedis support added. Code refactored" />
     <MESSAGE value="Added kind of pickup" />
     <MESSAGE value="-=-==-=-=-=-" />
-    <option name="LAST_COMMIT_MESSAGE" value="-=-==-=-=-=-" />
+    <MESSAGE value="added choosing kind of pickup" />
+    <option name="LAST_COMMIT_MESSAGE" value="added choosing kind of pickup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot_app/views.py</url>
-          <line>265</line>
+          <line>274</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1048,16 +1050,6 @@
     <entry file="file://$PROJECT_DIR$/logistic_bot/gunicorn.conf.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="126" column="20" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="20" />
-          <folding>
-            <element signature="e#46#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1068,10 +1060,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="126" column="20" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="20" />
+          <folding>
+            <element signature="e#46#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="162" column="58" selection-start-line="162" selection-start-column="58" selection-end-line="162" selection-end-column="58" />
+        <state relative-caret-position="114">
+          <caret line="170" column="65" selection-start-line="170" selection-start-column="65" selection-end-line="170" selection-end-column="65" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
