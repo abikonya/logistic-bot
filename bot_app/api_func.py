@@ -134,6 +134,15 @@ def set_list_id(telegram_id, list_id):
             print(err)
 
 
+def set_kind_of_pickup(telegram_id, kind_of_pickup):
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
+        try:
+            account = db.Hash(telegram_id)
+            account['kind_of_pickup'] = kind_of_pickup
+        except Exception as err:
+            print(err)
+
+
 def return_param(telegram_id, param):
     with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
         try:

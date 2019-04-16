@@ -119,7 +119,13 @@ translations = [
     ['payment_info', 'en', 'Information about payments'],
     ['payment_info', 'ru', 'Информация о расчетах'],
     ['paid_status', 'en', 'Paid. Amount of payment {}, date {}.'],
-    ['paid_status', 'ru', 'Оплачено. Сумма платежа {}, дата {}.']
+    ['paid_status', 'ru', 'Оплачено. Сумма платежа {}, дата {}.'],
+    ['shop_or_company', 'en', 'Pickup will be from shop or logistic company? (USPS, FEDEX, UPS etc.)'],
+    ['shop_or_company', 'ru', 'Пикап требуется в магазине или в логистической компании? (USPS, FEDEX, UPS etc.)'],
+    ['shop_button', 'en', 'Shop'],
+    ['shop_button', 'ru', 'Магазин'],
+    ['company_button', 'en', 'Company'],
+    ['company_button', 'ru', 'Компания']
 ]
 
 
