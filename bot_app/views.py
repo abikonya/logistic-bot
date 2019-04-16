@@ -168,6 +168,15 @@ def call_digit_answers(call):
         bot.send_message(call.message.chat.id, text=localization.return_translation('shop_or_company', language), reply_markup=keyboard)
 
 
+@bot.callback_query_handler(func=lambda call: call.data == 'shop' or 'company')
+def choose_kind(call):
+    language = tech_info.return_language(call.message.chat.id)
+    api_func.set_kind_of_pickup(call.message.chat.id, call.data)
+    tech_info.set_position(call.message.chat.id, 'enter_info')
+    bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
+    bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
+
+
 @bot.message_handler(func=lambda message: message.text in localization.return_all_translations('zip_list_button'))
 def show_stuff_list(message):
     tech_info.set_offset(message.chat.id, 1)
