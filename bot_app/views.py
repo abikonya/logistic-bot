@@ -326,7 +326,7 @@ def form(message):
             if each['pack_id'] == api_func.return_param(message.chat.id, 'pack_id'):
                 bot.send_message(message.chat.id,
                                  text=localization.return_translation('paid_status', language).format(each['summ'], each['date']))
-    elif position == 'kind_of_pickup':
+    elif position == 'enter_info':
         tech_info.set_position(message.chat.id, 'pickup_location')
         api_func.set_pickup_location(telegram_id=message.chat.id, pickup_location=message.text)
         bot.send_message(message.chat.id, text=localization.return_translation('store_name', language))
