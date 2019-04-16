@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/api_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/api_func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/localization.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/localization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/localization.vdb" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/localization.vdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="347">
-              <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+              <caret line="171" column="22" lean-forward="true" selection-start-line="171" selection-start-column="22" selection-end-line="176" selection-end-column="109" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -390,14 +386,7 @@
       <workItem from="1554906414352" duration="14960000" />
       <workItem from="1555078667216" duration="2006000" />
       <workItem from="1555125331329" duration="1685000" />
-      <workItem from="1555381446092" duration="3424000" />
-    </task>
-    <task id="LOCAL-00147" summary="Vedis support added. Code refactored">
-      <created>1554786973578</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1554786973578</updated>
+      <workItem from="1555381446092" duration="3682000" />
     </task>
     <task id="LOCAL-00148" summary="Vedis support added. Code refactored">
       <created>1554787101422</created>
@@ -735,11 +724,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555126629936</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="Added kind of pickup">
+      <created>1555418280826</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1555418280826</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249613000" />
+    <option name="totallyTimeSpent" value="249871000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,7 +828,19 @@
     <MESSAGE value="localization edit" />
     <MESSAGE value="testing" />
     <MESSAGE value="Vedis support added. Code refactored" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vedis support added. Code refactored" />
+    <MESSAGE value="Added kind of pickup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added kind of pickup" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bot_app/views.py</url>
+          <line>274</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/logistic_bot$localization.coverage" NAME="localization Coverage Results" MODIFIED="1555418025372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bot_app" />
@@ -1046,7 +1054,7 @@
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
-          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+          <caret line="171" column="22" lean-forward="true" selection-start-line="171" selection-start-column="22" selection-end-line="176" selection-end-column="109" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
