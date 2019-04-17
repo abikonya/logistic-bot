@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="" />
+    <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="208" selection-start-line="208" selection-end-line="238" selection-end-column="105" />
+            <state relative-caret-position="230">
+              <caret line="186" column="25" lean-forward="true" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -75,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="140" column="35" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="35" />
+            <state relative-caret-position="418">
+              <caret line="169" column="27" lean-forward="true" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -87,7 +90,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
+            <state relative-caret-position="2375">
               <caret line="126" column="20" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="20" />
               <folding>
                 <element signature="e#46#69#0" expanded="true" />
@@ -386,20 +389,7 @@
       <workItem from="1555078667216" duration="2006000" />
       <workItem from="1555125331329" duration="1685000" />
       <workItem from="1555381446092" duration="8512000" />
-    </task>
-    <task id="LOCAL-00156" summary="Vedis support added. Code refactored">
-      <created>1554805318939</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1554805318940</updated>
-    </task>
-    <task id="LOCAL-00157" summary="Vedis support added. Code refactored">
-      <created>1554806280745</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1554806280745</updated>
+      <workItem from="1555500552699" duration="920000" />
     </task>
     <task id="LOCAL-00158" summary="Vedis support added. Code refactored">
       <created>1554806979896</created>
@@ -730,11 +720,25 @@
       <option name="project" value="LOCAL" />
       <updated>1555422104398</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL-00205" summary="added choosing kind of pickup">
+      <created>1555500609267</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1555500609268</updated>
+    </task>
+    <task id="LOCAL-00206" summary="added choosing kind of pickup">
+      <created>1555503164297</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1555503164297</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254701000" />
+    <option name="totallyTimeSpent" value="255621000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -752,7 +756,6 @@
       <window_info id="Structure" order="0" sideWeight="0.50636494" side_tool="true" weight="0.17426273" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4936351" weight="0.17426273" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.23762377" />
@@ -767,6 +770,7 @@
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" weight="0.3281471" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1045,7 +1049,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
+        <state relative-caret-position="2375">
           <caret line="126" column="20" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="20" />
           <folding>
             <element signature="e#46#69#0" expanded="true" />
@@ -1055,8 +1059,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="140" column="35" selection-start-line="140" selection-start-column="21" selection-end-line="140" selection-end-column="35" />
+        <state relative-caret-position="418">
+          <caret line="169" column="27" lean-forward="true" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -1065,8 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="208" selection-start-line="208" selection-end-line="238" selection-end-column="105" />
+        <state relative-caret-position="230">
+          <caret line="186" column="25" lean-forward="true" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

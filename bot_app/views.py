@@ -184,8 +184,9 @@ def show_stuff_list(message):
     language = tech_info.return_language(message.chat.id)
     tech_info.set_position(message.chat.id, 'stuff_list')
     get_stuff_list = api_func.get_all(telegram_id=message.chat.id, offset=offset)
-    tech_info.set_pages(message.chat.id, int(get_stuff_list['pages']))
-    pages = int(tech_info.return_pages(message.chat.id))
+    print(get_stuff_list)
+    # tech_info.set_pages(message.chat.id, int(get_stuff_list['pages']))
+    # pages = int(tech_info.return_pages(message.chat.id))
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
         #button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
