@@ -179,7 +179,7 @@ def choose_kind(call):
 
 @bot.message_handler(func=lambda message: message.text in localization.return_all_translations('zip_list_button'))
 def show_stuff_list(message):
-    tech_info.set_offset(message.chat.id, 1)
+    tech_info.set_offset(message.chat.id, 0)
     offset = int(tech_info.return_offset(message.chat.id))
     language = tech_info.return_language(message.chat.id)
     tech_info.set_position(message.chat.id, 'stuff_list')
@@ -188,14 +188,14 @@ def show_stuff_list(message):
     pages = int(tech_info.return_pages(message.chat.id))
     if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
         keyboard = types.InlineKeyboardMarkup()
-        button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
-        button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
-        button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
+        #button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
+        #button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
+        #button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
         button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language),
                                                     callback_data='confirm')
         button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language),
                                                   callback_data='reset')
-        keyboard.add(button_prev, button_page, button_next)
+        #keyboard.add(button_prev, button_page, button_next)
         keyboard.add(button_confirm, button_reset)
         text = str()
         for each in get_stuff_list['stuff_list']:
@@ -206,70 +206,70 @@ def show_stuff_list(message):
         bot.send_message(message.chat.id, localization.return_translation('server_error', language))
 
 
-@bot.callback_query_handler(func=lambda call: call.data == 'next')
-def next_stuff_list(call):
-    language = tech_info.return_language(call.message.chat.id)
-    offset = int(tech_info.return_offset(call.message.chat.id))
-    pages = int(tech_info.return_pages(call.message.chat.id))
-    if offset < pages:
-        tech_info.set_offset(call.message.chat.id, offset + 1)
-    else:
-        tech_info.set_offset(call.message.chat.id, 1)
-    get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
-    if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
-        keyboard = types.InlineKeyboardMarkup()
-        button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
-        button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
-        button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
-        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language),
-                                                    callback_data='confirm')
-        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language),
-                                                  callback_data='reset')
-        keyboard.add(button_prev, button_page, button_next)
-        keyboard.add(button_confirm, button_reset)
-        text = str()
-        for each in get_stuff_list['stuff_list']:
-            text += '{}\n'.format(each['stuff_name'])
-        bot.edit_message_text(text=text,
-                              chat_id=call.message.chat.id,
-                              message_id=call.message.message_id,
-                              reply_markup=keyboard,
-                              disable_web_page_preview=True)
-    elif type(get_stuff_list) != dict:
-        bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
+#@bot.callback_query_handler(func=lambda call: call.data == 'next')
+#def next_stuff_list(call):
+#    language = tech_info.return_language(call.message.chat.id)
+#    offset = int(tech_info.return_offset(call.message.chat.id))
+#    pages = int(tech_info.return_pages(call.message.chat.id))
+#    if offset < pages:
+#        tech_info.set_offset(call.message.chat.id, offset + 1)
+#    else:
+#        tech_info.set_offset(call.message.chat.id, 1)
+#    get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
+#    if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
+#        keyboard = types.InlineKeyboardMarkup()
+#        button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
+#        button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
+#        button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
+#        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language),
+#                                                    callback_data='confirm')
+#        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language),
+#                                                  callback_data='reset')
+#        keyboard.add(button_prev, button_page, button_next)
+#        keyboard.add(button_confirm, button_reset)
+#        text = str()
+#        for each in get_stuff_list['stuff_list']:
+#            text += '{}\n'.format(each['stuff_name'])
+#        bot.edit_message_text(text=text,
+#                              chat_id=call.message.chat.id,
+#                              message_id=call.message.message_id,
+#                              reply_markup=keyboard,
+#                              disable_web_page_preview=True)
+#    elif type(get_stuff_list) != dict:
+#        bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
 
 
-@bot.callback_query_handler(func=lambda call: call.data == 'prev')
-def prev_stuff_list(call):
-    language = tech_info.return_language(call.message.chat.id)
-    offset = int(tech_info.return_offset(call.message.chat.id))
-    pages = int(tech_info.return_pages(call.message.chat.id))
-    if offset > 1:
-        tech_info.set_offset(call.message.chat.id, offset - 1)
-    else:
-        tech_info.set_offset(call.message.chat.id, pages)
-    get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
-    if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
-        keyboard = types.InlineKeyboardMarkup()
-        button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
-        button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
-        button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
-        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language),
-                                                    callback_data='confirm')
-        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language),
-                                                  callback_data='reset')
-        keyboard.add(button_prev, button_page, button_next)
-        keyboard.add(button_confirm, button_reset)
-        text = str()
-        for each in get_stuff_list['stuff_list']:
-            text += '{}\n'.format(each['stuff_name'])
-        bot.edit_message_text(text=text,
-                              chat_id=call.message.chat.id,
-                              message_id=call.message.message_id,
-                              reply_markup=keyboard,
-                              disable_web_page_preview=True)
-    elif type(get_stuff_list) != dict:
-        bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
+#@bot.callback_query_handler(func=lambda call: call.data == 'prev')
+#def prev_stuff_list(call):
+#    language = tech_info.return_language(call.message.chat.id)
+#    offset = int(tech_info.return_offset(call.message.chat.id))
+#    pages = int(tech_info.return_pages(call.message.chat.id))
+#    if offset > 1:
+#        tech_info.set_offset(call.message.chat.id, offset - 1)
+#    else:
+#        tech_info.set_offset(call.message.chat.id, pages)
+#    get_stuff_list = api_func.get_all(telegram_id=call.message.chat.id, offset=offset)
+#    if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
+#        keyboard = types.InlineKeyboardMarkup()
+#        button_next = types.InlineKeyboardButton(text='➡', callback_data='next')
+#        button_page = types.InlineKeyboardButton(text='стр {} из {}'.format(offset, pages), callback_data='None')
+#        button_prev = types.InlineKeyboardButton(text='⬅', callback_data='prev')
+#        button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language),
+#                                                    callback_data='confirm')
+#        button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language),
+#                                                  callback_data='reset')
+#        keyboard.add(button_prev, button_page, button_next)
+#        keyboard.add(button_confirm, button_reset)
+#        text = str()
+#        for each in get_stuff_list['stuff_list']:
+#            text += '{}\n'.format(each['stuff_name'])
+#        bot.edit_message_text(text=text,
+#                              chat_id=call.message.chat.id,
+#                              message_id=call.message.message_id,
+#                              reply_markup=keyboard,
+#                              disable_web_page_preview=True)
+#    elif type(get_stuff_list) != dict:
+#        bot.send_message(call.message.chat.id, localization.return_translation('server_error', language))
 
 
 @bot.callback_query_handler(func=lambda call: call.data == 'confirm')
