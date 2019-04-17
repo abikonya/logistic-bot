@@ -164,7 +164,7 @@ def get_distance(telegram_id):
 
 def get_all(telegram_id, offset):
     try:
-        request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}&count=0&offset={offset}'.format(
+        request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}&count=10&offset={offset}'.format(
             user_id=return_param(telegram_id, 'user_id'),
             zipcode=return_param(telegram_id, 'zipcode'),
             offset=offset))

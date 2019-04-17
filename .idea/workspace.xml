@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="186" column="25" lean-forward="true" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
+            <state relative-caret-position="-36">
+              <caret line="208" column="33" lean-forward="true" selection-start-line="208" selection-start-column="33" selection-end-line="208" selection-end-column="33" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -90,7 +89,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2375">
+            <state relative-caret-position="241">
               <caret line="126" column="20" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="20" />
               <folding>
                 <element signature="e#46#69#0" expanded="true" />
@@ -389,14 +388,7 @@
       <workItem from="1555078667216" duration="2006000" />
       <workItem from="1555125331329" duration="1685000" />
       <workItem from="1555381446092" duration="8512000" />
-      <workItem from="1555500552699" duration="920000" />
-    </task>
-    <task id="LOCAL-00158" summary="Vedis support added. Code refactored">
-      <created>1554806979896</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1554806979896</updated>
+      <workItem from="1555500552699" duration="1749000" />
     </task>
     <task id="LOCAL-00159" summary="Vedis support added. Code refactored">
       <created>1554807398589</created>
@@ -734,11 +726,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555503164297</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL-00207" summary="added choosing kind of pickup">
+      <created>1555503408169</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1555503408169</updated>
+    </task>
+    <option name="localTasksCounter" value="208" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255621000" />
+    <option name="totallyTimeSpent" value="256450000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -751,7 +750,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.50636494" side_tool="true" weight="0.17426273" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -764,7 +762,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3281471" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3281471" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3281471" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.3281471" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" weight="0.3281471" />
@@ -1049,7 +1047,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/localization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2375">
+        <state relative-caret-position="241">
           <caret line="126" column="20" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="20" />
           <folding>
             <element signature="e#46#69#0" expanded="true" />
@@ -1069,8 +1067,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="186" column="25" lean-forward="true" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
+        <state relative-caret-position="-36">
+          <caret line="208" column="33" lean-forward="true" selection-start-line="208" selection-start-column="33" selection-end-line="208" selection-end-column="33" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
