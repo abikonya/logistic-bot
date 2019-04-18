@@ -172,6 +172,7 @@ def call_digit_answers(call):
 def choose_kind(call):
     language = tech_info.return_language(call.message.chat.id)
     api_func.set_kind_of_pickup(call.message.chat.id, call.data)
+    print(api_func.return_param(call.message.chat.id, 'kind_of_pickup'))
     tech_info.set_position(call.message.chat.id, 'enter_info')
     bot.send_message(call.message.chat.id, text=localization.return_translation('about_cargo', language))
     bot.send_message(call.message.chat.id, text=localization.return_translation('pickup_location', language))
