@@ -80,6 +80,8 @@ translations = [
     ['pickup_location', 'ru', 'Точка погрузки'],
     ['store_name', 'en', 'Store name'],
     ['store_name', 'ru', 'Название магазина'],
+    ['company_name', 'en', 'Store name'],
+    ['company_name', 'ru', 'Company name'],
     ['store_phone', 'en', 'Store phone(optional)'],
     ['store_phone', 'ru', 'Телефонный номер магазина (если есть)'],
     ['order_number', 'en', 'Order number'],
