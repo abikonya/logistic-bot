@@ -302,7 +302,7 @@ def courier_reset(call):
                          reply_markup=keyboard)
 
 
-@bot.message_handler(func=lambda message: message.text == 'Отправить')
+@bot.message_handler(func=lambda message: message.text in localization.return_all_translations('send_button'))
 def send_info(message):
     language = tech_info.return_language(message.chat.id)
     add_data = api_func.add_data(telegram_id=message.chat.id)
@@ -345,11 +345,10 @@ def form(message):
         else:
             tech_info.set_position(message.chat.id, 'store_phone')
             api_func.set_store_name(telegram_id=message.chat.id, store_name=message.text)
-            keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            button = types.KeyboardButton(localization.return_translation('skip', language))
-            keyboard.add(button)
-            bot.send_message(message.chat.id, text=localization.return_translation('order_number', language),
-                             reply_markup=keyboard)
+            # keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+            # button = types.KeyboardButton(localization.return_translation('skip', language))
+            # keyboard.add(button)
+            bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
     # elif position == 'store_name':
     #     tech_info.set_position(message.chat.id, 'store_phone')
     #     api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
