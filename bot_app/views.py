@@ -343,7 +343,7 @@ def form(message):
             keyboard.add(button)
             bot.send_message(message.chat.id, text=localization.return_translation('store_phone', language), reply_markup=keyboard)
         else:
-            tech_info.set_position(message.chat.id, 'order_number')
+            tech_info.set_position(message.chat.id, 'store_phone')
             api_func.set_store_name(telegram_id=message.chat.id, store_name=message.text)
             keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
             button = types.KeyboardButton(localization.return_translation('skip', language))
