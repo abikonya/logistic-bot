@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-67">
-              <caret line="174" column="69" selection-start-line="174" selection-start-column="69" selection-end-line="174" selection-end-column="69" />
+            <state relative-caret-position="138">
+              <caret line="345" column="64" selection-start-line="345" selection-start-column="64" selection-end-line="345" selection-end-column="64" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -132,6 +130,7 @@
       <find>status_che</find>
       <find>choose_ca</find>
       <find>about</find>
+      <find>kind_of_pickup</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -389,21 +388,7 @@
       <workItem from="1555125331329" duration="1685000" />
       <workItem from="1555381446092" duration="8512000" />
       <workItem from="1555500552699" duration="2052000" />
-      <workItem from="1555509070102" duration="4995000" />
-    </task>
-    <task id="LOCAL-00165" summary="Vedis support added. Code refactored">
-      <created>1554810027839</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1554810027840</updated>
-    </task>
-    <task id="LOCAL-00166" summary="Vedis support added. Code refactored">
-      <created>1554953954185</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1554953954187</updated>
+      <workItem from="1555509070102" duration="5459000" />
     </task>
     <task id="LOCAL-00167" summary="Vedis support added. Code refactored">
       <created>1554954142019</created>
@@ -734,11 +719,25 @@
       <option name="project" value="LOCAL" />
       <updated>1555564573392</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="return to general variant">
+      <created>1555565170157</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1555565170157</updated>
+    </task>
+    <task id="LOCAL-00215" summary="return to general variant">
+      <created>1555565405895</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1555565405895</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261748000" />
+    <option name="totallyTimeSpent" value="262212000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -758,7 +757,7 @@
       <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4936351" weight="0.17426273" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.23762377" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.23762377" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1070,8 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-67">
-          <caret line="174" column="69" selection-start-line="174" selection-start-column="69" selection-end-line="174" selection-end-column="69" />
+        <state relative-caret-position="138">
+          <caret line="345" column="64" selection-start-line="345" selection-start-column="64" selection-end-line="345" selection-end-column="64" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
