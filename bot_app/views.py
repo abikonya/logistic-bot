@@ -338,21 +338,11 @@ def form(message):
         if api_func.return_param(message.chat.id, 'kind_of_pickup') == 'shop':
             tech_info.set_position(message.chat.id, 'store_name')
             api_func.set_store_name(telegram_id=message.chat.id, store_name=message.text)
-            # keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            # button = types.KeyboardButton(localization.return_translation('skip', language))
-            # keyboard.add(button)
             bot.send_message(message.chat.id, text=localization.return_translation('store_phone', language))
         else:
             tech_info.set_position(message.chat.id, 'store_phone')
             api_func.set_store_name(telegram_id=message.chat.id, store_name=message.text)
-            # keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            # button = types.KeyboardButton(localization.return_translation('skip', language))
-            # keyboard.add(button)
             bot.send_message(message.chat.id, text=localization.return_translation('order_number', language))
-    # elif position == 'store_name':
-    #     tech_info.set_position(message.chat.id, 'store_phone')
-    #     api_func.set_store_phone(telegram_id=message.chat.id, store_phone=message.text)
-    #     bot.send_message(message.chat.id, text=localization.return_translation('order_number', language), reply_markup=types.ReplyKeyboardRemove())
     elif position == 'order_number':
         tech_info.set_position(message.chat.id, 'pickup_person')
         api_func.set_pickup_person(telegram_id=message.chat.id, pickup_person=message.text)
