@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,10 +78,31 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="33" column="80" lean-forward="true" selection-start-line="33" selection-start-column="80" selection-end-line="33" selection-end-column="80" />
+            <state relative-caret-position="361">
+              <caret line="28" column="92" selection-start-line="28" selection-start-column="92" selection-end-line="28" selection-end-column="92" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bot_app/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2603">
+              <caret line="137" selection-start-line="137" selection-end-line="137" />
+              <folding>
+                <element signature="e#313#322#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -454,28 +476,7 @@
       <workItem from="1558085820790" duration="672000" />
       <workItem from="1558341572627" duration="77000" />
       <workItem from="1558342034518" duration="627000" />
-      <workItem from="1558432397658" duration="3859000" />
-    </task>
-    <task id="LOCAL-00174" summary="Vedis support added. Code refactored">
-      <created>1554961211938</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1554961211938</updated>
-    </task>
-    <task id="LOCAL-00175" summary="Vedis support added. Code refactored">
-      <created>1554961970018</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1554961970018</updated>
-    </task>
-    <task id="LOCAL-00176" summary="Vedis support added. Code refactored">
-      <created>1554962159123</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1554962159123</updated>
+      <workItem from="1558432397658" duration="4541000" />
     </task>
     <task id="LOCAL-00177" summary="Vedis support added. Code refactored">
       <created>1554963092616</created>
@@ -799,11 +800,32 @@
       <option name="project" value="LOCAL" />
       <updated>1558436040633</updated>
     </task>
-    <option name="localTasksCounter" value="223" />
+    <task id="LOCAL-00223" summary="add statistic-site">
+      <created>1558437068634</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1558437068634</updated>
+    </task>
+    <task id="LOCAL-00224" summary="add statistic-site">
+      <created>1558437224482</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1558437224482</updated>
+    </task>
+    <task id="LOCAL-00225" summary="add statistic-site">
+      <created>1558437374317</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1558437374317</updated>
+    </task>
+    <option name="localTasksCounter" value="226" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304391000" />
+    <option name="totallyTimeSpent" value="305073000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1029,13 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/tech_info.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1124,16 +1139,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="834">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-          <folding>
-            <element signature="e#313#322#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3439">
@@ -1211,10 +1216,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2603">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+          <folding>
+            <element signature="e#313#322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="33" column="80" lean-forward="true" selection-start-line="33" selection-start-column="80" selection-end-line="33" selection-end-column="80" />
+        <state relative-caret-position="361">
+          <caret line="28" column="92" selection-start-line="28" selection-start-column="92" selection-end-line="28" selection-end-column="92" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
