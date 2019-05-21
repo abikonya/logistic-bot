@@ -27,6 +27,7 @@ class UpdateBot(APIView):
 @bot.message_handler(commands=['start'])
 def start(message):
     if message.chat.id in AuthorizedCustomers.objects.values_list('telegram_id', flat=True):
+        print(AuthorizedCustomers.objects.values_list('telegram_id', flat=True))
         keyboard = types.InlineKeyboardMarkup(row_width=2)
         button_en = types.InlineKeyboardButton(text='English', callback_data='en')
         button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
