@@ -33,7 +33,7 @@ def start(message):
         keyboard.add(button_en, button_ru)
         bot.send_message(message.chat.id, 'Choose your language:\n\n Выберите Ваш язык:', reply_markup=keyboard)
     else:
-        bot.kick_chat_member(message.chat.id, message.chat.id, until_date=time.time() + 300)
+        bot.send_message(message.chat.id, 'You are not registered.\n\n Вы не зарегестрированы.', )
 
 
 @bot.message_handler(commands=['zip'])
