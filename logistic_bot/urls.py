@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^bot/', include('bot_app.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'statistic/', include('statistic_site.urls'))
 ]

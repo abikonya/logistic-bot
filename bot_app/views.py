@@ -1,4 +1,5 @@
 import re
+import time
 
 import telebot
 from rest_framework.response import Response
@@ -9,6 +10,7 @@ from bot_app import api_func
 from bot_app import config
 from bot_app import localization
 from bot_app import tech_info
+from .models import AuthorizedCustomers
 
 bot = telebot.TeleBot(config.token)
 
@@ -24,11 +26,14 @@ class UpdateBot(APIView):
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    keyboard = types.InlineKeyboardMarkup(row_width=2)
-    button_en = types.InlineKeyboardButton(text='English', callback_data='en')
-    button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
-    keyboard.add(button_en, button_ru)
-    bot.send_message(message.chat.id, 'Choose your language:\n\n Выберите Ваш язык:', reply_markup=keyboard)
+    if message.chat.id in AuthorizedCustomers.telegram_id:
+        keyboard = types.InlineKeyboardMarkup(row_width=2)
+        button_en = types.InlineKeyboardButton(text='English', callback_data='en')
+        button_ru = types.InlineKeyboardButton(text='Русский', callback_data='ru')
+        keyboard.add(button_en, button_ru)
+        bot.send_message(message.chat.id, 'Choose your language:\n\n Выберите Ваш язык:', reply_markup=keyboard)
+    else:
+        bot.kick_chat_member(message.chat.id, message.chat.id, until_date=time.time() + 300)
 
 
 @bot.message_handler(commands=['zip'])
