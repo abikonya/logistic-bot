@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сайт статистики logistic-bot</title>
+    <link rel="stylesheet" type="text/css" href="{% static "/css/base.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "/css/login.css" %}">
+
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static "/css/responsive.css" %}">
+    
+</head>
+<body class="container">
+    
+{% if user.is_authenticated %}
+
+<div id="header">
+    <div id="branding">
+
+<h1 class="site-name"><a href="/statistic/">Статистика использования logistic-bot</a></h1>
+
+    </div>
+    <div id="user-tools">
+        
+        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <a href="#">$BALANCE$</a>
+        <a href="/statistic/logout/">Выйти</a>
+        {% else %}
+        <a href="/statistic/login/">Войти</a>
+    </div>
+{% endif %}
+</div>
+
+
+
+    </div>
+<div id="content" class="colM">
+    <fieldset class="module aligned ">
+
+        <h2>Товары</h2>
+        <div id="content-main">
+            <!-- Сюда добавляется вывод от api запросов с помощью ajax и выполняется форматировние с помощью html тегов -->
+        </div>
+    </fieldset>
+
+    <fieldset class="module aligned ">
+        <h2>Статистика заказов</h2>
+        <div id="orders">
+            <!-- Сюда добавляется вывод от api запросов с помощью ajax и выполняется форматировние с помощью html тегов -->
+        </div>
+    </fieldset>
+
+    <fieldset class="module aligned ">
+        <h2>Платежи</h2>
+        <div id="Payments">
+            <!-- Сюда добавляется вывод от api запросов с помощью ajax и выполняется форматировние с помощью html тегов -->
+        </div>
+    </fieldset>
+
+</body>
+</html>
