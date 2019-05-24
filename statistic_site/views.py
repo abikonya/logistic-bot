@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from bot_app.api_func import get_status
 from django.views.generic import TemplateView, View
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import AuthenticationForm
@@ -40,5 +39,3 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return HttpResponseRedirect('/statistic/login')
-
-

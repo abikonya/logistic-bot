@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistic_bot/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/logistic_bot/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistic_site/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_site/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,20 +69,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/statistic_site/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="32" column="33" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="33" />
+            <state relative-caret-position="-2">
+              <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bot_app/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="475">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -98,8 +125,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2603">
-              <caret line="137" selection-start-line="137" selection-end-line="137" />
+            <state relative-caret-position="2185">
+              <caret line="116" column="22" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
               <folding>
                 <element signature="e#313#322#0" expanded="true" />
               </folding>
@@ -110,7 +137,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/statistic_site/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
+            <state relative-caret-position="133">
               <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -185,13 +212,14 @@
         <option value="$PROJECT_DIR$/bot_app/localization.py" />
         <option value="$PROJECT_DIR$/logistic_bot/urls.py" />
         <option value="$PROJECT_DIR$/statistic_site/templates/enter_form.html" />
-        <option value="$PROJECT_DIR$/logistic_bot/settings.py" />
         <option value="$PROJECT_DIR$/staticfiles/main.html" />
         <option value="$PROJECT_DIR$/statistic_site/urls.py" />
-        <option value="$PROJECT_DIR$/statistic_site/views.py" />
         <option value="$PROJECT_DIR$/bot_app/tests.py" />
         <option value="$PROJECT_DIR$/statistic_site/templates/main.html" />
         <option value="$PROJECT_DIR$/bot_app/views.py" />
+        <option value="$PROJECT_DIR$/logistic_bot/settings.py" />
+        <option value="$PROJECT_DIR$/statistic_site/views.py" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
       </list>
     </option>
   </component>
@@ -475,14 +503,9 @@
       <workItem from="1558085820790" duration="672000" />
       <workItem from="1558341572627" duration="77000" />
       <workItem from="1558342034518" duration="627000" />
-      <workItem from="1558432397658" duration="5803000" />
-    </task>
-    <task id="LOCAL-00179" summary="Vedis support added. Code refactored">
-      <created>1554964258901</created>
-      <option name="number" value="00179" />
-      <option name="presentableId" value="LOCAL-00179" />
-      <option name="project" value="LOCAL" />
-      <updated>1554964258902</updated>
+      <workItem from="1558432397658" duration="11181000" />
+      <workItem from="1558686448465" duration="599000" />
+      <workItem from="1558701360489" duration="1594000" />
     </task>
     <task id="LOCAL-00180" summary="Vedis support added. Code refactored">
       <created>1554964558052</created>
@@ -820,11 +843,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558442272143</updated>
     </task>
-    <option name="localTasksCounter" value="228" />
+    <task id="LOCAL-00228" summary="add statistic-site">
+      <created>1558443347399</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL-00228" />
+      <option name="project" value="LOCAL" />
+      <updated>1558443347399</updated>
+    </task>
+    <option name="localTasksCounter" value="229" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="306335000" />
+    <option name="totallyTimeSpent" value="313906000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -837,12 +867,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Repositories" weight="0.32995737" />
       <window_info id="Structure" order="0" sideWeight="0.50636494" side_tool="true" weight="0.17426273" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4936351" visible="true" weight="0.10127932" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4936351" visible="true" weight="0.10341151" />
+      <window_info id="Repositories" order="3" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.23726977" />
@@ -851,7 +880,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32719395" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32719395" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3281471" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.23726977" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932885" weight="0.32719395" />
@@ -1092,16 +1121,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="8" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/admin/widgets.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1197,30 +1216,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/statistic_site/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2">
+          <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statistic_site/urls.py">
+    <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+        <state relative-caret-position="475">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2603">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-          <folding>
-            <element signature="e#313#322#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1232,15 +1238,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/views.py">
+    <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="2185">
+          <caret line="116" column="22" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#313#322#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/statistic_site/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="8" column="65" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
