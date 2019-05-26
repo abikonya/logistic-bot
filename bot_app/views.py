@@ -11,6 +11,7 @@ from bot_app import config
 from bot_app import localization
 from bot_app import tech_info
 from .models import AuthorizedCustomers
+from .dbworker import add_product
 
 bot = telebot.TeleBot(config.token)
 
@@ -311,7 +312,8 @@ def courier_reset(call):
 def send_info(message):
     language = tech_info.return_language(message.chat.id)
     add_data = api_func.add_data(telegram_id=message.chat.id)
-    print(add_data)
+    api_func.set_task_id(message.chat.id, add_data['task_id'])
+    add_product(message.chat.id)
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     button = types.KeyboardButton(localization.return_translation('success_button', language))
     keyboard.add(button)
