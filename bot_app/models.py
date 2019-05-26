@@ -15,7 +15,7 @@ class AuthorizedCustomers(models.Model):
 
 
 class Products(models.Model):
-    user_id = models.IntegerField(null=False, verbose_name='User ID')
+    user_id = models.CharField(max_length=50, null=False, verbose_name='User ID')
     zipcode = models.IntegerField(null=False, verbose_name='Zipcode')
     store_name = models.CharField(max_length=50, null=True, verbose_name='Название магазина')
     store_phone = models.IntegerField(null=True, verbose_name='Телефон магазина')
