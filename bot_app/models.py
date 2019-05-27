@@ -23,8 +23,8 @@ class Products(models.Model):
     pickup_person = models.CharField(max_length=50, null=False, verbose_name='Получатель')
     pickup_location = models.CharField(max_length=50, null=False, verbose_name='Точка погрузки')
     more_info = models.TextField(null=True, verbose_name='Дополнительное инфо')
-    product_category = models.CharField(max_length=50, null=False, verbose_name='Категория товара')
-    product_item = models.CharField(max_length=50, null=False, verbose_name='Товар')
+    product_category = models.CharField(max_length=50, null=True, verbose_name='Категория товара')
+    product_item = models.CharField(max_length=50, null=True, verbose_name='Товар')
     price = models.CharField(max_length=50, null=False, verbose_name='Цена')
     created = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата добавления')
 
