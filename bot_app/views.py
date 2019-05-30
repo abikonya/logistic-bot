@@ -195,7 +195,7 @@ def show_stuff_list(message):
     button_reset = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_reset', language), callback_data='reset')
     button_confirm = types.InlineKeyboardButton(text=localization.return_translation('chosen_zip_approve', language), callback_data='confirm')
     keyboard.add(button_reset, button_confirm)
-    bot.send_message(message.chat.id, text=get_stuff_list['stuff_link'])
+    bot.send_message(message.chat.id, text=get_stuff_list['stuff_link'], reply_markup=keyboard)
     # tech_info.set_pages(message.chat.id, int(get_stuff_list['pages']))
     # pages = int(tech_info.return_pages(message.chat.id))
     # if type(get_stuff_list) == dict and get_stuff_list['stuff_list']:
