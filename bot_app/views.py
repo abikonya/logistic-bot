@@ -319,6 +319,7 @@ def send_info(message):
     add_data = api_func.add_data(telegram_id=message.chat.id)
     api_func.set_task_id(message.chat.id, add_data['task_id'])
     add_product(message.chat.id)
+    api_func.clear_all(message.chat.id)
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     button = types.KeyboardButton(localization.return_translation('success_button', language))
     keyboard.add(button)

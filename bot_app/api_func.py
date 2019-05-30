@@ -161,6 +161,24 @@ def return_param(telegram_id, param):
             print(err)
 
 
+def clear_all(telegram_id):
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
+        try:
+            account = db.Hash(telegram_id)
+            account['zipcode'] = ''
+            account['store_name'] = ''
+            account['store_phone'] = ''
+            account['order_number'] = ''
+            account['pickup_person'] = ''
+            account['pickup_location'] = ''
+            account['more_info'] = ''
+            account['product_category'] = ''
+            account['product_item'] = ''
+            account['price'] = ''
+        except Exception as err:
+            print(err)
+
+
 def get_distance(telegram_id):
     try:
         request = requests.get('https://strongbox.cc/?a=fnc.api.zip.getdistance&zip={zipcode}&tuser={user_id}'.format(

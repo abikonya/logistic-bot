@@ -4,6 +4,7 @@ from . import api_func
 
 def add_product(telegram_id):
     query = Products(user_id=api_func.return_param(telegram_id, 'user_id'),
+                     task_id=api_func.return_param(telegram_id, 'task_id'),
                      zipcode=api_func.return_param(telegram_id, 'zipcode'),
                      store_name=api_func.return_param(telegram_id, 'store_name'),
                      store_phone=api_func.return_param(telegram_id, 'store_phone'),

@@ -16,6 +16,7 @@ class AuthorizedCustomers(models.Model):
 
 class Products(models.Model):
     user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
+    task_id = models.CharField(max_length=50, blank=True, verbose_name='Номер заказа')
     zipcode = models.CharField(max_length=50, blank=True, verbose_name='Zipcode')
     store_name = models.CharField(max_length=50, blank=True, verbose_name='Название магазина')
     store_phone = models.CharField(max_length=50, blank=True, verbose_name='Телефон магазина')
@@ -27,6 +28,7 @@ class Products(models.Model):
     product_item = models.CharField(max_length=50, blank=True, verbose_name='Товар')
     price = models.CharField(max_length=50, blank=True, verbose_name='Цена')
     created = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата добавления')
+
 
     class Meta:
         verbose_name_plural = 'Товары'

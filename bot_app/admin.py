@@ -9,9 +9,9 @@ class ACAdmin(admin.ModelAdmin):
 
 
 class ProductsAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'zipcode', 'store_name', 'store_phone', 'order_number', 'pickup_person',
+    list_display = ('user_id', 'task_id', 'zipcode', 'store_name', 'store_phone', 'order_number', 'pickup_person',
                     'pickup_location', 'more_info', 'product_category', 'product_item', 'price', 'created')
-    search_fields = ('user_id', 'created')
+    search_fields = ('user_id', 'task_id', 'created')
 
 
 admin.site.register(AuthorizedCustomers, ACAdmin)
