@@ -19,13 +19,13 @@ class MainView(TemplateView):
 
     def get(self, request):
         if request.user.is_authenticated:
+            print(request.user)
             statuses_request = get_status(request.user)['package_list']
-            print(statuses_request)
             for each in statuses_request:
                 if Statuses.objects.get(task_id=each['pack_id']):
                     status_updater(request.user, each)
             ctx = dict()
-            if request.user == 'ADMIN':
+            if request.user != 'admin':
                 ctx['balance'] = wallet.get_balance()
             else:
                 ctx['balance'] = '$BALANCE$'
