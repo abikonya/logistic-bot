@@ -131,9 +131,11 @@
                         {% for product in products %}
 
                             <tr class="row">
-                            {% for status in statuses %}
-                            <th class="field-status"> {% ifequal status.task_id product.task_id %} {{ status.status }} {% endifequal %} </th>
+
+                            <td class="field-status">{% for status in statuses %}
+                                {% ifequal status.task_id product.task_id %} {{ status.status }} {% endifequal %}
                             {% endfor %}
+                            </td>
                             <td class="field-task_id">{{ product.task_id }}</td>
                             <td class="field-zipcode">{{ product.zipcode }}</td>
                             <td class="field-store_name">{{ product.store_name }}</td>
