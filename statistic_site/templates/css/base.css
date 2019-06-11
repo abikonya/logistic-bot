@@ -994,4 +994,11 @@ table#change-history tbody th {
     transition: 0.5s ease-in-out;
     display: none;
 }
-.topmenu li:hover .submenu {display: block;}
+
+.submenu > li {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+
+.submenu li:hover {display: block;}
