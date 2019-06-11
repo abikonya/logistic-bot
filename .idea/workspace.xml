@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistic_site/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_site/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot_app/dbworker.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/dbworker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/statistic_site/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+            <state relative-caret-position="323">
+              <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -93,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_app/dbworker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="15" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="15" />
+            <state relative-caret-position="418">
+              <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -108,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="108" column="41" lean-forward="true" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
+            <state relative-caret-position="281">
+              <caret line="107" column="43" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="43" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -232,11 +232,11 @@
         <option value="$PROJECT_DIR$/logistic_bot/test.py" />
         <option value="$PROJECT_DIR$/bot_app/models.py" />
         <option value="$PROJECT_DIR$/bot_app/admin.py" />
-        <option value="$PROJECT_DIR$/bot_app/dbworker.py" />
         <option value="$PROJECT_DIR$/statistic_site/templates/css/base.css" />
         <option value="$PROJECT_DIR$/statistic_site/templates/main.html" />
         <option value="$PROJECT_DIR$/bot_app/views.py" />
         <option value="$PROJECT_DIR$/statistic_site/views.py" />
+        <option value="$PROJECT_DIR$/bot_app/dbworker.py" />
       </list>
     </option>
   </component>
@@ -521,28 +521,7 @@
       <workItem from="1560004987817" duration="1389000" />
       <workItem from="1560011957818" duration="1069000" />
       <workItem from="1560058801216" duration="1203000" />
-      <workItem from="1560060779034" duration="39005000" />
-    </task>
-    <task id="LOCAL-00213" summary="return to general variant">
-      <created>1555564573392</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1555564573392</updated>
-    </task>
-    <task id="LOCAL-00214" summary="return to general variant">
-      <created>1555565170157</created>
-      <option name="number" value="00214" />
-      <option name="presentableId" value="LOCAL-00214" />
-      <option name="project" value="LOCAL" />
-      <updated>1555565170157</updated>
-    </task>
-    <task id="LOCAL-00215" summary="return to general variant">
-      <created>1555565405895</created>
-      <option name="number" value="00215" />
-      <option name="presentableId" value="LOCAL-00215" />
-      <option name="project" value="LOCAL" />
-      <updated>1555565405895</updated>
+      <workItem from="1560060779034" duration="40146000" />
     </task>
     <task id="LOCAL-00216" summary="return to general variant">
       <created>1555569173630</created>
@@ -866,11 +845,32 @@
       <option name="project" value="LOCAL" />
       <updated>1560260146100</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="update requirements.txt">
+      <created>1560260323103</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1560260323103</updated>
+    </task>
+    <task id="LOCAL-00263" summary="update requirements.txt">
+      <created>1560260384509</created>
+      <option name="number" value="00263" />
+      <option name="presentableId" value="LOCAL-00263" />
+      <option name="project" value="LOCAL" />
+      <updated>1560260384509</updated>
+    </task>
+    <task id="LOCAL-00264" summary="update requirements.txt">
+      <created>1560261255855</created>
+      <option name="number" value="00264" />
+      <option name="presentableId" value="LOCAL-00264" />
+      <option name="project" value="LOCAL" />
+      <updated>1560261255855</updated>
+    </task>
+    <option name="localTasksCounter" value="265" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="386628000" />
+    <option name="totallyTimeSpent" value="387769000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1256,23 +1256,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logistic_bot/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="28" />
-          <folding>
-            <element signature="e#192#207#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
@@ -1307,20 +1290,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/dbworker.py">
+    <entry file="file://$PROJECT_DIR$/logistic_bot/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="15" />
+        <state relative-caret-position="76">
+          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="28" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#192#207#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="108" column="41" lean-forward="true" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
+        <state relative-caret-position="281">
+          <caret line="107" column="43" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="43" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -1329,10 +1312,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/statistic_site/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        <state relative-caret-position="323">
+          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="40" column="10" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/dbworker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

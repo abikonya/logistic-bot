@@ -20,6 +20,7 @@ def add_product(telegram_id):
 
 def status_updater(telegram_id, each):
     if Statuses.objects.get(task_id=each['pack_id']):
+        print(Statuses.objects.get(task_id=each['pack_id']))
         status = Statuses.objects.get(task_id=each['pack_id'])
         status.status = each['status']
         status.save(update_fields=['status'])
