@@ -4,7 +4,12 @@ from django.views.generic import TemplateView, View
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
-from bot_app.models import AuthorizedCustomers
+from bot_app.api_func import get_status
+from bot_app.models import Products, Statuses
+from blockchain.wallet import Wallet
+from blockchain import createwallet
+
+wallet = Wallet('fde7f71c-3c5b-45ad-bf60-8736d92e3ae6', 'lkebalsdu771WJndssR0!nccvLhG', 'http://localhost:3000/')
 
 
 class MainView(TemplateView):
@@ -13,9 +18,20 @@ class MainView(TemplateView):
 
     def get(self, request):
         if request.user.is_authenticated:
-            customers = AuthorizedCustomers.objects.all()
+            statuses_request = get_status(request.user)['package_list']
+            print(statuses_request)
+            for each in statuses_request:
+                if Statuses.objects.get(task_id=each['pack_id']):
+                    status = Statuses.objects.get(task_id=each['pack_id'])
+                    status.status = each['status']
+                    status.save()
+                else:
+                    new_position = Statuses(user_id=request.user, task_id=each['pack_id'], status=each['status'])
+                    new_position.save()
             ctx = dict()
-            ctx['customers'] = customers
+            ctx['balance'] = '$BALANCE$'
+            ctx['products'] = Products.objects.filter(user_id=request.user)
+            ctx['statuses'] = Statuses.objects.filter(user_id=request.user)
             return render(request, self.template_name, ctx)
         else:
             return render(request, self.login_template, {})

@@ -23,7 +23,7 @@
     </div>
     <div id="user-tools">
         
-        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <a href="#">$BALANCE$</a>
+        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <a href="#">{{ balance }}</a>
         <a href="/statistic/logout/">Выйти</a>
         {% else %}
         <a href="/statistic/login/">Войти</a>
@@ -39,7 +39,107 @@
 
         <h2>Товары</h2>
         <div id="content-main">
-            <!-- Сюда добавляется вывод от api запросов с помощью ajax и выполняется форматировние с помощью html тегов -->
+
+                <div class="results">
+                    <table id="result_list">
+                        <thead>
+                        <tr>
+                            <th scope="col"  class="sortable column-status">
+                                <div class="text"><a href="?o=1.-13">Статус</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-task_id">
+                                <div class="text"><a href="?o=2.-13">Номер заказа</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-zipcode">
+                                <div class="text"><a href="?o=3.-13">Zipcode</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-store_name">
+                                <div class="text"><a href="?o=4.-13">Название магазина</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-store_phone">
+                                <div class="text"><a href="?o=5.-13">Телефон магазина</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-order_number">
+                                <div class="text"><a href="?o=6.-13">Номер заказа</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-pickup_person">
+                                <div class="text"><a href="?o=7.-13">Получатель</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-pickup_location">
+                                <div class="text"><a href="?o=8.-13">Точка погрузки</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-more_info">
+                                <div class="text"><a href="?o=9.-13">Дополнительное инфо</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-product_category">
+                                <div class="text"><a href="?o=10.-13">Категория товара</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-product_item">
+                                <div class="text"><a href="?o=11.-13">Товар</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-price">
+                                <div class="text"><a href="?o=12.-13">Цена</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-created sorted descending">
+                                <div class="sortoptions">
+                                    <a class="sortremove" href="?o=" title="Remove from sorting"></a>
+                                    <a href="?o=13" class="toggle descending" title="Toggle sorting"></a>
+                                </div>
+
+                                <div class="text"><a href="?o=13">Дата добавления</a></div>
+                                <div class="clear"></div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for product in products %}
+
+                            <tr class="row">
+                            <th class="field-status"></th>
+                            <td class="field-task_id">{{ product.task_id }}</td>
+                            <td class="field-zipcode">{{ product.zipcode }}</td>
+                            <td class="field-store_name">{{ product.store_name }}</td>
+                            <td class="field-store_phone">{{ product.store_phone }}</td>
+                            <td class="field-order_number">{{ product.order_number }}</td>
+                            <td class="field-pickup_person">{{ product.pickup_person }}</td>
+                            <td class="field-pickup_location">{{ product.pickup_location }}</td>
+                            <td class="field-more_info">{{ product.more_info }}</td>
+                            <td class="field-product_category">{{ product.product_category }}</td>
+                            <td class="field-product_item">{{ product.product_item }}</td>
+                            <td class="field-price">{{ product.price }}</td>
+                            <td class="field-created nowrap">{{ product.created }}</td>
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                    </table>
+                </div>
         </div>
     </fieldset>
 
