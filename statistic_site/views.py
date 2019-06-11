@@ -25,7 +25,7 @@ class MainView(TemplateView):
                 if Statuses.objects.get(task_id=each['pack_id']):
                     status_updater(request.user, each)
             ctx = dict()
-            if request.user == 'admin':
+            if request.user == 'ADMIN':
                 ctx['balance'] = wallet.get_balance()
             else:
                 ctx['balance'] = '$BALANCE$'
