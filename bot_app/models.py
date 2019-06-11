@@ -26,21 +26,20 @@ class Products(models.Model):
     more_info = models.TextField(blank=True, verbose_name='Дополнительное инфо')
     product_category = models.CharField(max_length=50, blank=True, verbose_name='Категория товара')
     product_item = models.CharField(max_length=50, blank=True, verbose_name='Товар')
-    price = models.CharField(max_length=50, blank=True, verbose_name='Цена')
+    price = models.FloatField(max_length=50, blank=True, verbose_name='Цена')
     created = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата добавления')
-
 
     class Meta:
         verbose_name_plural = 'Товары'
         verbose_name = 'Товар'
         ordering = ['-created']
 
+
 class Statuses(models.Model):
     user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
     task_id = models.CharField(max_length=50, blank=True, verbose_name='Номер заказа')
     status = models.CharField(max_length=50, blank=True, verbose_name='Статус')
     updated = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата обновления')
-
 
     class Meta:
         verbose_name_plural = 'Статусы'
