@@ -10,7 +10,7 @@ from bot_app.dbworker import status_updater
 from blockchain.wallet import Wallet
 
 
-wallet = Wallet('fde7f71c-3c5b-45ad-bf60-8736d92e3ae6', 'lkebalsdu771WJndssR0!nccvLhG', 'http://localhost:3000/')
+wallet = Wallet('fde7f71c-3c5b-45ad-bf60-8736d92e3ae6', 'lkebalsdu771WJndssR0!nccvLhG', 'http://31.173.243.23:3000/')
 
 
 class MainView(TemplateView):
@@ -28,7 +28,7 @@ class MainView(TemplateView):
             if request.user == 'admin':
                 ctx['balance'] = wallet.get_balance()
             else:
-                ctx['balance'] = '$BALANCE$'
+                ctx['balance'] = wallet.get_balance()
             ctx['products'] = Products.objects.filter(user_id=request.user)
             ctx['statuses'] = Statuses.objects.filter(user_id=request.user)
             return render(request, self.template_name, ctx)
