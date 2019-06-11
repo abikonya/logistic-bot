@@ -10,7 +10,7 @@ from bot_app.dbworker import status_updater
 from blockchain.wallet import Wallet
 
 
-wallet = Wallet('fde7f71c-3c5b-45ad-bf60-8736d92e3ae6', 'lkebalsdu771WJndssR0!nccvLhG', 'http://31.173.243.23:3000/')
+wallet = Wallet('fde7f71c-3c5b-45ad-bf60-8736d92e3ae6', 'lkebalsdu771WJndssR0!nccvLhG', 'http://localhost:3000/')
 
 
 class MainView(TemplateView):
@@ -20,7 +20,7 @@ class MainView(TemplateView):
     def get(self, request):
         if request.user.is_authenticated:
             print(request.user)
-            statuses_request = get_status('D87hd487ft4')['package_list']
+            statuses_request = get_status(request.user)['package_list']
             for each in statuses_request:
                 if Statuses.objects.get(task_id=each['pack_id']):
                     status_updater('D87hd487ft4', each)

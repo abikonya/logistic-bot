@@ -191,6 +191,7 @@
       <find>add_</find>
       <find>price</find>
       <find>send_bu</find>
+      <find>status_u</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Admin\Documents\GitHub\logistic_bot</dir>
