@@ -984,6 +984,8 @@ table#change-history tbody th {
 
 .topmenu > li {
     display: inline-block;
+    margin: 0;
+    padding: 0;
 }
 
 .submenu {
