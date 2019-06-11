@@ -991,6 +991,7 @@ table#change-history tbody th {
 .topmenu {
     margin: 0;
     padding: 0;
+    width: auto;
 }
 
 .submenu {
