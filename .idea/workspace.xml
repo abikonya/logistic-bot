@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statistic_site/templates/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_site/templates/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistic_site/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_site/templates/main.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,20 +64,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statistic_site/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+            <state relative-caret-position="283">
+              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/statistic_site/templates/css/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="993" column="17" selection-start-line="993" selection-start-column="17" selection-end-line="993" selection-end-column="17" />
+            <state relative-caret-position="758">
+              <caret line="1015" column="22" lean-forward="true" selection-start-line="1015" selection-start-column="22" selection-end-line="1015" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -245,8 +247,8 @@
         <option value="$PROJECT_DIR$/bot_app/dbworker.py" />
         <option value="$PROJECT_DIR$/statistic_site/views.py" />
         <option value="$PROJECT_DIR$/bot_app/views.py" />
-        <option value="$PROJECT_DIR$/statistic_site/templates/main.html" />
         <option value="$PROJECT_DIR$/statistic_site/templates/css/base.css" />
+        <option value="$PROJECT_DIR$/statistic_site/templates/main.html" />
       </list>
     </option>
   </component>
@@ -531,28 +533,7 @@
       <workItem from="1560004987817" duration="1389000" />
       <workItem from="1560011957818" duration="1069000" />
       <workItem from="1560058801216" duration="1203000" />
-      <workItem from="1560060779034" duration="35502000" />
-    </task>
-    <task id="LOCAL-00206" summary="added choosing kind of pickup">
-      <created>1555503164297</created>
-      <option name="number" value="00206" />
-      <option name="presentableId" value="LOCAL-00206" />
-      <option name="project" value="LOCAL" />
-      <updated>1555503164297</updated>
-    </task>
-    <task id="LOCAL-00207" summary="added choosing kind of pickup">
-      <created>1555503408169</created>
-      <option name="number" value="00207" />
-      <option name="presentableId" value="LOCAL-00207" />
-      <option name="project" value="LOCAL" />
-      <updated>1555503408169</updated>
-    </task>
-    <task id="LOCAL-00208" summary="return to general variant">
-      <created>1555507648813</created>
-      <option name="number" value="00208" />
-      <option name="presentableId" value="LOCAL-00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1555507648813</updated>
+      <workItem from="1560060779034" duration="36164000" />
     </task>
     <task id="LOCAL-00209" summary="return to general variant">
       <created>1555507798625</created>
@@ -876,11 +857,32 @@
       <option name="project" value="LOCAL" />
       <updated>1560256713158</updated>
     </task>
-    <option name="localTasksCounter" value="255" />
+    <task id="LOCAL-00255" summary="update requirements.txt">
+      <created>1560256807334</created>
+      <option name="number" value="00255" />
+      <option name="presentableId" value="LOCAL-00255" />
+      <option name="project" value="LOCAL" />
+      <updated>1560256807334</updated>
+    </task>
+    <task id="LOCAL-00256" summary="update requirements.txt">
+      <created>1560256900790</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL-00256" />
+      <option name="project" value="LOCAL" />
+      <updated>1560256900790</updated>
+    </task>
+    <task id="LOCAL-00257" summary="update requirements.txt">
+      <created>1560257107699</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1560257107699</updated>
+    </task>
+    <option name="localTasksCounter" value="258" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="383125000" />
+    <option name="totallyTimeSpent" value="383787000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1333,17 +1335,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statistic_site/templates/main.html">
+    <entry file="file://$PROJECT_DIR$/statistic_site/templates/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        <state relative-caret-position="758">
+          <caret line="1015" column="22" lean-forward="true" selection-start-line="1015" selection-start-column="22" selection-end-line="1015" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statistic_site/templates/css/base.css">
+    <entry file="file://$PROJECT_DIR$/statistic_site/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="993" column="17" selection-start-line="993" selection-start-column="17" selection-end-line="993" selection-end-column="17" />
+        <state relative-caret-position="283">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
         </state>
       </provider>
     </entry>
