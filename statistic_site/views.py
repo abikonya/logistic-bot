@@ -37,7 +37,7 @@ class MainView(TemplateView):
             ctx['cancel'] = Statuses.objects.filter(user_id=request.user, status='Cancel').count()
             ctx['paid'] = Statuses.objects.filter(user_id=request.user, status='Paid').count()
             ctx['total'] = Statuses.objects.filter(user_id=request.user).count()
-            ctx['sum'] = Products.objects.filter(user_id=request.user).aggregate(Sum('price'))
+            ctx['sum'] = Products.objects.filter(user_id=request.user).aggregate(Sum('price'))['price__sum']
             return render(request, self.template_name, ctx)
         else:
             return render(request, self.login_template, {})
