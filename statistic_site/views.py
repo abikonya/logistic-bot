@@ -28,7 +28,7 @@ class MainView(TemplateView):
             if request.user == 'admin':
                 ctx['balance'] = wallet.get_balance()
             else:
-                ctx['balance'] = wallet.get_balance()
+                ctx['balance'] = '$BALANCE$'
             ctx['products'] = Products.objects.filter(user_id=request.user)
             ctx['statuses'] = Statuses.objects.filter(user_id=request.user)
             return render(request, self.template_name, ctx)
