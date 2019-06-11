@@ -1,4 +1,4 @@
-from .models import Products
+from .models import Products, Statuses
 from . import api_func
 
 
@@ -16,3 +16,13 @@ def add_product(telegram_id):
                      product_item=api_func.return_param(telegram_id, 'product_item'),
                      price=api_func.return_param(telegram_id, 'price'))
     query.save()
+
+
+def status_updater(telegram_id, each):
+    if Statuses.objects.get(task_id=each['pack_id']):
+        status = Statuses.objects.get(task_id=each['pack_id']).status
+        status.status = each['status']
+        status.save(update_fields=['status'])
+    else:
+        new_position = Statuses(user_id=telegram_id, task_id=each['pack_id'], status=each['status'])
+        new_position.save()

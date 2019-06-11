@@ -11,7 +11,7 @@ from bot_app import config
 from bot_app import localization
 from bot_app import tech_info
 from .models import AuthorizedCustomers
-from .dbworker import add_product
+from .dbworker import add_product, status_updater
 
 bot = telebot.TeleBot(config.token)
 
@@ -105,6 +105,7 @@ def answer_on_digits(message):
         get_status = api_func.get_status(telegram_id=message.chat.id)
         if type(get_status) == dict and get_status['package_list']:
             for each in get_status['package_list']:
+                status_updater(message.chat.id, each)
                 pack_id = each['pack_id']
                 if pack_id == message.text:
                     bot.send_message(message.chat.id, text=localization.return_translation('status', language) + each['pack_id'])
