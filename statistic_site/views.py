@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from bot_app.api_func import get_status
 from bot_app.models import Products, Statuses
+from django.db.models import Sum
 from bot_app.dbworker import status_updater
 from blockchain.wallet import Wallet
 
@@ -36,7 +37,7 @@ class MainView(TemplateView):
             ctx['cancel'] = Statuses.objects.filter(user_id=request.user, status='Cancel').count()
             ctx['paid'] = Statuses.objects.filter(user_id=request.user, status='Paid').count()
             ctx['total'] = Statuses.objects.filter(user_id=request.user).count()
-
+            ctx['sum'] = Products.objects.filter(user_id=request.user).aggregate(Sum('price'))
             return render(request, self.template_name, ctx)
         else:
             return render(request, self.login_template, {})
