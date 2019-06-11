@@ -20,10 +20,10 @@ class MainView(TemplateView):
     def get(self, request):
         if request.user.is_authenticated:
             print(request.user)
-            statuses_request = get_status(request.user)['package_list']
+            statuses_request = get_status('D87hd487ft4')['package_list']
             for each in statuses_request:
                 if Statuses.objects.get(task_id=each['pack_id']):
-                    status_updater(request.user, each)
+                    status_updater('D87hd487ft4', each)
             ctx = dict()
             if request.user == 'admin':
                 ctx['balance'] = wallet.get_balance()

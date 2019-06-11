@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistic_site/templates/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_site/templates/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistic_site/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_site/templates/main.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statistic_site/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            <state relative-caret-position="568">
+              <caret line="140" column="34" selection-start-line="140" selection-start-column="34" selection-end-line="140" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -533,21 +531,7 @@
       <workItem from="1560004987817" duration="1389000" />
       <workItem from="1560011957818" duration="1069000" />
       <workItem from="1560058801216" duration="1203000" />
-      <workItem from="1560060779034" duration="36164000" />
-    </task>
-    <task id="LOCAL-00209" summary="return to general variant">
-      <created>1555507798625</created>
-      <option name="number" value="00209" />
-      <option name="presentableId" value="LOCAL-00209" />
-      <option name="project" value="LOCAL" />
-      <updated>1555507798625</updated>
-    </task>
-    <task id="LOCAL-00210" summary="return to general variant">
-      <created>1555561902067</created>
-      <option name="number" value="00210" />
-      <option name="presentableId" value="LOCAL-00210" />
-      <option name="project" value="LOCAL" />
-      <updated>1555561902070</updated>
+      <workItem from="1560060779034" duration="38381000" />
     </task>
     <task id="LOCAL-00211" summary="return to general variant">
       <created>1555563871890</created>
@@ -878,11 +862,25 @@
       <option name="project" value="LOCAL" />
       <updated>1560257107699</updated>
     </task>
-    <option name="localTasksCounter" value="258" />
+    <task id="LOCAL-00258" summary="update requirements.txt">
+      <created>1560257471359</created>
+      <option name="number" value="00258" />
+      <option name="presentableId" value="LOCAL-00258" />
+      <option name="project" value="LOCAL" />
+      <updated>1560257471359</updated>
+    </task>
+    <task id="LOCAL-00259" summary="update requirements.txt">
+      <created>1560259626721</created>
+      <option name="number" value="00259" />
+      <option name="presentableId" value="LOCAL-00259" />
+      <option name="project" value="LOCAL" />
+      <updated>1560259626721</updated>
+    </task>
+    <option name="localTasksCounter" value="260" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="383787000" />
+    <option name="totallyTimeSpent" value="386004000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1344,8 +1342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/statistic_site/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        <state relative-caret-position="568">
+          <caret line="140" column="34" selection-start-line="140" selection-start-column="34" selection-end-line="140" selection-end-column="34" />
         </state>
       </provider>
     </entry>
