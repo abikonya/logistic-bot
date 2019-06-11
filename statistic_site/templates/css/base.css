@@ -982,6 +982,10 @@ table#change-history tbody th {
     padding: 10px 20px;
 }
 
+.topmenu > li {
+    display: inline-block;
+}
+
 .submenu {
     position: absolute;
     top: 100%;
