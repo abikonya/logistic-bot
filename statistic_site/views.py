@@ -31,6 +31,12 @@ class MainView(TemplateView):
                 ctx['balance'] = '$BALANCE$'
             ctx['products'] = Products.objects.filter(user_id=request.user)
             ctx['statuses'] = Statuses.objects.filter(user_id=request.user)
+            ctx['process'] = Statuses.objects.filter(user_id=request.user, status='Process').count()
+            ctx['confirm'] = Statuses.objects.filter(user_id=request.user, status='Confirm').count()
+            ctx['cancel'] = Statuses.objects.filter(user_id=request.user, status='Cancel').count()
+            ctx['paid'] = Statuses.objects.filter(user_id=request.user, status='Paid').count()
+            ctx['total'] = Statuses.objects.filter(user_id=request.user).count()
+
             return render(request, self.template_name, ctx)
         else:
             return render(request, self.login_template, {})

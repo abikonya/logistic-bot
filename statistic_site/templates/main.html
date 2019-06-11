@@ -160,9 +160,48 @@
 
     <fieldset class="module aligned ">
         <h2>Статистика заказов</h2>
-        <div id="orders">
-            <!-- Сюда добавляется вывод от api запросов с помощью ajax и выполняется форматировние с помощью html тегов -->
-        </div>
+        <div class="counts">
+                    <table id="count_list">
+                        <thead>
+                        <tr>
+                            <th scope="col"  class="sortable column-process">
+                                <div class="text"><a href="?o=1.-13">Process</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-confirm">
+                                <div class="text"><a href="?o=2.-13">Confirm</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-cancel">
+                                <div class="text"><a href="?o=3.-13">Cancel</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-paid">
+                                <div class="text"><a href="?o=4.-13">Paid</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-total">
+                                <div class="text"><a href="?o=5.-13">Total</a></div>
+                                <div class="clear"></div>
+                            </th>
+                        <tbody>
+
+                        <tr class="row">
+
+                            <td class="field-process">{{ process }}</td>
+                            <td class="field-confirm">{{ confirm }}</td>
+                            <td class="field-cancel">{{ cancel }}</td>
+                            <td class="field-paid">{{ paid }}</td>
+                            <td class="field-total">{{ total }}</td>
+                        </tr>
+
+                    </tbody>
+                    </table>
+                </div>
     </fieldset>
 
     <fieldset class="module aligned ">
