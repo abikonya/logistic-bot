@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_app/dbworker.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/dbworker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -520,21 +521,7 @@
       <workItem from="1560004987817" duration="1389000" />
       <workItem from="1560011957818" duration="1069000" />
       <workItem from="1560058801216" duration="1203000" />
-      <workItem from="1560060779034" duration="40603000" />
-    </task>
-    <task id="LOCAL-00218" summary="return to general variant">
-      <created>1555596040402</created>
-      <option name="number" value="00218" />
-      <option name="presentableId" value="LOCAL-00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1555596040402</updated>
-    </task>
-    <task id="LOCAL-00219" summary="prefinal version">
-      <created>1556176082812</created>
-      <option name="number" value="00219" />
-      <option name="presentableId" value="LOCAL-00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1556176082812</updated>
+      <workItem from="1560060779034" duration="41137000" />
     </task>
     <task id="LOCAL-00220" summary="add ban for unregistered user">
       <created>1558435232188</created>
@@ -865,11 +852,25 @@
       <option name="project" value="LOCAL" />
       <updated>1560261575868</updated>
     </task>
-    <option name="localTasksCounter" value="267" />
+    <task id="LOCAL-00267" summary="update requirements.txt">
+      <created>1560261916569</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1560261916569</updated>
+    </task>
+    <task id="LOCAL-00268" summary="update requirements.txt">
+      <created>1560262157083</created>
+      <option name="number" value="00268" />
+      <option name="presentableId" value="LOCAL-00268" />
+      <option name="project" value="LOCAL" />
+      <updated>1560262157083</updated>
+    </task>
+    <option name="localTasksCounter" value="269" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="388226000" />
+    <option name="totallyTimeSpent" value="388760000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
