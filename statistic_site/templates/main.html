@@ -23,16 +23,19 @@
     </div>
     <div id="user-tools">
         
-        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <li><a href="#">{{ balance }}<i class="fa fa-angle-down"></i></a>
+        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <li><a href="#">{{ balance }}</a>
         <ul class="submenu">
             <li><a href="">Item 1</a></li>
             <li><a href="">Item 2</a></li>
         </ul></li>
 
+        <li><a href="/statistic/logout/">Выйти</a></li>
 
-        <a href="/statistic/logout/">Выйти</a>
         {% else %}
-        <a href="/statistic/login/">Войти</a>
+
+        <li><a href="/statistic/login/">Войти</a></li>
+
+
     </div>
 {% endif %}
 </div>
