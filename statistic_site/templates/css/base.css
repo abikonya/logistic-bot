@@ -1001,4 +1001,4 @@ table#change-history tbody th {
   position: relative;
 }
 
-.submenu li:hover {display: block;}
+.topmenu li:hover .submenu {display: block;}
