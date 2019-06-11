@@ -988,6 +988,11 @@ table#change-history tbody th {
     padding: 0;
 }
 
+.topmenu {
+    margin: 0;
+    padding: 0;
+}
+
 .submenu {
     position: absolute;
     top: 100%;
