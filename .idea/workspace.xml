@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statistic_site/templates/css/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="992" column="14" selection-start-line="992" selection-start-column="14" selection-end-line="992" selection-end-column="14" />
+            <state relative-caret-position="454">
+              <caret line="993" column="17" selection-start-line="993" selection-start-column="17" selection-end-line="993" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -531,21 +531,7 @@
       <workItem from="1560004987817" duration="1389000" />
       <workItem from="1560011957818" duration="1069000" />
       <workItem from="1560058801216" duration="1203000" />
-      <workItem from="1560060779034" duration="35230000" />
-    </task>
-    <task id="LOCAL-00204" summary="added choosing kind of pickup">
-      <created>1555422104398</created>
-      <option name="number" value="00204" />
-      <option name="presentableId" value="LOCAL-00204" />
-      <option name="project" value="LOCAL" />
-      <updated>1555422104398</updated>
-    </task>
-    <task id="LOCAL-00205" summary="added choosing kind of pickup">
-      <created>1555500609267</created>
-      <option name="number" value="00205" />
-      <option name="presentableId" value="LOCAL-00205" />
-      <option name="project" value="LOCAL" />
-      <updated>1555500609268</updated>
+      <workItem from="1560060779034" duration="35502000" />
     </task>
     <task id="LOCAL-00206" summary="added choosing kind of pickup">
       <created>1555503164297</created>
@@ -876,11 +862,25 @@
       <option name="project" value="LOCAL" />
       <updated>1560256431292</updated>
     </task>
-    <option name="localTasksCounter" value="253" />
+    <task id="LOCAL-00253" summary="update requirements.txt">
+      <created>1560256535440</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL-00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1560256535440</updated>
+    </task>
+    <task id="LOCAL-00254" summary="update requirements.txt">
+      <created>1560256713158</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL-00254" />
+      <option name="project" value="LOCAL" />
+      <updated>1560256713158</updated>
+    </task>
+    <option name="localTasksCounter" value="255" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="382853000" />
+    <option name="totallyTimeSpent" value="383125000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1342,8 +1342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/statistic_site/templates/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="992" column="14" selection-start-line="992" selection-start-column="14" selection-end-line="992" selection-end-column="14" />
+        <state relative-caret-position="454">
+          <caret line="993" column="17" selection-start-line="993" selection-start-column="17" selection-end-line="993" selection-end-column="17" />
         </state>
       </provider>
     </entry>
