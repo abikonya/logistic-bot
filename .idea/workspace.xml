@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistic_bot/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/logistic_bot/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistic_site/templates/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_site/templates/css/base.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,17 +66,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/statistic_site/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3933">
-              <caret line="207" column="28" selection-start-line="207" selection-start-column="28" selection-end-line="207" selection-end-column="28" />
+            <state relative-caret-position="343">
+              <caret line="177" column="52" lean-forward="true" selection-start-line="177" selection-start-column="52" selection-end-line="177" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statistic_site/templates/css/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19285">
-              <caret line="1015" column="22" selection-start-line="1015" selection-start-column="22" selection-end-line="1015" selection-end-column="22" />
+            <state relative-caret-position="533">
+              <caret line="995" selection-start-line="995" selection-end-line="995" />
             </state>
           </provider>
         </entry>
@@ -105,8 +105,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21">
-              <caret line="338" column="38" selection-start-line="338" selection-start-column="32" selection-end-line="338" selection-end-column="38" />
+            <state relative-caret-position="437">
+              <caret line="86" column="72" selection-start-line="86" selection-start-column="67" selection-end-line="86" selection-end-column="78" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -114,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="494">
-              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+              <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
               <folding>
                 <element signature="e#313#322#0" expanded="true" />
               </folding>
@@ -236,13 +236,13 @@
         <option value="$PROJECT_DIR$/bot_app/api_func.py" />
         <option value="$PROJECT_DIR$/logistic_bot/test.py" />
         <option value="$PROJECT_DIR$/bot_app/admin.py" />
-        <option value="$PROJECT_DIR$/statistic_site/templates/css/base.css" />
         <option value="$PROJECT_DIR$/bot_app/views.py" />
         <option value="$PROJECT_DIR$/bot_app/dbworker.py" />
-        <option value="$PROJECT_DIR$/statistic_site/templates/main.html" />
         <option value="$PROJECT_DIR$/bot_app/models.py" />
         <option value="$PROJECT_DIR$/statistic_site/views.py" />
+        <option value="$PROJECT_DIR$/statistic_site/templates/main.html" />
         <option value="$PROJECT_DIR$/logistic_bot/settings.py" />
+        <option value="$PROJECT_DIR$/statistic_site/templates/css/base.css" />
       </list>
     </option>
   </component>
@@ -511,21 +511,7 @@
       <workItem from="1560011957818" duration="1069000" />
       <workItem from="1560058801216" duration="1203000" />
       <workItem from="1560060779034" duration="46177000" />
-      <workItem from="1560321918186" duration="971000" />
-    </task>
-    <task id="LOCAL-00225" summary="add statistic-site">
-      <created>1558437374317</created>
-      <option name="number" value="00225" />
-      <option name="presentableId" value="LOCAL-00225" />
-      <option name="project" value="LOCAL" />
-      <updated>1558437374317</updated>
-    </task>
-    <task id="LOCAL-00226" summary="add statistic-site">
-      <created>1558437743012</created>
-      <option name="number" value="00226" />
-      <option name="presentableId" value="LOCAL-00226" />
-      <option name="project" value="LOCAL" />
-      <updated>1558437743012</updated>
+      <workItem from="1560321918186" duration="2888000" />
     </task>
     <task id="LOCAL-00227" summary="add statistic-site">
       <created>1558442272143</created>
@@ -856,11 +842,25 @@
       <option name="project" value="LOCAL" />
       <updated>1560266610892</updated>
     </task>
-    <option name="localTasksCounter" value="274" />
+    <task id="LOCAL-00274" summary="update requirements.txt">
+      <created>1560323816132</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1560323816132</updated>
+    </task>
+    <task id="LOCAL-00275" summary="update requirements.txt">
+      <created>1560328033298</created>
+      <option name="number" value="00275" />
+      <option name="presentableId" value="LOCAL-00275" />
+      <option name="project" value="LOCAL" />
+      <updated>1560328033299</updated>
+    </task>
+    <option name="localTasksCounter" value="276" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394771000" />
+    <option name="totallyTimeSpent" value="396688000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1246,20 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statistic_site/templates/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3933">
-          <caret line="207" column="28" selection-start-line="207" selection-start-column="28" selection-end-line="207" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/statistic_site/templates/css/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19285">
-          <caret line="1015" column="22" selection-start-line="1015" selection-start-column="22" selection-end-line="1015" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/statistic_site/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -1303,21 +1289,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="338" column="38" selection-start-line="338" selection-start-column="32" selection-end-line="338" selection-end-column="38" />
+        <state relative-caret-position="437">
+          <caret line="86" column="72" selection-start-line="86" selection-start-column="67" selection-end-line="86" selection-end-column="78" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/statistic_site/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="177" column="52" lean-forward="true" selection-start-line="177" selection-start-column="52" selection-end-line="177" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
           <folding>
             <element signature="e#313#322#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/statistic_site/templates/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="995" selection-start-line="995" selection-end-line="995" />
         </state>
       </provider>
     </entry>
