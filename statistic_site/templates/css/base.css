@@ -1007,4 +1007,6 @@ table#change-history tbody th {
     display: none;
 }
 
-.topmenu li:hover .submenu {display: block;}
+.topmenu li:hover .submenu {
+    display: block;
+}

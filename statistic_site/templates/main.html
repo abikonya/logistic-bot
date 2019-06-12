@@ -24,11 +24,12 @@
     <div id="user-tools">
         
         Добро пожаловать, <strong>{{ user.username }}</strong>.
-        Ваш баланс, <ul class="topmenu"><li><a href="#">{{ balance }}</a>
-        <ul class="submenu">
-            <li><a href="">Item 1</a></li>
-            <li><a href="">Item 2</a></li>
-        </ul></li>
+        Ваш баланс,
+        <ul class="topmenu">
+            <li><a href="#">{{ balance }}</a>
+                <ul class="submenu">
+                    <li><a href="#">Получить bitcoin кошелек</a></li>
+                </ul></li>
 
         <li><a href="/statistic/logout/">Выйти</a></li>
 
