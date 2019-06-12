@@ -986,6 +986,7 @@ table#change-history tbody th {
     list-style: none;
     margin: 0;
     padding-left: 0;
+    display: block;
 }
 
 .submenu {
