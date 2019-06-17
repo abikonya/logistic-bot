@@ -45,3 +45,26 @@ class Statuses(models.Model):
         verbose_name_plural = 'Статусы'
         verbose_name = 'Статус'
         ordering = ['-user_id', '-task_id', '-status']
+
+
+class Wallets(models.Model):
+    user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
+    address = models.CharField(max_length=50, blank=True, verbose_name='Address')
+    created = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата создания')
+
+    class Meta:
+        verbose_name_plural = 'Кошельки'
+        verbose_name = 'Кошелек'
+        ordering = ['-user_id']
+
+
+class Payments(models.Model):
+    user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
+    address = models.CharField(max_length=50, blank=True, verbose_name='Address')
+    amount = models.CharField(max_length=50, blank=True, verbose_name='Amount')
+    created = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата создания')
+
+    class Meta:
+        verbose_name_plural = 'Платежи'
+        verbose_name = 'Платеж'
+        ordering = ['-user_id', '-address']

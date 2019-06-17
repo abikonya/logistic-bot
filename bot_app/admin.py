@@ -1,5 +1,5 @@
 from django.contrib import admin
-from bot_app.models import AuthorizedCustomers, Products, Statuses
+from bot_app.models import AuthorizedCustomers, Products, Statuses, Wallets, Payments
 # Register your models here.
 
 
@@ -19,6 +19,18 @@ class StatusesAdmin(admin.ModelAdmin):
     search_fields = ('user_id', 'task_id', 'status', 'updated')
 
 
+class WalletsAdmin(admin.ModelAdmin):
+    list_display = ('user_id', 'address')
+    search_fields = ('user_id',)
+
+
+class PaymentsAdmin(admin.ModelAdmin):
+    list_display = ('user_id', 'address', 'amount', 'created')
+    search_fields = ('user_id', 'address', 'amount', 'created')
+
+
 admin.site.register(AuthorizedCustomers, ACAdmin)
 admin.site.register(Products, ProductsAdmin)
 admin.site.register(Statuses, StatusesAdmin)
+admin.site.register(Wallets, WalletsAdmin)
+admin.site.register(Payments, PaymentsAdmin)

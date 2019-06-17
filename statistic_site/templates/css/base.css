@@ -1003,12 +1003,11 @@ table#change-history tbody th {
 }
 
 .submenu li {
-    visibility: hidden;
-    position: absolute;
+    display: none;
+    position: relative;
 }
 
 .topmenu li:hover .submenu {
-    visibility: visible;
     display: block;
 }
 

@@ -9,10 +9,10 @@ from bot_app.models import Products, Statuses
 from django.db.models import Sum
 from bot_app.dbworker import status_updater
 from blockchain.wallet import Wallet
+from blockchain.blockexplorer import get_address
+from bot_app.config import wallet_id, wallet_pass, host, bitcoin_token
 
-
-wallet = Wallet('fde7f71c-3c5b-45ad-bf60-8736d92e3ae6', 'lkebalsdu771WJndssR0!nccvLhG', 'http://localhost:3000/')
-
+wallet = Wallet(wallet_id, wallet_pass, host)
 
 class MainView(TemplateView):
     template_name = 'main.html'
