@@ -23,8 +23,7 @@ class MainView(TemplateView):
             print(request.user)
             statuses_request = get_status(request.user)['package_list']
             for each in statuses_request:
-                if Statuses.objects.get(task_id=each['pack_id']):
-                    status_updater('D87hd487ft4', each)
+                status_updater('D87hd487ft4', each)
             ctx = dict()
             if request.user == 'admin':
                 ctx['balance'] = wallet.get_balance()
