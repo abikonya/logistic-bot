@@ -14,6 +14,7 @@ from bot_app.config import wallet_id, wallet_pass, host, bitcoin_token
 
 wallet = Wallet(wallet_id, wallet_pass, host)
 
+
 class MainView(TemplateView):
     template_name = 'main.html'
     login_template = 'enter_form.html'
@@ -28,14 +29,14 @@ class MainView(TemplateView):
                 ctx['balance'] = wallet.get_balance()
             else:
                 ctx['balance'] = '$BALANCE$'
-            ctx['products'] = Products.objects.filter(user_id=request.user)
-            ctx['statuses'] = Statuses.objects.filter(user_id=request.user)
-            ctx['process'] = Statuses.objects.filter(user_id=request.user, status='Process').count()
-            ctx['confirm'] = Statuses.objects.filter(user_id=request.user, status='Confirm').count()
-            ctx['cancel'] = Statuses.objects.filter(user_id=request.user, status='Cancel').count()
-            ctx['paid'] = Statuses.objects.filter(user_id=request.user, status='Paid').count()
-            ctx['total'] = Statuses.objects.filter(user_id=request.user).count()
-            ctx['sum'] = Products.objects.filter(user_id=request.user).aggregate(Sum('price'))['price__sum']
+            ctx['products'] = Products.objects.filter(telegram_id=request.user)
+            ctx['statuses'] = Statuses.objects.filter(telegram_id=request.user)
+            ctx['process'] = Statuses.objects.filter(telegram_id=request.user, status='Process').count()
+            ctx['confirm'] = Statuses.objects.filter(telegram_id=request.user, status='Confirm').count()
+            ctx['cancel'] = Statuses.objects.filter(telegram_id=request.user, status='Cancel').count()
+            ctx['paid'] = Statuses.objects.filter(telegram_id=request.user, status='Paid').count()
+            ctx['total'] = Statuses.objects.filter(telegram_id=request.user).count()
+            ctx['sum'] = Products.objects.filter(telegram_id=request.user).aggregate(Sum('price'))['price__sum']
             return render(request, self.template_name, ctx)
         else:
             return render(request, self.login_template, {})
