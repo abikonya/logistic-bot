@@ -5,9 +5,9 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from bot_app.api_func import get_status
-from bot_app.models import Products, Statuses
+from bot_app.models import Products, Statuses, Payments
 from django.db.models import Sum
-from bot_app.dbworker import status_updater
+from bot_app.dbworker import status_updater, payments_updater
 from blockchain.wallet import Wallet
 from blockchain.blockexplorer import get_address
 from bot_app.config import wallet_id, wallet_pass, host, bitcoin_token
@@ -24,6 +24,9 @@ class MainView(TemplateView):
             statuses_request = get_status(request.user)['package_list']
             for each in statuses_request:
                 status_updater(request.user, each)
+            payments_request = wallet.list_addresses()
+            for each in payments_request:
+                payments_updater(request.user, each)
             ctx = dict()
             if request.user == 'admin':
                 ctx['balance'] = wallet.get_balance()
@@ -37,6 +40,7 @@ class MainView(TemplateView):
             ctx['paid'] = Statuses.objects.filter(telegram_id=request.user, status='Paid').count()
             ctx['total'] = Statuses.objects.filter(telegram_id=request.user).count()
             ctx['sum'] = Products.objects.filter(telegram_id=request.user).aggregate(Sum('price'))['price__sum']
+            ctx['payments'] = Payments.objects.filter(telegram_id=request.user)
             return render(request, self.template_name, ctx)
         else:
             return render(request, self.login_template, {})

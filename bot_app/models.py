@@ -41,7 +41,7 @@ class Statuses(models.Model):
     user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
     task_id = models.CharField(max_length=50, blank=True, verbose_name='Номер заказа')
     status = models.CharField(max_length=50, blank=True, verbose_name='Статус')
-    updated = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата обновления')
+    updated = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата создания')
 
     class Meta:
         verbose_name_plural = 'Статусы'
