@@ -15,6 +15,7 @@ class AuthorizedCustomers(models.Model):
 
 
 class Products(models.Model):
+    telegram_id = models.CharField(max_length=50, verbose_name='Telegram ID')
     user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
     task_id = models.CharField(max_length=50, blank=True, verbose_name='Номер заказа')
     zipcode = models.CharField(max_length=50, blank=True, verbose_name='Zipcode')
@@ -36,6 +37,7 @@ class Products(models.Model):
 
 
 class Statuses(models.Model):
+    telegram_id = models.CharField(max_length=50, verbose_name='Telegram ID')
     user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
     task_id = models.CharField(max_length=50, blank=True, verbose_name='Номер заказа')
     status = models.CharField(max_length=50, blank=True, verbose_name='Статус')
@@ -48,6 +50,7 @@ class Statuses(models.Model):
 
 
 class Wallets(models.Model):
+    telegram_id = models.CharField(max_length=50, verbose_name='Telegram ID')
     user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
     address = models.CharField(max_length=50, blank=True, verbose_name='Address')
     created = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата создания')
@@ -59,6 +62,7 @@ class Wallets(models.Model):
 
 
 class Payments(models.Model):
+    telegram_id = models.CharField(max_length=50, verbose_name='Telegram ID')
     user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
     address = models.CharField(max_length=50, blank=True, verbose_name='Address')
     amount = models.CharField(max_length=50, blank=True, verbose_name='Amount')

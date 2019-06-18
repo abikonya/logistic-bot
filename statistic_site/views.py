@@ -22,7 +22,7 @@ class MainView(TemplateView):
         if request.user.is_authenticated:
             statuses_request = get_status(request.user)['package_list']
             for each in statuses_request:
-                status_updater('170939870', each)
+                status_updater(request.user, each)
             ctx = dict()
             if request.user == 'admin':
                 ctx['balance'] = wallet.get_balance()

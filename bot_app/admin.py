@@ -9,24 +9,24 @@ class ACAdmin(admin.ModelAdmin):
 
 
 class ProductsAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'task_id', 'zipcode', 'store_name', 'store_phone', 'order_number', 'pickup_person',
+    list_display = ('telegram_id', 'user_id', 'task_id', 'zipcode', 'store_name', 'store_phone', 'order_number', 'pickup_person',
                     'pickup_location', 'more_info', 'product_category', 'product_item', 'price', 'created')
     search_fields = ('user_id', 'task_id', 'created')
 
 
 class StatusesAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'task_id', 'status', 'updated')
-    search_fields = ('user_id', 'task_id', 'status', 'updated')
+    list_display = ('telegram_id', 'user_id', 'task_id', 'status', 'updated')
+    search_fields = ('telegram_id', 'user_id', 'task_id', 'status', 'updated')
 
 
 class WalletsAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'address')
-    search_fields = ('user_id',)
+    list_display = ('telegram_id', 'user_id', 'address')
+    search_fields = ('telegram_id', 'user_id',)
 
 
 class PaymentsAdmin(admin.ModelAdmin):
-    list_display = ('user_id', 'address', 'amount', 'created')
-    search_fields = ('user_id', 'address', 'amount', 'created')
+    list_display = ('telegram_id', 'user_id', 'address', 'amount', 'created')
+    search_fields = ('telegram_id', 'user_id', 'address', 'amount', 'created')
 
 
 admin.site.register(AuthorizedCustomers, ACAdmin)
