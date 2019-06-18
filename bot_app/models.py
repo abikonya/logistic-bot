@@ -19,7 +19,7 @@ class Products(models.Model):
     task_id = models.CharField(max_length=50, blank=True, verbose_name='Номер заказа')
     zipcode = models.CharField(max_length=50, blank=True, verbose_name='Zipcode')
     store_name = models.CharField(max_length=50, blank=True, verbose_name='Название магазина')
-    store_phone = models.CharField(max_length=50, blank=True, verbose_name='Телефон магазина')
+    store_phone = models.CharField(max_length=50, null=True, verbose_name='Телефон магазина')
     order_number = models.CharField(max_length=50, blank=True, verbose_name='Номер заказа')
     pickup_person = models.CharField(max_length=50, blank=True, verbose_name='Получатель')
     pickup_location = models.CharField(max_length=50, blank=True, verbose_name='Точка погрузки')
