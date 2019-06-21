@@ -63,9 +63,9 @@ class Wallets(models.Model):
 
 class Payments(models.Model):
     telegram_id = models.CharField(max_length=50, verbose_name='Telegram ID')
-    user_id = models.CharField(max_length=50, blank=True, verbose_name='User ID')
+    user_id = models.CharField(max_length=50, null=True, verbose_name='User ID')
     address = models.CharField(max_length=50, blank=True, verbose_name='Address')
-    amount = models.CharField(max_length=50, blank=True, verbose_name='Amount')
+    amount = models.CharField(max_length=50, null=True, verbose_name='Amount')
     created = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата создания')
 
     class Meta:

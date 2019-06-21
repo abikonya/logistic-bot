@@ -22,22 +22,25 @@
 
     </div>
     <div id="user-tools">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+        function new_wallet(arg) {
+            $.ajax({
+                type: 'GET',
+                url: 'https://myculinary.ru/lgstc/statistic/getWallet/' + arg,
+                success: function(data) {
+                    var element = document.getElementById('get_wallet');
+                    element.textContent = data
+                }
+            });
+        }
+        </script>
+        <a href="javascript:new_wallet({{ user.username }})" id="get_wallet">Получить новый адрес кошелька</a>
         
-        Добро пожаловать,  <strong>{{ user.username }}</strong>.
-        Ваш баланс,
-        <ul class="topmenu">
-            <li><a href="#">{{ balance }}</a>
-                <ul class="submenu">
-                    <li><a href="#">Получить bitcoin кошелек</a></li>
-                </ul></li>
-
-            <li><a href="/statistic/logout/">Выйти</a></li>
-
+        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <strong>{{ balance }}</strong>
+        <a href="/statistic/logout/">Выйти</a>
         {% else %}
-
-            <li><a href="/statistic/login/">Войти</a></li>
-
-        </ul>
+        <a href="/statistic/login/">Войти</a>
     </div>
 {% endif %}
 
@@ -53,76 +56,81 @@
         <div id="content-main">
 
                 <div class="results">
+                    <script src="http://www.tablesorter.ru/jquery.tablesorter.min.js"></script>
+                    <script>
+                    $(document).ready(function() 
+                            { 
+                                $("#result_list").tablesorter();
+                                $("#count_list").tablesorter();
+                                $("#payments_list").tablesorter();
+                            }
+                        );
+                         </script>
                     <table id="result_list">
                         <thead>
                         <tr>
                             <th scope="col"  class="sortable column-status">
-                                <div class="text"><a href="?o=1.-13">Статус</a></div>
+                                <div class="text"><a>Статус</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-task_id">
-                                <div class="text"><a href="?o=2.-13">Номер заказа</a></div>
+                                <div class="text"><a>Номер заказа</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-zipcode">
-                                <div class="text"><a href="?o=3.-13">Zipcode</a></div>
+                                <div class="text"><a>Zipcode</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-store_name">
-                                <div class="text"><a href="?o=4.-13">Название магазина</a></div>
+                                <div class="text"><a>Название магазина</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-store_phone">
-                                <div class="text"><a href="?o=5.-13">Телефон магазина</a></div>
+                                <div class="text"><a>Телефон магазина</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-order_number">
-                                <div class="text"><a href="?o=6.-13">Номер заказа</a></div>
+                                <div class="text"><a>Номер заказа</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-pickup_person">
-                                <div class="text"><a href="?o=7.-13">Получатель</a></div>
+                                <div class="text"><a>Получатель</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-pickup_location">
-                                <div class="text"><a href="?o=8.-13">Точка погрузки</a></div>
+                                <div class="text"><a>Точка погрузки</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-more_info">
-                                <div class="text"><a href="?o=9.-13">Дополнительное инфо</a></div>
+                                <div class="text"><a>Дополнительное инфо</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-product_category">
-                                <div class="text"><a href="?o=10.-13">Категория товара</a></div>
+                                <div class="text"><a>Категория товара</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-product_item">
-                                <div class="text"><a href="?o=11.-13">Товар</a></div>
+                                <div class="text"><a>Товар</a></div>
                                 <div class="clear"></div>
                             </th>
 
                             <th scope="col"  class="sortable column-price">
-                                <div class="text"><a href="?o=12.-13">Цена</a></div>
+                                <div class="text"><a>Цена</a></div>
                                 <div class="clear"></div>
                             </th>
 
-                            <th scope="col"  class="sortable column-created sorted descending">
-                                <div class="sortoptions">
-                                    <a class="sortremove" href="?o=" title="Remove from sorting"></a>
-                                    <a href="?o=13" class="toggle descending" title="Toggle sorting"></a>
-                                </div>
-
-                                <div class="text"><a href="?o=13">Дата добавления</a></div>
+                            <th scope="col"  class="sortable column-created">
+                                <div class="text"><a>Дата добавления</a></div>
                                 <div class="clear"></div>
                             </th>
                         </tr>
@@ -213,9 +221,40 @@
 
     <fieldset class="module aligned ">
         <h2>Платежи</h2>
-        <div id="Payments">
-            <!-- Сюда добавляется вывод от api запросов с помощью ajax и выполняется форматировние с помощью html тегов -->
-        </div>
+         <div class="payments">
+                    <table id="payments_list">
+                        <thead>
+                        <tr>
+                            <th scope="col"  class="sortable column-address">
+                                <div class="text"><a>Адресс оплаты/Комментарий</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-amount">
+                                <div class="text"><a>Сумма</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-date">
+                                <div class="text"><a>Дата</a></div>
+                                <div class="clear"></div>
+                            </th>
+                        <tbody>
+
+                        {% for payment in payments %}
+
+                            <tr class="row">
+
+                            <td class="field-address">{{ payment.address }}</td>
+                            <td class="field-amount">{{ payment.amount }}</td>
+                            <td class="field-date">{{ payment.created }}</td>
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                    </table>
+                </div>
     </fieldset>
 
 </body>

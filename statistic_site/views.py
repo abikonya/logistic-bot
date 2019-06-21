@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import TemplateView, View
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import AuthenticationForm
@@ -31,7 +31,7 @@ class MainView(TemplateView):
             if request.user == 'admin':
                 ctx['balance'] = wallet.get_balance()
             else:
-                ctx['balance'] = '$BALANCE$'
+                ctx['balance'] = Payments.objects.filter(telegram_id=request.user).aggregate(Sum('amount'))['amount__sum']
             ctx['products'] = Products.objects.filter(telegram_id=request.user)
             ctx['statuses'] = Statuses.objects.filter(telegram_id=request.user)
             ctx['process'] = Statuses.objects.filter(telegram_id=request.user, status='Process').count()
@@ -64,3 +64,8 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return HttpResponseRedirect('/statistic/login')
+
+
+def getwallet(request, id):
+    new_address = wallet.new_address(label=id)
+    return HttpResponse(new_address.address)

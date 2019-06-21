@@ -857,7 +857,6 @@ table#change-history tbody th {
 
 #branding h1, #branding h1 a:link, #branding h1 a:visited {
     color: #f5dd5d;
-    margin-right: 300px;
 }
 
 #branding h2 {
@@ -873,16 +872,14 @@ table#change-history tbody th {
 }
 
 #user-tools {
-    float: initial;
+    float: right;
     padding: 0;
-    padding-right: auto;
-    margin: 0 0 0 0;
+    margin: 0 0 0 20px;
     font-weight: 300;
     font-size: 11px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     text-align: right;
-    display: flex;
 }
 
 #user-tools a {
@@ -983,34 +980,4 @@ table#change-history tbody th {
 
 .popup #header {
     padding: 10px 20px;
-}
-
-.topmenu {
-    margin: 0;
-    padding: 0;
-}
-
-.topmenu li {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    position: relative;
-}
-
-.submenu {
-    margin: 0;
-    padding: 0;
-}
-
-.submenu li {
-    display: none;
-    position: relative;
-}
-
-.topmenu li:hover .submenu {
-    display: block;
-}
-
-.topmenu > li:last-child {
-  margin-right: 0;
 }
