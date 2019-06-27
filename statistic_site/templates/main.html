@@ -35,7 +35,7 @@
             });
         }
         </script>
-        <a href="javascript:new_wallet({{ user.username }})" id="get_wallet">Получить новый адрес кошелька</a>
+        <a href="javascript:new_wallet('{{ user.username }}')" id="get_wallet">Получить новый адрес кошелька</a>
         
         Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <strong>{{ balance }}</strong>
         <a href="/statistic/logout/">Выйти</a>
@@ -61,7 +61,6 @@
                     $(document).ready(function() 
                             { 
                                 $("#result_list").tablesorter();
-                                $("#count_list").tablesorter();
                                 $("#payments_list").tablesorter();
                             }
                         );

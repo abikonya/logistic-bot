@@ -9,8 +9,7 @@ from bot_app.models import Products, Statuses, Payments
 from django.db.models import Sum
 from bot_app.dbworker import status_updater, payments_updater
 from blockchain.wallet import Wallet
-from blockchain.blockexplorer import get_address
-from bot_app.config import wallet_id, wallet_pass, host, bitcoin_token
+from bot_app.config import wallet_id, wallet_pass, host
 
 wallet = Wallet(wallet_id, wallet_pass, host)
 
