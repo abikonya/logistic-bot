@@ -30,6 +30,8 @@ ALLOWED_HOSTS = [
     '*'
 ]
 
+AUTH_USER_MODEL = 'bot_app.User'
+
 
 # Application definition
 

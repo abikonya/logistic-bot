@@ -10,6 +10,7 @@ from django.db.models import Sum
 from bot_app.dbworker import status_updater, payments_updater
 from blockchain.wallet import Wallet
 from bot_app.config import wallet_id, wallet_pass, host
+from bot_app.models import User
 
 wallet = Wallet(wallet_id, wallet_pass, host)
 
@@ -20,26 +21,27 @@ class MainView(TemplateView):
 
     def get(self, request):
         if request.user.is_authenticated:
-            statuses_request = get_status(request.user)['package_list']
+            statuses_request = get_status(request.user)
             for each in statuses_request:
                 status_updater(request.user, each)
             payments_request = wallet.list_addresses()
             for each in payments_request:
                 payments_updater(request.user, each)
             ctx = dict()
+            api = User.objects.get(username='test').api_address
             if request.user == 'admin':
                 ctx['balance'] = wallet.get_balance()
             else:
-                ctx['balance'] = Payments.objects.filter(telegram_id=request.user).aggregate(Sum('amount'))['amount__sum']
-            ctx['products'] = Products.objects.filter(telegram_id=request.user)
-            ctx['statuses'] = Statuses.objects.filter(telegram_id=request.user)
-            ctx['process'] = Statuses.objects.filter(telegram_id=request.user, status='Process').count()
-            ctx['confirm'] = Statuses.objects.filter(telegram_id=request.user, status='Confirm').count()
-            ctx['cancel'] = Statuses.objects.filter(telegram_id=request.user, status='Cancel').count()
-            ctx['paid'] = Statuses.objects.filter(telegram_id=request.user, status='Paid').count()
-            ctx['total'] = Statuses.objects.filter(telegram_id=request.user).count()
-            ctx['sum'] = Products.objects.filter(telegram_id=request.user).aggregate(Sum('price'))['price__sum']
-            ctx['payments'] = Payments.objects.filter(telegram_id=request.user)
+                ctx['balance'] = Payments.objects.filter(username=request.user).aggregate(Sum('amount'))['amount__sum']
+            ctx['products'] = Products.objects.filter(api=api)
+            ctx['statuses'] = Statuses.objects.filter(api=api)
+            ctx['process'] = Statuses.objects.filter(api=api, status='Process').count()
+            ctx['confirm'] = Statuses.objects.filter(api=api, status='Confirm').count()
+            ctx['cancel'] = Statuses.objects.filter(api=api, status='Cancel').count()
+            ctx['paid'] = Statuses.objects.filter(api=api, status='Paid').count()
+            ctx['total'] = Statuses.objects.filter(api=api).count()
+            ctx['sum'] = Products.objects.filter(api=api).aggregate(Sum('price'))['price__sum']
+            ctx['payments'] = Payments.objects.filter(username=request.user)
             return render(request, self.template_name, ctx)
         else:
             return render(request, self.login_template, {})

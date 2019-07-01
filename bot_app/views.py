@@ -103,8 +103,8 @@ def answer_on_digits(message):
         tech_info.set_position(message.chat.id, 'status_checker')
         api_func.set_user_id(telegram_id=message.chat.id, user_id='D87hd487ft4')
         get_status = api_func.get_status(telegram_id=message.chat.id)
-        if type(get_status) == dict and get_status['package_list']:
-            for each in get_status['package_list']:
+        if type(get_status) == list and get_status:
+            for each in get_status:
                 status_updater(message.chat.id, each)
                 pack_id = each['pack_id']
                 if pack_id == message.text:

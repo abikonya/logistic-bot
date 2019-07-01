@@ -3,7 +3,8 @@ from . import api_func
 
 
 def add_product(telegram_id):
-    query = Products(telegram_id=telegram_id,
+    query = Products(api=api_func.return_param(telegram_id, 'api_address'),
+                     telegram_id=telegram_id,
                      user_id=api_func.return_param(telegram_id, 'user_id'),
                      task_id=api_func.return_param(telegram_id, 'task_id'),
                      zipcode=api_func.return_param(telegram_id, 'zipcode'),
@@ -24,9 +25,8 @@ def status_updater(telegram_id, each):
         status = Statuses.objects.get(task_id=each['pack_id'])
         status.status = each['status']
         status.save(update_fields=['status'])
-    except Exception as err:
-        new_position = Statuses(telegram_id=telegram_id,
-                                user_id=api_func.return_param(telegram_id, 'user_id'),
+    except Exception:
+        new_position = Statuses(api=each['api'],
                                 task_id=each['pack_id'],
                                 status=each['status'])
         new_position.save()

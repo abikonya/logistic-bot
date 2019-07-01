@@ -2,10 +2,26 @@ import requests
 import json
 from vedis import Vedis
 import os
-
+from bot_app.models import ConnectedApi
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 os.path.join(base_dir, 'accounts_info.vdb')
+
+
+def set_api_address(telegram_id, api_address, get_distance, get_all, add_data, get_category, get_items, get_status, payment):
+    with Vedis(os.path.join(base_dir, 'accounts_info.vdb')) as db:
+        try:
+            account = db.Hash(telegram_id)
+            account['api_address'] = api_address
+            account['get_distance'] = get_distance
+            account['get_all'] = get_all
+            account['add_data'] = add_data
+            account['get_category'] = get_category
+            account['get_items'] = get_items
+            account['get_status'] = get_status
+            account['payment'] = payment
+        except Exception as err:
+            print(err)
 
 
 def set_user_id(telegram_id, user_id):
@@ -179,19 +195,32 @@ def clear_all(telegram_id):
             print(err)
 
 
-def get_distance(telegram_id):
+def get_distance(telegram_id, args):
     try:
-        request = requests.get('https://strongbox.cc/?a=fnc.api.zip.getdistance&zip={zipcode}&tuser={user_id}'.format(
+        request = requests.get((args.address + args.get_distance).format(
             zipcode=return_param(telegram_id, 'zipcode'),
             user_id=return_param(telegram_id, 'user_id')))
-        return json.loads(request.text)
+        answer = json.loads(request.text)
+        if answer['address']:
+            set_api_address(telegram_id=telegram_id,
+                            api_address=args.address,
+                            get_distance=args.get_distance,
+                            get_all=args.get_all,
+                            add_data=args.add_data,
+                            get_category=args.get_category,
+                            get_items=args.get_items,
+                            get_status=args.get_status,
+                            payment=args.payment
+                            )
+            return answer
     except Exception as err:
         print(err)
 
 
 def get_all(telegram_id, offset):
     try:
-        request = requests.get('https://strongbox.cc/?a=fnc.api.list.getall&tuser={user_id}&zip={zipcode}&count=10&offset={offset}'.format(
+        url = (return_param(telegram_id, 'api_address') + return_param(telegram_id, 'gel_all'))
+        request = requests.get(url.format(
             user_id=return_param(telegram_id, 'user_id'),
             zipcode=return_param(telegram_id, 'zipcode'),
             offset=offset))
@@ -202,10 +231,8 @@ def get_all(telegram_id, offset):
 
 def add_data(telegram_id):
     try:
-        url = ('https://strongbox.cc/?a=fnc.api.package.add&tuser={user_id}&zip={zipcode}&store_name={store_name}&'
-               'store_phone={store_phone}&order_number={order_number}&pickup_person={pickup_person}&'
-               'pickup_location={pickup_location}&more_information={more_info}&product_category={product_category}&'
-               'product_item={product_item}&product_price={price}'.format(user_id=return_param(telegram_id, 'user_id'),
+        url = (return_param(telegram_id, 'api_address') + return_param(telegram_id, 'add_data'))
+        request = requests.get(url.format(user_id=return_param(telegram_id, 'user_id'),
                                                                           zipcode=return_param(telegram_id, 'zipcode'),
                                                                           store_name=return_param(telegram_id, 'store_name'),
                                                                           store_phone=return_param(telegram_id, 'store_phone'),
@@ -216,8 +243,6 @@ def add_data(telegram_id):
                                                                           product_category=return_param(telegram_id, 'product_category'),
                                                                           product_item=return_param(telegram_id, 'product_item'),
                                                                           price=return_param(telegram_id, 'price')))
-        print(url)
-        request = requests.get(url)
         return json.loads(request.text)
     except Exception as err:
         print(err)
@@ -225,7 +250,8 @@ def add_data(telegram_id):
 
 def get_category(telegram_id):
     try:
-        request = requests.get('https://strongbox.cc/?a=fnc.api.list.getcategory&tuser={user_id}&zip={zipcode}'.format(
+        url = (return_param(telegram_id, 'api_address') + return_param(telegram_id, 'get_category'))
+        request = requests.get(url.format(
             user_id=return_param(telegram_id, 'user_id'),
             zipcode=return_param(telegram_id, 'zipcode')))
         return json.loads(request.text)
@@ -235,7 +261,8 @@ def get_category(telegram_id):
 
 def get_items(telegram_id):
     try:
-        request = requests.get('https://strongbox.cc/?a=fnc.api.list.getitems&tuser={user_id}&zip={zipcode}&list_id={list_id}'.format(
+        url = (return_param(telegram_id, 'api_address') + return_param(telegram_id, 'get_items'))
+        request = requests.get(url.format(
             user_id=return_param(telegram_id, 'user_id'),
             zipcode=return_param(telegram_id, 'zipcode'),
             list_id=return_param(telegram_id, 'product_category')))
@@ -246,16 +273,24 @@ def get_items(telegram_id):
 
 def get_status(telegram_id):
     try:
-        request = requests.get('https://strongbox.cc/?a=fnc.api.package.getstatus&tuser={user_id}'.format(
-            user_id=return_param(telegram_id, 'user_id')))
-        return json.loads(request.text)
+        all_statuses = list()
+        for each in ConnectedApi.objects.all():
+            url = each.address + each.get_status
+            request = requests.get(url.format(
+                user_id=return_param(telegram_id, 'user_id')))
+            answer = json.loads(request.text)['package_list']
+            for every in answer:
+                every['api'] = each.address
+                all_statuses.append(every)
+        return all_statuses
     except Exception as err:
         print(err)
 
 
 def payment(telegram_id):
     try:
-        request = requests.get('https://strongbox.cc/?a=fnc.api.package.payment&tuser={user_id}&pack_id={pack_id}&payout={payout}'.format(
+        url = (return_param(telegram_id, 'api_address') + return_param(telegram_id, 'payment'))
+        request = requests.get(url.format(
             user_id=return_param(telegram_id, 'user_id'),
             pack_id=return_param(telegram_id, 'pack_id'),
             payout=return_param(telegram_id, 'payout')))
