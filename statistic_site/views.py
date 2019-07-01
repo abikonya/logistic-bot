@@ -12,6 +12,7 @@ from blockchain.wallet import Wallet
 from bot_app.config import wallet_id, wallet_pass, host
 from bot_app.models import User
 
+
 wallet = Wallet(wallet_id, wallet_pass, host)
 
 
