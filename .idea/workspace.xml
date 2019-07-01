@@ -3,15 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="73749741-3b75-4f79-a3e2-f375dc90c3b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/api_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/api_func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/dbworker.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/dbworker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistic_bot/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/logistic_bot/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistic_site/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/statistic_site/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -152,8 +143,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="341">
-                  <caret line="273" column="26" selection-start-line="273" selection-start-column="26" selection-end-line="273" selection-end-column="26" />
+                <state relative-caret-position="911">
+                  <caret line="303" selection-end-line="303" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -564,14 +555,7 @@
       <workItem from="1561640278680" duration="603000" />
       <workItem from="1561717020860" duration="476000" />
       <workItem from="1561718578566" duration="7101000" />
-      <workItem from="1561881449185" duration="30872000" />
-    </task>
-    <task id="LOCAL-00247" summary="update requirements.txt">
-      <created>1560254589319</created>
-      <option name="number" value="00247" />
-      <option name="presentableId" value="LOCAL-00247" />
-      <option name="project" value="LOCAL" />
-      <updated>1560254589319</updated>
+      <workItem from="1561881449185" duration="31569000" />
     </task>
     <task id="LOCAL-00248" summary="update requirements.txt">
       <created>1560254787344</created>
@@ -909,11 +893,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561639815721</updated>
     </task>
-    <option name="localTasksCounter" value="296" />
+    <task id="LOCAL-00296" summary="update User model. Make some bugfixes and optimization">
+      <created>1561976857417</created>
+      <option name="number" value="00296" />
+      <option name="presentableId" value="LOCAL-00296" />
+      <option name="project" value="LOCAL" />
+      <updated>1561976857417</updated>
+    </task>
+    <option name="localTasksCounter" value="297" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="512757000" />
+    <option name="totallyTimeSpent" value="513454000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1056,7 +1047,8 @@
     <MESSAGE value="update requirements.txt" />
     <MESSAGE value="html fixes" />
     <MESSAGE value="final version with js and wallets api" />
-    <option name="LAST_COMMIT_MESSAGE" value="final version with js and wallets api" />
+    <MESSAGE value="update User model. Make some bugfixes and optimization" />
+    <option name="LAST_COMMIT_MESSAGE" value="update User model. Make some bugfixes and optimization" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/logistic_bot$localization.coverage" NAME="localization Coverage Results" MODIFIED="1555595604276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bot_app" />
@@ -1377,16 +1369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="273" column="26" selection-start-line="273" selection-start-column="26" selection-end-line="273" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logistic_bot/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1503">
@@ -1430,6 +1412,16 @@
           <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="911">
+          <caret line="303" selection-end-line="303" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
