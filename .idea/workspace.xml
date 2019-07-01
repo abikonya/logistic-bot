@@ -143,8 +143,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="911">
-                  <caret line="303" selection-end-line="303" />
+                <state relative-caret-position="511">
+                  <caret line="299" lean-forward="true" selection-start-line="299" selection-end-line="299" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -285,12 +285,6 @@
               <item name="logistic_bot" type="b2602c69:ProjectViewProjectNode" />
               <item name="logistic_bot" type="462c0819:PsiDirectoryNode" />
               <item name="bot_app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="logistic_bot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="logistic_bot" type="462c0819:PsiDirectoryNode" />
-              <item name="bot_app" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="logistic_bot" type="b2602c69:ProjectViewProjectNode" />
@@ -555,14 +549,7 @@
       <workItem from="1561640278680" duration="603000" />
       <workItem from="1561717020860" duration="476000" />
       <workItem from="1561718578566" duration="7101000" />
-      <workItem from="1561881449185" duration="31569000" />
-    </task>
-    <task id="LOCAL-00248" summary="update requirements.txt">
-      <created>1560254787344</created>
-      <option name="number" value="00248" />
-      <option name="presentableId" value="LOCAL-00248" />
-      <option name="project" value="LOCAL" />
-      <updated>1560254787344</updated>
+      <workItem from="1561881449185" duration="32240000" />
     </task>
     <task id="LOCAL-00249" summary="update requirements.txt">
       <created>1560255024033</created>
@@ -900,11 +887,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561976857417</updated>
     </task>
-    <option name="localTasksCounter" value="297" />
+    <task id="LOCAL-00297" summary="update User model. Make some bugfixes and optimization">
+      <created>1561977778190</created>
+      <option name="number" value="00297" />
+      <option name="presentableId" value="LOCAL-00297" />
+      <option name="project" value="LOCAL" />
+      <updated>1561977778190</updated>
+    </task>
+    <option name="localTasksCounter" value="298" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="513454000" />
+    <option name="totallyTimeSpent" value="514125000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -917,11 +911,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.5072464" side_tool="true" weight="0.114072494" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49275362" weight="0.12473348" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49275362" visible="true" weight="0.12473348" />
       <window_info id="Repositories" order="3" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
@@ -932,7 +925,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32719395" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" weight="0.18526544" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.18526544" />
       <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32719395" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" weight="0.18526544" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32827735" />
@@ -1286,9 +1279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_app/User.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/base_user.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1854">
@@ -1416,10 +1406,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bot_app/User.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot_app/api_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="911">
-          <caret line="303" selection-end-line="303" />
+        <state relative-caret-position="511">
+          <caret line="299" lean-forward="true" selection-start-line="299" selection-end-line="299" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
