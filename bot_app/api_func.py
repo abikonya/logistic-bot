@@ -219,7 +219,7 @@ def get_distance(telegram_id, args):
 
 def get_all(telegram_id, offset):
     try:
-        url = (return_param(telegram_id, 'api_address') + return_param(telegram_id, 'gel_all'))
+        url = (return_param(telegram_id, 'api_address') + return_param(telegram_id, 'get_all'))
         request = requests.get(url.format(
             user_id=return_param(telegram_id, 'user_id'),
             zipcode=return_param(telegram_id, 'zipcode'),
@@ -271,13 +271,13 @@ def get_items(telegram_id):
         print(err)
 
 
-def get_status(telegram_id):
+def get_status():
     try:
         all_statuses = list()
         for each in ConnectedApi.objects.all():
             url = each.address + each.get_status
             request = requests.get(url.format(
-                user_id=return_param(telegram_id, 'user_id')))
+                user_id='D87hd487ft4'))
             answer = json.loads(request.text)['package_list']
             for every in answer:
                 every['api'] = each.address

@@ -142,3 +142,16 @@ class ConnectedApi(models.Model):
         verbose_name_plural = 'Адреса API'
         verbose_name = 'Адрес API'
         ordering = ['-address']
+
+
+class Tickets(models.Model):
+    username = models.CharField(max_length=50, verbose_name='Username')
+    description = models.CharField(max_length=500, verbose_name='Description')
+    answer = models.CharField(max_length=500, verbose_name='Answer', default='Fill')
+    status = models.CharField(max_length=50, verbose_name='Status')
+    created = models.DateTimeField(max_length=50, auto_now_add=True, db_index=True, verbose_name='Дата создания')
+
+    class Meta:
+        verbose_name_plural = 'Тикеты'
+        verbose_name = 'Тикет'
+        ordering = ['-username', '-status', '-created']

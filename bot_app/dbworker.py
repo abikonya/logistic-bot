@@ -1,5 +1,6 @@
 from .models import Products, Statuses, Payments
 from . import api_func
+from decimal import Decimal
 
 
 def add_product(telegram_id):
@@ -20,7 +21,7 @@ def add_product(telegram_id):
     query.save()
 
 
-def status_updater(telegram_id, each):
+def status_updater(each):
     try:
         status = Statuses.objects.get(task_id=each['pack_id'])
         status.status = each['status']
@@ -32,14 +33,13 @@ def status_updater(telegram_id, each):
         new_position.save()
 
 
-def payments_updater(telegram_id, each):
+def payments_updater(each):
     try:
         payment = Payments.objects.get(address=each.address)
-        payment.amount = each.total_received
+        payment.amount = str(Decimal(each.total_received) / Decimal(100000000))
         payment.save(update_fields=['amount'])
     except Exception as err:
-        new_payment = Payments(telegram_id=each.label,
-                               user_id=api_func.return_param(telegram_id, 'user_id'),
+        new_payment = Payments(username=each.label,
                                address=each.address,
                                amount=each.total_received)
         new_payment.save()

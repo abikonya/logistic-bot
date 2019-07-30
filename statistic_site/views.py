@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
 from django.views.generic import TemplateView, View
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from bot_app.api_func import get_status
-from bot_app.models import Products, Statuses, Payments
+from bot_app.models import Products, Statuses, Payments, Tickets
 from django.db.models import Sum
 from bot_app.dbworker import status_updater, payments_updater
 from blockchain.wallet import Wallet
 from bot_app.config import wallet_id, wallet_pass, host
 from bot_app.models import User
-
+from django.utils import timezone
 
 wallet = Wallet(wallet_id, wallet_pass, host)
 
@@ -22,19 +22,19 @@ class MainView(TemplateView):
 
     def get(self, request):
         if request.user.is_authenticated:
-            statuses_request = get_status(request.user)
-            for each in statuses_request:
-                status_updater(request.user, each)
-            payments_request = wallet.list_addresses()
-            for each in payments_request:
-                payments_updater(request.user, each)
+            statuses_request = get_status()
+            # for each in statuses_request:
+            #     status_updater(each)
+            # payments_request = wallet.list_addresses()
+            # for each in payments_request:
+            #     payments_updater(each)
             ctx = dict()
-            api = User.objects.get(username='test').api_address
+            api = User.objects.get(username=request.user).api_address
             if request.user == 'admin':
-                ctx['balance'] = wallet.get_balance()
+                ctx['balance'] = Payments.objects.filter(username=request.user).filter(created=timezone.now()).aggregate(Sum('amount'))['amount__sum']
             else:
                 ctx['balance'] = Payments.objects.filter(username=request.user).aggregate(Sum('amount'))['amount__sum']
-            ctx['products'] = Products.objects.filter(api=api)
+            ctx['products'] = Products.objects.filter(api=api).order_by('-created')
             ctx['statuses'] = Statuses.objects.filter(api=api)
             ctx['process'] = Statuses.objects.filter(api=api, status='Process').count()
             ctx['confirm'] = Statuses.objects.filter(api=api, status='Confirm').count()
@@ -42,10 +42,18 @@ class MainView(TemplateView):
             ctx['paid'] = Statuses.objects.filter(api=api, status='Paid').count()
             ctx['total'] = Statuses.objects.filter(api=api).count()
             ctx['sum'] = Products.objects.filter(api=api).aggregate(Sum('price'))['price__sum']
-            ctx['payments'] = Payments.objects.filter(username=request.user)
+            ctx['payments'] = Payments.objects.filter(username=request.user).order_by('-created')
+            ctx['tickets'] = Tickets.objects.filter(username=request.user).order_by('-created')
             return render(request, self.template_name, ctx)
         else:
             return render(request, self.login_template, {})
+
+    def post(self, request):
+        new_ticket = Tickets(username=request.POST.get('username'),
+                             description=request.POST.get('description'),
+                             status='new')
+        new_ticket.save()
+        return HttpResponseRedirect('/lgstc/statistic/')
 
 
 class LoginFormView(FormView):

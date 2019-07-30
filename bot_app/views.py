@@ -12,6 +12,7 @@ from bot_app import localization
 from bot_app import tech_info
 from .models import AuthorizedCustomers
 from .dbworker import add_product, status_updater
+from bot_app.models import ConnectedApi
 
 bot = telebot.TeleBot(config.token)
 
@@ -86,7 +87,9 @@ def answer_on_digits(message):
         tech_info.set_position(message.chat.id, 'zip_listing')
         api_func.set_user_id(telegram_id=message.chat.id, user_id='D87hd487ft4')
         api_func.set_zipcode(telegram_id=message.chat.id, zipcode=message.text)
-        get_distance = api_func.get_distance(telegram_id=message.chat.id)
+        get_distance = dict()
+        for each in ConnectedApi.objects.all():
+            get_distance = api_func.get_distance(message.chat.id, each)
         if type(get_distance) == dict and get_distance['address']:
             couriers_list = sorted(get_distance['address'], key=api_func.sort_by_dist)
             keyboard = types.InlineKeyboardMarkup()
@@ -102,10 +105,10 @@ def answer_on_digits(message):
     if position == 'status':
         tech_info.set_position(message.chat.id, 'status_checker')
         api_func.set_user_id(telegram_id=message.chat.id, user_id='D87hd487ft4')
-        get_status = api_func.get_status(telegram_id=message.chat.id)
+        get_status = api_func.get_status()
         if type(get_status) == list and get_status:
             for each in get_status:
-                status_updater(message.chat.id, each)
+                status_updater(each)
                 pack_id = each['pack_id']
                 if pack_id == message.text:
                     bot.send_message(message.chat.id, text=localization.return_translation('status', language) + each['pack_id'])
@@ -215,7 +218,9 @@ def courier_approved(call):
 def courier_reset(call):
     language = tech_info.return_language(call.message.chat.id)
     tech_info.set_position(call.message.chat.id, 'zip_listing')
-    get_distance = api_func.get_distance(telegram_id=call.message.chat.id)
+    get_distance = dict()
+    for each in ConnectedApi.objects.all():
+        get_distance = api_func.get_distance(call.message.chat.id, each)
     if type(get_distance) == dict and get_distance['address']:
         couriers_list = sorted(get_distance['address'], key=api_func.sort_by_dist)
         keyboard = types.InlineKeyboardMarkup()

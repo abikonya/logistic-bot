@@ -1,14 +1,11 @@
 from django.contrib import admin
-from bot_app.models import AuthorizedCustomers, Products, Statuses, Payments, ConnectedApi
+from bot_app.models import AuthorizedCustomers, Products, Statuses, Payments, ConnectedApi, Tickets
 from bot_app.models import (User as MyUser)
 from django.utils.translation import ugettext_lazy as _
 from django import forms
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.models import Group
-
-from django.db import models
-from django.conf import settings
 
 
 class UserCreationForm(forms.ModelForm):
@@ -95,10 +92,16 @@ class ConnectedApiAdmin(admin.ModelAdmin):
     search_fields = ('address',)
 
 
+class TicketsAdmin(admin.ModelAdmin):
+    list_display = ('username', 'description', 'status', 'answer', 'created')
+    search_fields = ('username', 'description', 'status', 'answer', 'created')
+
+
 admin.site.register(AuthorizedCustomers, ACAdmin)
 admin.site.register(Products, ProductsAdmin)
 admin.site.register(Statuses, StatusesAdmin)
 admin.site.register(Payments, PaymentsAdmin)
 admin.site.register(MyUser, UserAdmin)
 admin.site.register(ConnectedApi, ConnectedApiAdmin)
+admin.site.register(Tickets, TicketsAdmin)
 admin.site.unregister(Group)

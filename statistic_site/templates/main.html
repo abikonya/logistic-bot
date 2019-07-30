@@ -37,7 +37,7 @@
         </script>
         <a href="javascript:new_wallet('{{ user.username }}')" id="get_wallet">Получить новый адрес кошелька</a>
         
-        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <strong>{{ balance }}</strong>
+        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <strong>{{ balance|floatformat:8 }}</strong>
         <a href="/statistic/logout/">Выйти</a>
         {% else %}
         <a href="/statistic/login/">Войти</a>
@@ -255,6 +255,76 @@
                     </table>
                 </div>
     </fieldset>
+
+    {% if tickets %}
+    <fieldset class="module aligned ">
+        <h2>Тикеты</h2>
+         <div class="tickets">
+                    <table id="tickets_list">
+                        <thead>
+                        <tr>
+                            <th scope="col"  class="sortable column-description">
+                                <div class="text"><a>Описание</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-answer">
+                                <div class="text"><a>Ответ</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-status">
+                                <div class="text"><a>Статус</a></div>
+                                <div class="clear"></div>
+                            </th>
+
+                            <th scope="col"  class="sortable column-date">
+                                <div class="text"><a>Создан</a></div>
+                                <div class="clear"></div>
+                            </th>
+                        <tbody>
+
+                        {% for ticket in tickets %}
+
+                            <tr class="row">
+
+                            <td class="field-address">{{ ticket.description }}</td>
+                            <td class="field-answer">{{ ticket.answer }}</td>
+                            <td class="field-amount">{{ ticket.status }}</td>
+                            <td class="field-date">{{ ticket.created }}</td>
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                    </table>
+                </div>
+    </fieldset>
+    {% endif %}
+
+    
+    <div class="footer">
+        
+        <div id="ticket">
+                <form action="/statistic/" method="post" id="ticket-form">{%csrf_token%}
+                    <div class="form-row">
+                      
+                      <label class="required" for="id_username">Имя пользователя:</label> <input type="text" name="username" autofocus required id="id_username"  value="{{ user.username }}">
+                    </div>
+                    <div class="form-row">
+                      
+                      <label class="required" for="description"></label> <textarea class="description" placeholder="Введите описание проблемы" name="description" required id="description"></textarea>
+                    </div>
+                    
+                    
+                    <div class="submit-row">
+                        <input type="submit" value="Отправить">
+                    </div>
+                  </form>
+            <a href="#" class="close">Закрыть окно</a>
+        </div>
+        <a href="#ticket">Отправить тикет</a>
+    </div>
 
 </body>
 </html>

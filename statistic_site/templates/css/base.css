@@ -981,3 +981,46 @@ table#change-history tbody th {
 .popup #header {
     padding: 10px 20px;
 }
+
+.footer {
+    position: relative; 
+    margin-bottom: auto; 
+    height: 20px;
+}
+
+#ticket {
+    width: 300px;
+    height: 250px;
+    text-align: center;
+    padding: 15px;
+    border: 3px solid #79aec8;
+    border-radius: 10px;
+    background: white;
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+#ticket:target {
+     display: block;
+}
+
+.close {
+    display: inline-block;
+    color: #000000;
+    padding: 0 12px;
+    margin-bottom: auto;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.description {
+      position: relative;
+      margin-top: 10px;
+      width: 90%;
+      height: 150px;
+}
