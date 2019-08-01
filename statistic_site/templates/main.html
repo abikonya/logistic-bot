@@ -27,7 +27,7 @@
         function new_wallet(arg) {
             $.ajax({
                 type: 'GET',
-                url: 'https://myculinary.ru/lgstc/statistic/getWallet/' + arg,
+                url: 'https://myculinary.ru/statistic/getWallet/' + arg,
                 success: function(data) {
                     var element = document.getElementById('get_wallet');
                     element.textContent = data
@@ -56,7 +56,7 @@
         <div id="content-main">
 
                 <div class="results">
-                    <script src="http://www.tablesorter.ru/jquery.tablesorter.min.js"></script>
+                    <script src="{% static "/js/jquery.tablesorter.min.js" %}"></script>
                     <script>
                     $(document).ready(function() 
                             { 

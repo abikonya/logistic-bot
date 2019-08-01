@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\logistic_bot",
+    "\\staticfiles",
+    "\\statistic_site",
+    "\\statistic_site\\templates"
+  ],
+  "SelectedNode": "\\statistic_site\\views.py",
+  "PreviewInSolutionExplorer": false
+}

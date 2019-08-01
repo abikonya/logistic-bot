@@ -1024,3 +1024,7 @@ table#change-history tbody th {
       width: 90%;
       height: 150px;
 }
+
+#get_wallet {
+    text-transform: none
+}
