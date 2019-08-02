@@ -37,7 +37,7 @@
         </script>
         <a href="javascript:new_wallet('{{ user.username }}')" id="get_wallet">Получить новый адрес кошелька</a>
         
-        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <strong>{{ balance|floatformat:8 }}</strong>
+        Добро пожаловать, <strong>{{ user.username }}</strong>. Ваш баланс, <strong>{{ balance }}</strong>
         <a href="/statistic/logout/">Выйти</a>
         {% else %}
         <a href="/statistic/login/">Войти</a>
@@ -238,20 +238,23 @@
                                 <div class="text"><a>Дата</a></div>
                                 <div class="clear"></div>
                             </th>
+
+
                         <tbody>
 
-                        {% for payment in payments %}
+                    {% for payment in payments %}
 
-                            <tr class="row">
+                        <tr class="row">
 
                             <td class="field-address">{{ payment.address }}</td>
                             <td class="field-amount">{{ payment.amount }}</td>
                             <td class="field-date">{{ payment.created }}</td>
-                            </tr>
 
-                        {% endfor %}
+                        </tr>
 
-                    </tbody>
+                    {% endfor %}
+
+                        </tbody>
                     </table>
                 </div>
     </fieldset>

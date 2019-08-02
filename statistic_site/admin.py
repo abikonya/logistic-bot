@@ -1,5 +1,5 @@
 from django.contrib import admin
-from bot_app.models import User, Statuses, Products
+from bot_app.models import User, Statuses, Products, Payments
 from statistic_site.models import Statistic
 from django.conf.urls import url
 from django.template.response import TemplateResponse
@@ -21,8 +21,13 @@ class StatisticAdmin(admin.ModelAdmin):
         return new_urls + urls
 
     def change_list(self, request):
-        context = dict(self.admin_site.each_context(request))
+        context = (self.admin_site.each_context(request))
         return TemplateResponse(request, 'admin/statistic_site/change_list.html', context)
+
+    def changelist_view(self, request, extra_context=None):
+        extra_context = extra_context or {}
+        extra_context['balance'] = Payments.objects.all().aggregate(Sum('amount'))['amount__sum']
+        return super(StatisticAdmin, self).changelist_view(request, extra_context=extra_context)
 
     def update_info(self, request):
         for each in User.objects.all():

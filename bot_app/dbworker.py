@@ -1,6 +1,14 @@
 from .models import Products, Statuses, Payments
 from . import api_func
-from decimal import Decimal
+import requests
+import json
+import math
+
+currency_url = 'https://blockchain.info/ticker'
+
+currency = requests.get(currency_url)
+
+currency_to_usd = json.loads(currency.text)['USD']
 
 
 def add_product(telegram_id):
@@ -34,12 +42,9 @@ def status_updater(each):
 
 
 def payments_updater(each):
-    try:
-        payment = Payments.objects.get(address=each.address)
-        payment.amount = str(Decimal(each.total_received) / Decimal(100000000))
-        payment.save(update_fields=['amount'])
-    except Exception as err:
-        new_payment = Payments(username=each.label,
-                               address=each.address,
-                               amount=each.total_received)
-        new_payment.save()
+    if each.total_received is True and each.total_received > 0:
+        total = math.ceil((each.total_received / 100000000) * currency_to_usd['buy'])
+        obj, created = Payments.objects.update_or_create(
+            username=each.label,
+            address=each.address,
+            amount=total)

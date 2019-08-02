@@ -1,0 +1,19 @@
+{% extends "admin/change_list.html" %}
+{% block object-tools-items %}
+
+
+    <li style="font-size: 20px; font-weight: 300; text-align: center">
+        Общий баланс <strong> {{ balance }} $</strong>
+    </li>
+
+
+    <li>
+        <a href="update_info/" class="grp-state-focus addlink">Обновить данные</a>
+    </li>
+
+
+
+    {{ block.super }}
+
+
+{% endblock %}

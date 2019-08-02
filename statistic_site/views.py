@@ -30,10 +30,11 @@ class MainView(TemplateView):
             #     payments_updater(each)
             ctx = dict()
             api = User.objects.get(username=request.user).api_address
-            if request.user == 'admin':
-                ctx['balance'] = Payments.objects.filter(username=request.user).filter(created=timezone.now()).aggregate(Sum('amount'))['amount__sum']
+            total_sum = Payments.objects.filter(username=request.user).aggregate(Sum('amount'))['amount__sum']
+            if total_sum is not None:
+                ctx['balance'] = total_sum
             else:
-                ctx['balance'] = Payments.objects.filter(username=request.user).aggregate(Sum('amount'))['amount__sum']
+                ctx['balance'] = 0
             ctx['products'] = Products.objects.filter(api=api).order_by('-created')
             ctx['statuses'] = Statuses.objects.filter(api=api)
             ctx['process'] = Statuses.objects.filter(api=api, status='Process').count()
