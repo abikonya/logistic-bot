@@ -13,6 +13,6 @@ token = '827637721:AAHZAkFOMR3bSdLWhMvRktHvzR738zj2qdM'
 wallet_id = 'fde7f71c-3c5b-45ad-bf60-8736d92e3ae6'
 wallet_pass = 'lkebalsdu771WJndssR0!nccvLhG'
 
-host = 'http://localhost:3000'
+host = 'http://localhost:3000/'
 
 

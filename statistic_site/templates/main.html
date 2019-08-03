@@ -27,7 +27,7 @@
         function new_wallet(arg) {
             $.ajax({
                 type: 'GET',
-                url: 'https://myculinary.ru/statistic/getWallet/' + arg,
+                url: 'http://37.252.10.251/statistic/getWallet/' + arg,
                 success: function(data) {
                     var element = document.getElementById('get_wallet');
                     element.textContent = data

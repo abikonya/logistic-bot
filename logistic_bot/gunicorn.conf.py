@@ -1,4 +1,4 @@
-command = '/root/logistic-bot/lgstc_venv/bin/gunicorn'
+command = '/root/logistic-bot/venv/bin/gunicorn'
 pythonpath = '/root/logistic-bot'
-bind = '127.0.0.1:8080'
+bind = '127.0.0.1:8000'
 workers = 3
