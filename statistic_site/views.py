@@ -54,7 +54,7 @@ class MainView(TemplateView):
                              description=request.POST.get('description'),
                              status='new')
         new_ticket.save()
-        return HttpResponseRedirect('/lgstc/statistic/')
+        return HttpResponseRedirect('')
 
 
 class LoginFormView(FormView):
@@ -62,7 +62,7 @@ class LoginFormView(FormView):
 
     template_name = 'enter_form.html'
 
-    success_url = '/statistic/'
+    success_url = ''
 
     def form_valid(self, form):
         self.user = form.get_user()
@@ -74,7 +74,7 @@ class LoginFormView(FormView):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return HttpResponseRedirect('/statistic/login')
+        return HttpResponseRedirect('/login')
 
 
 def getwallet(request, id):
